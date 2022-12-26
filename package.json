@@ -1,0 +1,22 @@
+{
+  "name": "coopconnect",
+  "version": "1.0.0",
+  "description": "A job seeking application connecting cooperates to employees that are best suited for their work environments while at the same time giving people a chance to work in companies that align with their work styes.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/queenslaynaila/coopconnect.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/queenslaynaila/coopconnect/issues"
+  },
+  "homepage": "https://github.com/queenslaynaila/coopconnect#readme"
+}
