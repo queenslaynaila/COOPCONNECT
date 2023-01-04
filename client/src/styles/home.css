@@ -9,6 +9,12 @@
     background-repeat: no-repeat;
 }
 
+.hero{
+    background-image: url("https://creativelayers.net/themes/superio/images/index-17/header/bg.png");
+
+}
+
+
 .find-text{
     font-size: 60px;
     color: #21286A;
@@ -42,6 +48,6 @@
 .border a{
      color: #000;
      text-decoration: none;
-     
+
 }
 
