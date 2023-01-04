@@ -92,7 +92,9 @@ export default function Home() {
                 </div>
 
     </div>
+
     <div class="d-flex justify-content-around mt-5 ms-sm-0 ms-5 ">
+
         <div>
         <i class="bi bi-binoculars" style={{fontSize:"2rem"}}></i>
         <p>Search for jobs</p>
@@ -107,7 +109,43 @@ export default function Home() {
         </div>
     </div>
     </div>
+
     </div>
+    <section className='browse'>
+     <div className='d-flex  '>
+        <div>
+            <h1>Browse Hundred of Jobs</h1>
+            <p>To start searching for jobs you can attend job sfairs online or in person, use job boards, particopate in company surveys or reac out to recruiters to broaden network</p>
+            <p  > <i class="bi bi-check2" style={{fontSize:"1rem"}}></i> Bring to the table win-win survival</p>
+            <p  > <i class="bi bi-check2" style={{fontSize:"1rem"}}></i>Capitalize on low hanging fruit to identify</p>
+            <p> <i class="bi bi-check2" style={{fontSize:"1rem"}}></i>Get the right job suited for you</p>
+            <button type="button" class="btn btn-primary btn-lg">Get started</button>
+        </div>
+        <div>
+            <img src={marketing} width="800px" ></img>
+        </div>
+     </div>
+     <div className='d-flex'>
+       <div>
+          <img src={marketing} width="800px" ></img>
+        </div>
+        <div>
+            <h1>Find Your Match</h1>
+            <p>An efficienr resume should promote your abilities and include measurable accomplishments that rae relevant to te job you apply for.You should also prepare a cover letter that is concise and elaborates on how you can put your skills to use in the organzation.Participate in company resumes to find the ideal company for you.Create an account as a job seeker and update your resume</p>
+            <button type="button" class="btn btn-secondary btn-lg">Disover More</button>
+        </div>
+     </div>
+     <div className='d-flex  '>
+        <div>
+            <h1>Apply Directly</h1>
+            <p>Apply to all jobs that interest you in various category.You can search up jobs within a pecific category and add more filter checks as you desire.Praticpating in surveys held by a specidic company gives you an edge whn applying for a job there</p>
+            <button type="button" class="btn btn-primary btn-lg">Get started</button>
+        </div>
+        <div>
+            <img src={marketing} width="800px" ></img>
+        </div>
+     </div>
+    </section>
 
 </>
   )
