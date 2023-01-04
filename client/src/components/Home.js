@@ -1,10 +1,19 @@
 import React from 'react'
 import home from '../assets/home2.png'
 import '../styles/home.css'
+import baby from '../assets/me.png'
+import marketing from "../assets/marketing.png"
+import design from "../assets/design.png"
+import customer from "../assets/customer.png"
+import care from "../assets/care.png"
+import analytics from "../assets/analytics.png"
 export default function Home() {
+
   return (
-    <>
-        <div className='container-fluid home bg-image'  >
+<>
+    <div className='container-fluid home bg-image '  >
+    <div class="container p-4 pb-0">
+
             <div class="row">
             <div class="col-sm-7 pt-5 mt-5 pb-5">
               <h1  className='find-text'>Find the perfect<br></br>job that you deserve</h1>
@@ -22,69 +31,67 @@ export default function Home() {
             </div><br/>
 
         </div>
-        <div class="container-xxl py-5">
-            <div class="container">
-                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Explore By Category</h1>
-                <div class="row g-4">
-                    <div class="col-lg-3 col-sm-6 border rounded"  >
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-mail-bulk text-primary mb-4"></i>
-                            <h6 class="mb-3">Marketing</h6>
-                            <p class="mb-0">123 Vacancy</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6  border rounded" >
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-headset text-primary mb-4"></i>
-                            <h6 class="mb-3">Customer Service</h6>
-                            <p class="mb-0">123 Vacancy</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6  border rounded"  >
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
-                            <h6 class="mb-3">Human Resource</h6>
-                            <p class="mb-0">123 Vacancy</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 border rounded"  >
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-tasks text-primary mb-4"></i>
-                            <h6 class="mb-3">Project Management</h6>
-                            <p class="mb-0">123 Vacancy</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6   border rounded"  >
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-chart-line text-primary mb-4"></i>
-                            <h6 class="mb-3">Business Development</h6>
-                            <p class="mb-0">123 Vacancy</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6   border rounded"  >
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
-                            <h6 class="mb-3">Sales & Communication</h6>
-                            <p class="mb-0">123 Vacancy</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 border rounded"  >
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-book-reader text-primary mb-4"></i>
-                            <h6 class="mb-3">Teaching & Education</h6>
-                            <p class="mb-0">123 Vacancy</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6  border rounded" >
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-drafting-compass text-primary mb-4"></i>
-                            <h6 class="mb-3">Design & Creative</h6>
-                            <p class="mb-0">123 Vacancy</p>
-                        </a>
+
+    </div>
+    <div class="container p-4 pb-0">
+    <h1>Some Job Categories</h1>
+    <p style={{color:"grey"}}>Browse through various job categories</p>
+    <div className="row mt-5 ms-sm-0 ms-5">
+                <div className="col-sm-auto mb-2">
+                    <div className="card  p-2" style={{width: "12rem", alignItems: "center"}}>
+                        <img src={marketing} height="100px" width="100px" alt="Grandma"/>
+                        <div className="card-body">
+                            <h5 className="card-title">Marketing</h5>
+                            <small style={{color:"grey"}}>(86 open positions)</small>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </>
+                <div className="col-sm-auto mb-2">
+                    <div className="card  p-2" style={{width: "12rem", height:"13rem", alignItems: "center"}}>
+                        <img src={design} height="100px" width="100px" alt="Grandma"/>
+                        <div className="card-body">
+                            <h5 className="card-title">Design</h5>
+                            <small style={{color:"grey"}}>(86 open positions)</small>
+
+                        </div>
+                    </div>
+                </div>
+                <div className="col-sm-auto mb-2">
+                    <div className="card  p-2" style={{width: "12rem", height:"13rem", alignItems: "center"}}>
+                        <img src={customer} height="100px" width="100px" alt="Grandma"/>
+
+                        <div className="card-body">
+                            <h5 className="card-title">Customer Service</h5>
+                            <small style={{color:"grey"}}>(86 open positions)</small>
+
+                        </div>
+                    </div>
+                </div>
+                <div className="col-sm-auto mb-2">
+                    <div className="card  p-2" style={{width: "12rem", height:"13rem", alignItems: "center"}}>
+                        <img src={care} height="100px" width="100px" alt="Grandma"/>
+                        <div className="card-body">
+                            <h5 className="card-title">Care Jobs</h5>
+                            <small style={{color:"grey"}}>(86 open positions)</small>
+
+                        </div>
+                    </div>
+                </div>
+                <div className="col-sm-auto mb-2">
+                    <div className="card  p-2" style={{width: "12rem", height:"13rem", alignItems: "center"}}>
+                        <img src={analytics} height="100px" width="100px" alt="Grandma"/>
+                        <div className="card-body">
+                            <h5 className="card-title">Analytics</h5>
+                            <small style={{color:"grey"}}>(86 open positions)</small>
+
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+    </div>
+
+</>
   )
 }
