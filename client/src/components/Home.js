@@ -111,7 +111,7 @@ export default function Home() {
     </div>
 
     </div>
-    <section className='browse'>
+    <section className='browse container'>
      <div className='d-flex  '>
         <div>
             <h1>Browse Hundred of Jobs</h1>
