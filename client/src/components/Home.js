@@ -1,12 +1,13 @@
 import React from 'react'
 import home from '../assets/home2.png'
 import '../styles/home.css'
-import baby from '../assets/me.png'
 import marketing from "../assets/marketing.png"
 import design from "../assets/design.png"
 import customer from "../assets/customer.png"
 import care from "../assets/care.png"
 import analytics from "../assets/analytics.png"
+import search from "../assets/search.png"
+
 export default function Home() {
 
   return (
@@ -33,7 +34,8 @@ export default function Home() {
         </div>
 
     </div>
-    <div class="container p-4 pb-0">
+    <div  style={{borderColor:"grey"}} className='border-bottom  border-1  '>
+    <div class="container p-4 pb-0  ">
     <h1>Some Job Categories</h1>
     <p style={{color:"grey"}}>Browse through various job categories</p>
     <div className="row mt-5 ms-sm-0 ms-5">
@@ -89,7 +91,22 @@ export default function Home() {
                     </div>
                 </div>
 
-                </div>
+    </div>
+    <div class="d-flex justify-content-around mt-5 ms-sm-0 ms-5 ">
+        <div>
+        <i class="bi bi-binoculars" style={{fontSize:"2rem"}}></i>
+        <p>Search for jobs</p>
+        </div>
+        <div>
+        <i class="bi bi-building"  style={{fontSize:"2rem"}}></i>
+        <p>Build a good resume</p>
+        </div>
+        <div>
+        <i class="bi bi-check-square"  style={{fontSize:"2rem"}}></i>
+        <p>Perform during your interview</p>
+        </div>
+    </div>
+    </div>
     </div>
 
 </>
