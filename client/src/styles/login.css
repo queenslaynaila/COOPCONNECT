@@ -1,0 +1,31 @@
+
+
+  main {
+    margin: 1rem;
+  }
+
+  form {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 auto;
+    padding: 0 1rem 1rem;
+  }
+
+  form input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+
+  form button[type="submit"] :hover{
+    background-color: #45a049;
+    width: 40%;
+
+  }
