@@ -28,6 +28,7 @@ function Login({ setUser }) {
             class="img-fluid" alt="Phone image"></img>
         </div>
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <h4 style={{color:"darkblue"}} className="text-center">Sign In To Your Account</h4>
           <form>
 
             <div class="form-outline mb-4">
@@ -63,11 +64,11 @@ function Login({ setUser }) {
              <div>
             <a class="btn btn-primary btn-lg btn-block mb-1" style={{backgroundColor: "#3b5998",width:"100%"}} href="#!"
               role="button">
-              <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
+              Sign Up As JobSeeker
             </a>
             <a class="btn btn-primary btn-lg btn-block"    style={{backgroundColor: " #55acee",width:"100%"}} href="#!"
               role="button">
-              <i class="fab fa-twitter me-2"></i>Continue with Twitter</a>
+               Sign Up As  Company</a>
 </div>
           </form>
         </div>
