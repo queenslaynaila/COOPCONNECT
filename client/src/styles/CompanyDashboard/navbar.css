@@ -1,0 +1,70 @@
+*{
+
+/*should be a style on everything i.e @index.css */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+#navbar {
+   
+    background-color:red;
+
+
+}
+ 
+#navbar .container
+{
+    display: flex;
+    justify-content:space-between;
+    align-items: center ;
+    min-height: 3rem;
+
+/* should be a style on everything i.e @index.css*/
+
+    width: 90vw;
+        max-width: 57rem;
+        margin: auto;
+    
+}
+
+#navbar #search-plus-stuff 
+{
+    display: flex;
+    flex-direction: row;
+}
+
+#navbar #search-talent
+{
+
+    margin-right: 0.5rem;
+    margin-left: 2rem;
+    
+}
+#navbar #search-talent input
+{
+padding: 0.2rem 1rem 0.2rem 1rem;
+outline: none;
+border: none;
+    
+}
+
+#navbar #pricing-btn, #navbar #talents-btn
+{
+margin-left: 0.5rem;
+margin-right: 0.5rem;
+padding: 0.2rem 1rem 0.2rem 1rem;
+outline: none;
+border: none;
+background-color: blue;
+}
+
+#navbar #lencare-btn
+{
+    margin-left: 0.5rem;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    outline: none;
+    border: none;
+    background-color: blue;
+}
