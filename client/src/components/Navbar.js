@@ -3,7 +3,7 @@ import '../styles/navbar.css'
 import logo from '../assets/ico.png'
 import {useNavigate} from "react-router-dom"
 export default function Navbar() {
-  let navigate = useNavigate()
+   let navigate = useNavigate()
   return (
     <nav class="navbar navbar-expand-lg fs-5   py-3  bg-white">
      <div className="container col-sm-15">
