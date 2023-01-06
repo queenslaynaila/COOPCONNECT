@@ -1,23 +1,28 @@
-import { useState, useEffect } from "react";
-import NavBar from "./components/CompanyDashboard/NavBar";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import Footer from "./components/Footer";
+import Login from "./components/Login"
+import SignCompanies from "./components/SignCompanies"
+import SignUpJobSeekers from "./components/SignUpJobSeekers"
 import DashBoardBody from "./components/CompanyDashboard/DashBoardBody";
-import Footer from "./components/CompanyDashboard/Footer";
-
 function App() {
-  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
 
   return (
-    <div className="App">
-      <NavBar />
-      <DashBoardBody />
-      <Footer/>
-    </div>
+<>
+ <Navbar></Navbar>
+
+    <Routes>
+      <Route exact path="/" element={<Home></Home>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/signupcompanies" element={<SignCompanies/>}/>
+      <Route path="/signuptalents" element={<SignUpJobSeekers/>}/>
+      <Route path="/talentdashboard" element={<DashBoardBody></DashBoardBody>}></Route>
+    </Routes>
+
+  <Footer></Footer>
+</>
   );
 }
 
