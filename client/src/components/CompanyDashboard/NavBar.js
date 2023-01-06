@@ -25,7 +25,7 @@ function NavBar() {
       <div className="container">
         <div id="company-name">COOPCONNECT</div>
         <div id="search-plus-stuff">
-          <form id="search-talent">
+          <form id="search-talent" className={isSmallScreen ? "display-none" : ""}>
             <input type="text" placeholder="search talent" />
           </form>
 
@@ -50,7 +50,10 @@ function NavBar() {
           <div
             id="navbar-options"
            className={isSmallScreen && showNavbarOptions? "": "display-none"}
-            >
+          >
+             <form id="search-talent-2">
+            <input type="text" placeholder="search talent" />
+          </form>
             <button id="pricing-btn-2">Pricing</button>
             <button id="talents-btn-2">Talents</button>
             <button id="lencare-btn-2">Lencare</button>
