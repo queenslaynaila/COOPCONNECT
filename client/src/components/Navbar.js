@@ -56,7 +56,7 @@ export default function Navbar() {
           :
           <ul  className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item  ">
-              <a className="nav-link login" href="#/"><i className="bi bi-person-fill" /> login</a>
+              <a onClick={()=>{navigate("/login")}}  className="nav-link login" href="#/"><i className="bi bi-person-fill" /> login</a>
             </li>
             <li className="nav-item dropdown ms-sm-3 d-inline-flex">
               <a className="nav-link signup dropdown-toggle"
