@@ -6,6 +6,7 @@ import Login from "./components/Login"
 import SignCompanies from "./components/SignCompanies"
 import SignUpJobSeekers from "./components/SignUpJobSeekers"
 import DashBoardBody from "./components/CompanyDashboard/DashBoardBody";
+import SeekerDashboard from "./components/SeekerDashboard";
 function App() {
 
 
@@ -18,7 +19,7 @@ function App() {
       <Route path="/login" element={<Login/>}/>
       <Route path="/signupcompanies" element={<SignCompanies/>}/>
       <Route path="/signuptalents" element={<SignUpJobSeekers/>}/>
-      <Route path="/talentdashboard" element={<DashBoardBody></DashBoardBody>}></Route>
+      <Route path="/talentdashboard" element={<SeekerDashboard></SeekerDashboard>}></Route>
     </Routes>
 
   <Footer></Footer>
