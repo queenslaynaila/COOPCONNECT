@@ -9,6 +9,7 @@ import DashBoardBody from "./components/CompanyDashboard/DashBoardBody";
 import Errorpage from "./components/404page";
 import SeekerDashboard from "./components/SeekerDashboard";
 import Seekerprofile from "./components/Seekerprofile";
+import Jobsearch from "./components/Jobsearch";
 function App() {
 
 
@@ -23,6 +24,7 @@ function App() {
       <Route path="/signuptalents" element={<SignUpJobSeekers/>}/>
       <Route path="/talentdashboard" element={<SeekerDashboard></SeekerDashboard>}></Route>
       <Route path="/seekerprofile" element={<Seekerprofile></Seekerprofile>}></Route>
+      <Route path="/searchjob" element={<Jobsearch></Jobsearch>}></Route>
       <Route path="*" element={<Errorpage></Errorpage>}></Route>
 
     </Routes>
