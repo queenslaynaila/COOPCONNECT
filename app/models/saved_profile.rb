@@ -1,0 +1,2 @@
+class SavedProfile < ApplicationRecord
+end

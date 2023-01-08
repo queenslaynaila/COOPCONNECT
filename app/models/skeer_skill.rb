@@ -1,0 +1,2 @@
+class SkeerSkill < ApplicationRecord
+end

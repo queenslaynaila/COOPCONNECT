@@ -3,8 +3,8 @@ class CreateEducationDetails < ActiveRecord::Migration[7.0]
     create_table :education_details do |t|
       t.integer :jobseekerid
       t.string :education_level
-      t.time :startdate
-      t.time :enddate
+      t.date :start_date
+      t.date :end_date
       t.string :institute_studied
       t.string :institute_location
       t.string :certificate_awarded

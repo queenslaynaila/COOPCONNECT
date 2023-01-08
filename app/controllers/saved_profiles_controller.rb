@@ -1,0 +1,2 @@
+class SavedProfilesController < ApplicationController
+end

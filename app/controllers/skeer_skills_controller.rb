@@ -1,0 +1,2 @@
+class SkeerSkillsController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class SavedCompany < ApplicationRecord
+end
