@@ -3,7 +3,7 @@ import '../styles/navbar.css'
 
 import {useNavigate} from "react-router-dom"
 export default function Navbar() {
-  let user ={username:"jobseeker",usertype:"seeker"}
+  let user ={username:"queenm",usertype:"seeker"}
    let navigate = useNavigate()
   return (
     <nav class="navbar navbar-expand-lg fs-5   py-3  bg-white">
