@@ -2,9 +2,10 @@
     --background-color: #fff;
     --primary-color: #0E477B;
     --heading-color: #21286A;
-    --title-footer:#808080;
+    --title-footer:#ccc;
     --title-category:#0000FF;
     --secondary-color: #0000;
+    --button-color: #00008B;
 }
 
 .view-jobs-prime-container{
@@ -16,7 +17,7 @@
     border: 1px solid black;
     margin: 20px 0px 20px;
     border-radius: 5px;
-    padding: 20px;
+    padding: 20px ;
 }
 
 .avatar-icon-picture{
@@ -52,4 +53,25 @@
 .jd-company{
     margin-top: 20px;
     margin-left: 5px;
+}
+.posted-at-apply{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /* margin-top: 20px; */
+    /* background-color: var(--title-footer); */
+    justify-content: space-between;
+}
+.posted-at-apply > p{
+    margin-bottom: 0 !important;
+}
+.btn{
+    background-color: var(--button-color);git 
+    color: var(--background-color);
+    font-weight: 600;
+    font-size: 17px;
+}
+.btn:hover{
+    background-color: var(--primary-color);
+    color: var(--background-color);
 }
