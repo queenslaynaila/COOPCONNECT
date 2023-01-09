@@ -6,8 +6,9 @@ function CompanyAvatar() {
     <div className='company-avatar-icon'>
         <Avatar/>
         <div className="company-title-name">
-            <h1>HR.MICROSOFT</h1>
+            <h1>Microsoft</h1>
             <h2>Microsoft</h2>
+        
         </div>
     </div>
   )
