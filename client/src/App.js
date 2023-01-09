@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import { Routes, Route} from "react-router-dom"
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
@@ -11,6 +11,7 @@ import SeekerDashboard from "./components/SeekerDashboard";
 import Seekerprofile from "./components/Seekerprofile";
 import Jobsearch from "./components/Jobsearch";
 import Assesement from "./components/Assesement";
+import Jobcard from "./components/Jobcard";
 function App() {
 
 
@@ -28,6 +29,7 @@ function App() {
       <Route path="/searchjob" element={<Jobsearch></Jobsearch>}></Route>
       <Route path="/asesement" element={<Assesement></Assesement>}></Route>
       <Route path="/employerdash" element={<DashBoardBody></DashBoardBody>}></Route>
+      <Route path="/j" element={<Jobcard />}></Route>
       <Route path="*" element={<Errorpage></Errorpage>}></Route>
 
     </Routes>

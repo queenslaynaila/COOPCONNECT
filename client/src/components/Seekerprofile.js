@@ -75,7 +75,7 @@ export default function Seekerprofile() {
 					<input type="name" class="form-control" id="ciTy" placeholder="Enter City"></input>
 				</div>
 			</div>
-			 
+
 		</div>
         <div class="row gutters">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -145,7 +145,19 @@ export default function Seekerprofile() {
 
 
 		</div>
-		<div class="row gutters">
+
+         <div className='row gutters'>
+		     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+			   <h6 class="mb-2 text-primary">About Me</h6>
+			   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+			       <div class="mb-3">
+                         
+                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+			   </div>
+			 </div>
+		 </div>
+		 <div class="row gutters">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<div class="text-right">
 					<button type="button" id="submit" name="submit" class="btn btn-secondary me-1 mt-1">Cancel</button>
@@ -153,8 +165,6 @@ export default function Seekerprofile() {
 				</div>
 			</div>
 		</div>
-
-
 	</div>
 </div>
 </div>

@@ -27,7 +27,7 @@ function SignUpJobSeekers({ setUser }) {
         }
       });
     }
-    
+
   return(
   <>
      <section class="vh-50">
