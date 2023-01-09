@@ -1,0 +1,14 @@
+
+
+.home{
+
+
+    background-image: url("https://creativelayers.net/themes/superio/images/index-17/header/bg.png");
+}
+.navbar{
+    box-shadow: 5px 5px 15px -5px #e5e5ec;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+}
