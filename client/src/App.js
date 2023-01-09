@@ -29,7 +29,7 @@ function App() {
       <Route path="/searchjob" element={<Jobsearch></Jobsearch>}></Route>
       <Route path="/asesement" element={<Assesement></Assesement>}></Route>
       <Route path="/employerdash" element={<DashBoardBody></DashBoardBody>}></Route>
-      <Route path="/j" element={<Jobcard />}></Route>
+     
       <Route path="*" element={<Errorpage></Errorpage>}></Route>
 
     </Routes>
