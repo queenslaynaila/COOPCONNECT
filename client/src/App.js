@@ -11,28 +11,31 @@ import SeekerDashboard from "./components/SeekerDashboard";
 import Seekerprofile from "./components/Seekerprofile";
 import Jobsearch from "./components/Jobsearch";
 import Assesement from "./components/Assesement";
+import Viewjob from "./components/Viewjob";
 function App() {
 
 
   return (
 <>
- <Navbar></Navbar>
+ <Navbar/>
 
     <Routes>
       <Route exact path="/" element={<Home></Home>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/signupcompanies" element={<SignCompanies/>}/>
       <Route path="/signuptalents" element={<SignUpJobSeekers/>}/>
-      <Route path="/talentdashboard" element={<SeekerDashboard></SeekerDashboard>}></Route>
-      <Route path="/seekerprofile" element={<Seekerprofile></Seekerprofile>}></Route>
+      <Route path="/talentdashboard" element={<SeekerDashboard/>}></Route>
+      <Route path="/seekerprofile" element={<Seekerprofile/>}></Route>
       <Route path="/searchjob" element={<Jobsearch></Jobsearch>}></Route>
       <Route path="/asesement" element={<Assesement></Assesement>}></Route>
       <Route path="/employerdash" element={<DashBoardBody></DashBoardBody>}></Route>
+      <Route path="/viewjob" element={<Viewjob/>}></Route>
+
       <Route path="*" element={<Errorpage></Errorpage>}></Route>
 
     </Routes>
 
-  <Footer></Footer>
+  <Footer/>
 </>
   );
 }

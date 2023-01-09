@@ -1,0 +1,32 @@
+:root{
+    --background-color: #fff;
+    --primary-color: #0E477B;
+    --heading-color: #21286A;
+    --title-footer:#808080;
+    --title-category:#0000FF;
+    --secondary-color: #0000;
+}
+
+.view-jobs-prime-container{
+    background-color: var(--background-color);
+    width: 69%;
+    margin: 0 auto;
+}
+.outer-jobview-card{
+    border: 1px solid black;
+    margin: 20px 0px 20px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.avatar-icon-picture{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+.avatar-icon-picture > img{
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+    border-radius: 50%;
+}
