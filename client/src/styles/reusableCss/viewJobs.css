@@ -30,3 +30,26 @@
     object-fit: cover;
     border-radius: 50%;
 }
+.company-avatar-icon{
+    display: flex;
+    align-items: center;
+}
+.company-title-name{
+    margin-left: 15px;
+}
+.company-title-name > h1,h2{
+    font-size: 16px;
+}
+.company-title-name > h2{
+    color: var(--title-category);
+    font-weight: 600;
+}
+.card-title-name > h1{
+    font-weight: 700;
+    color: var(--title-category);
+    font-size: 20px;
+}
+.jd-company{
+    margin-top: 20px;
+    margin-left: 5px;
+}
