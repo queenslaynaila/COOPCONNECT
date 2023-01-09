@@ -1,20 +1,28 @@
-import { useState, useEffect } from "react";
-
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import Footer from "./components/Footer";
+import Login from "./components/Login"
+import SignCompanies from "./components/SignCompanies"
+import SignUpJobSeekers from "./components/SignUpJobSeekers"
+import DashBoardBody from "./components/CompanyDashboard/DashBoardBody";
 function App() {
-  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
 
   return (
-    <div className="App">
-      <h1>Page Count: {count}</h1>
-      <p>Just an explanation on file structure, all styles to be in the styles folder in the src ,, pictures go to the asset folder and components go into the components folder</p>
-      <p>in case youve added a npm package in the package.json or via a link in the index.html fie in the public directory let me know so i merge accordingly</p>
-    </div>
+<>
+ <Navbar></Navbar>
+
+    <Routes>
+      <Route exact path="/" element={<Home></Home>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/signupcompanies" element={<SignCompanies/>}/>
+      <Route path="/signuptalents" element={<SignUpJobSeekers/>}/>
+      <Route path="/talentdashboard" element={<DashBoardBody></DashBoardBody>}></Route>
+    </Routes>
+
+  <Footer></Footer>
+</>
   );
 }
 
