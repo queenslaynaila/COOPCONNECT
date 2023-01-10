@@ -1,35 +1,139 @@
-import React from 'react'
+import React, { useState } from "react";
+ 
+const JobPostPreview = () => {
+  const [formData, setFormData] = useState({
+    company: "Lencare General Merchants HR",
+    salaryRange: "10,000-50,000",
+    positionsAvailable: "2",
+    location: "Nairobi, Kenya",
+    responsibilities: "2 year experience\nMust know JS",
+    keySkills: "Teamwork\nCommunication\nPHP",
+    experienceInYears: "2 years",
+    seniorityLevel: "Expert",
+    minEducationalQualifications: "Expert",
+  });
 
-export default function JobPostPreview() {
+  const handleChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Submit the form data to your backend or API here
+  };
+
+  const handleCancel = () => {
+    // Clear the form data and navigate back to the job posts list
+  };
+
+  const handleEdit = () => {
+    // Enable the form fields for editing
+    const inputs = document.querySelectorAll("input, textarea");
+    inputs.forEach((input) => {
+      input.removeAttribute("readonly");
+    });
+  };
+
   return (
-      <div>
-          
-<div class="card mt-3"  >
-        <div class>
-          <h5 style={{ color: "darkblue" }}>Job Post Preview</h5>
-        </div>
+    <form onSubmit={handleSubmit}>
+      <label>
+        Company:
+        <input
+          type="text"
+          name="company"
+          value={formData.company}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Salary Range:
+        <input
+          type="text"
+          name="salaryRange"
+          value={formData.salaryRange}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Positions Available:
+        <input
+          type="number"
+          name="positionsAvailable"
+          value={formData.positionsAvailable}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Location:
+        <input
+          type="text"
+          name="location"
+          value={formData.location}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Responsibilities:
+        <textarea
+          name="responsibilities"
+          value={formData.responsibilities}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Key Skills:
+        <textarea
+          name="keySkills"
+          value={formData.keySkills}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Experience in Years:
+        <input
+          type="text"
+          name="experienceInYears"
+          value={formData.experienceInYears}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      Seniority Level:
+      <input
+        type="text"
+        name="seniorityLevel"
+        value={formData.seniorityLevel}
+        onChange={handleChange}
+      />
+      <br />
+      <label>
+        Minimum Educational Qualifications:
+        <input
+          type="text"
+          name="minEducationalQualifications"
+          value={formData.minEducationalQualifications}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <button type="submit">Save Post</button>
+      <button type="button" onClick={handleCancel}>
+        Cancel
+      </button>
+      <button type="button" onClick={handleEdit}>
+        Edit
+      </button>
+    </form>
+  );
+};
 
-        <div class="card-body">
-          <div>
-                <div><span className='fw-bold'>Lencare General Merchants HR</span>:&nbsp;&nbsp;<p>Salary Range:10,000-50,000</p><p>Positions Available:2</p><p>Location: nairobi;Kenya</p></div>
-                <div><span className='fw-bold'>Responsibilities</span>:&nbsp;&nbsp;<p>2 year experience</p><p>Must know JS</p></div>
-                <div><span className='fw-bold'>Key Skills:</span>&nbsp;&nbsp;Teamwork,Communication,php</div>
-                <div><span className='fw-bold'>Experience in Years:</span>&nbsp;&nbsp;2 years</div>
-                <div><span className='fw-bold'>Seniority Level</span>:&nbsp;&nbsp;Expert</div>
-                <div><span className='fw-bold'>Minimum Educational Qualifications</span>:&nbsp;&nbsp;Expert</div>
-          </div>
-       </div>
-       <div class="card-body   "
-            style=  {{backgroundColor:"#EEEEEE",height:"60px"}}>
-          <div className="d-flex justify-content-end gap-2">
-               <button type="button " class="btn btn-primary">EDIT POST</button>
-            <button type="button" class="btn btn-primary">SAVE POST</button>
-            <button type="button" class="btn btn-primary">CANCEL</button>
-               </div>
-        </div>
-        </div>  
-
-          
-    </div>
-  )
-}
+export default JobPostPreview;
