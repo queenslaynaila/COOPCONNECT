@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Login from "./components/Login"
 import SignCompanies from "./components/SignCompanies"
 import SignUpJobSeekers from "./components/SignUpJobSeekers"
-import DashBoardBody from "./components/CompanyDashboard/DashBoardBody";
+import DashBoardBody from "./components/DashBoardBody";
 import Errorpage from "./components/404page";
 import SeekerDashboard from "./components/SeekerDashboard";
 import Seekerprofile from "./components/Seekerprofile";
@@ -17,7 +17,7 @@ import ViewCompany from "./components/ViewCompany";
 import CompanyEditProfile from "./components/CompanyEditProfile";
 import JobPostPreview from "./components/JobPostPreview";
 import SearchTalent from "./components/SearchTalents";
-import  Pricing from "./components/CompanyDashboard/pricing";
+import  Pricing from "./components/pricing";
 
 function App() {
 
