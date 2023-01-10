@@ -1,43 +1,17 @@
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 500px;
-    margin: 0 auto;
-    padding: 20px;
+
+
+.JobDetailContainer {
+    padding: 16px;
   }
   
-  label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
+  .JobTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 8px;
   }
   
-  input,
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
+  .JobInfo {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
   }
   
-  input[type="submit"],
-  button[type="button"] {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #0077cc;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    outline: none;
-    margin-top: 10px;
-  }
-  
-  input[type="submit"]:hover,
-  button[type="button"]:hover {
-    background-color: #0066b3;
-  }
