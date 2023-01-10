@@ -14,6 +14,8 @@ import Assesement from "./components/Assesement";
 import Jobcard from "./components/Jobcard";
 import Viewjob from "./components/Viewjob";
 import ViewCompany from "./components/ViewCompany";
+import CompanyEditProfile from "./components/CompanyEditProfile";
+import JobPostPreview from "./components/JobPostPreview";
 function App() {
 
 
@@ -34,11 +36,9 @@ function App() {
       <Route path="/searchjob" element={<Jobsearch></Jobsearch>}></Route>
       <Route path="/asesement" element={<Assesement></Assesement>}></Route>
       <Route path="/employerdash" element={<DashBoardBody></DashBoardBody>}></Route>
-
-      <Route path="/employerdash" element={<DashBoardBody></DashBoardBody>}/>
       <Route path="/viewjob" element={<Viewjob/>}/>
       <Route path="/viewcompany" element={<ViewCompany />}/>
-
+      <Route path="/companyeditprofile" element={<CompanyEditProfile></CompanyEditProfile>}></Route>
       <Route path="*" element={<Errorpage></Errorpage>}/>
 
     </Routes>
