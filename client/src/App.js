@@ -16,7 +16,7 @@ import Viewjob from "./components/Viewjob";
 import ViewCompany from "./components/ViewCompany";
 import CompanyEditProfile from "./components/CompanyEditProfile";
 import JobPostPreview from "./components/JobPostPreview";
- 
+
 function App() {
 
 
