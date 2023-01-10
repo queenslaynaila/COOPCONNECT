@@ -1,3 +1,4 @@
 class SurveyPropmtSerializer < ActiveModel::Serializer
-  attributes :id, :answer_choice, :question_id
+  attributes :id, :answer_choice
+  belongs_to :question
 end

@@ -1,3 +1,5 @@
 class JobSerializer < ActiveModel::Serializer
-  attributes :id, :company_id, :category_id, :job_title, :skill_required, :role, :job_location, :job_description, :position_availabale, :application_deadline, :salary_range, :job_details, :posted_on
+  attributes :id, :jobtitle, :jobdescription, :positionavailabale, :application_deadline, :salaryrange, :joblocation, :skillrequired
+  has_many :company
+  has_many :category
 end

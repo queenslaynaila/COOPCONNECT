@@ -1,16 +1,12 @@
 class Jobseeker < ApplicationRecord
-    
+    belongs_to :user_account
+  has_many :education_details
+  has_many :experiences
+  has_many :seekerskills
+  has_many :applications
+  has_many :saved_jobs
 
-    has_one :user_account
-
-    has_many :applicatuons
-    has_many :education_details
-    has_many :experiences
-    has_many :skills
-    has_many :jobs
-
-    validates :prefered_contact_menthod, acceptance: { :phone_number, :email }
-
-    validates :experience, acceptance: { accept: ['Entry-level', 'Intermediate.Mid-level', 'Senior-level', 'Executive-level'] }
+  validates :preferred_contact_method, inclusion: { in: %w(email phone) }
+  validates :experience, inclusion: { in: %w(entry-level intermediate mid-level senior executive-level) }
 end
  

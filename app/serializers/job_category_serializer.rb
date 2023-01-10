@@ -1,3 +1,4 @@
 class JobCategorySerializer < ActiveModel::Serializer
-  attributes :id, :categor_name
+  attributes :id, :categoryname
+  has_many :jobs
 end
