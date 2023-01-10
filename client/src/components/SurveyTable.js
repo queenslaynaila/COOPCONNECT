@@ -6,11 +6,10 @@ export default function SurveyTable() {
     <thead>
        <tr>
           <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Applied For</th>
-          <th scope="col">Application Status</th>
-          <th scope="col">Date Applied</th>
-          <th scope="col">Job Category</th>
+          <th scope="col">SurveyTitle</th>
+          <th scope="col">Total Partcipation</th>
+          <th scope="col">Total Passed</th>
+          <th scope="col">Total Failed</th>
       </tr>
     </thead>
     <tbody>
@@ -18,13 +17,11 @@ export default function SurveyTable() {
         <th scope="row">1</th>
         <td>Mark</td>
         <td>Otto</td>
-        <td>@mdo</td>
         <td>Otto</td>
         <td>@QUEE o</td>
       </tr>
       <tr>
         <th scope="row">2</th>
-        <td>Jacob</td>
         <td>Thornton</td>
         <td>@fat</td>
         <td>Otto</td>
@@ -36,7 +33,6 @@ export default function SurveyTable() {
         <td>Otto</td>
         <td>@mdo</td>
         <td>Otto</td>
-        <td>@QUEE o</td>
       </tr>
     </tbody>
   </table>
