@@ -15,6 +15,7 @@ import SearchTalent from "./components/CompanyDashboard/SearchTalents";
 import EmployerDashboard from "./components/CompanyDashboard/EmployerDashboard";
 import Pricing from "./components/CompanyDashboard/pricing";
 import TalentCard from "./components/TalentCard";
+import JobPostPreview from "./components/JobPostPreview";
 
 
 function App() {
@@ -38,6 +39,8 @@ function App() {
       <Route path="/searchtalent" element={<SearchTalent></SearchTalent>}></Route>
       <Route path="/pricing" element={<Pricing></Pricing>}></Route>
       <Route path="/talentcard" element={<TalentCard></TalentCard>}></Route>
+      <Route path="/jobpostpreview" element={<JobPostPreview></JobPostPreview>}></Route>
+        
         
 
         
