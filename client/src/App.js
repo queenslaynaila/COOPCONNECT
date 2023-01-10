@@ -18,7 +18,7 @@ import CompanyEditProfile from "./components/CompanyEditProfile";
 import JobPostPreview from "./components/JobPostPreview";
 import SearchTalent from "./components/SearchTalents";
 import  Pricing from "./components/CompanyDashboard/pricing";
- 
+
 function App() {
 
 
