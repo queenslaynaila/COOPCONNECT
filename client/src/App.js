@@ -16,6 +16,7 @@ import Viewjob from "./components/Viewjob";
 import ViewCompany from "./components/ViewCompany";
 import CompanyEditProfile from "./components/CompanyEditProfile";
 import JobPostPreview from "./components/JobPostPreview";
+ 
 function App() {
 
 
@@ -40,6 +41,7 @@ function App() {
       <Route path="/viewcompany" element={<ViewCompany />}/>
       <Route path="/companyeditprofile" element={<CompanyEditProfile></CompanyEditProfile>}></Route>
       <Route path="*" element={<Errorpage></Errorpage>}/>
+
 
     </Routes>
 
