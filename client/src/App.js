@@ -16,7 +16,8 @@ import Viewjob from "./components/Viewjob";
 import ViewCompany from "./components/ViewCompany";
 import CompanyEditProfile from "./components/CompanyEditProfile";
 import JobPostPreview from "./components/JobPostPreview";
-
+import SearchTalent from "./components/SearchTalents";
+import  Pricing from "./components/CompanyDashboard/pricing";
 function App() {
 
 
@@ -40,6 +41,8 @@ function App() {
       <Route path="/viewjob" element={<Viewjob/>}/>
       <Route path="/viewcompany" element={<ViewCompany />}/>
       <Route path="/companyeditprofile" element={<CompanyEditProfile></CompanyEditProfile>}></Route>
+      <Route path="/searchtalents" element={<SearchTalent/>}></Route>
+      <Route path="/pricing" element={<Pricing/>}></Route>
       <Route path="*" element={<Errorpage></Errorpage>}/>
 
 

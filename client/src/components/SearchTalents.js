@@ -1,5 +1,5 @@
 import React from 'react'
-import TalentCard from '../TalentCard'
+import TalentCard from './TalentCard'
 
 function SearchTalent()
 {
@@ -50,9 +50,9 @@ function SearchTalent()
     </div>
   </div>
 
-  
 
-     
+
+
     )
 }
 
