@@ -12,7 +12,7 @@ export default function Home() {
   return (
 <>
   <section>
-    <div class="hero vh-80  " id="home">
+    <div class="hero vh-80  " id="home"  >
             <div className='container p-4 pb-0'>
                 <div class="row">
                         <div class="col mt-5">

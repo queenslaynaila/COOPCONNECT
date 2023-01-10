@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import connect from "../assets/employer.png";
 function SignCompanies({ setUser }) {
   const [companyName, setCompanyName] = useState("");
   const [fnameContact, setFnameContact] = useState("");
@@ -29,65 +29,106 @@ function SignCompanies({ setUser }) {
       }
     });
   }
-return(
-    <div>
-      <form onSubmit={handleSubmit}>
-        <h1>Register to post jobs</h1>
-        <label htmlFor="company-name">Company name:</label>
-        <input
-          type="text"
-          id="company_name"
-          autoComplete="off"
-          value={companyName}
-          onChange={(e) => setCompanyName(e.target.value)}
-        />
-        <label htmlFor="fname-contact">Fname Contact:</label>
-        <input
-          type="text"
-          id="fname_contact"
-          autoComplete="off"
-          value={fnameContact}
-          onChange={(e) => setFnameContact(e.target.value)}
-        />
-        <label htmlFor="lname-contact">Lname Contact:</label>
-        <input
-          type="text"
-          id="lname_contact"
-          autoComplete="off"
-          value={lnameContact}
-          onChange={(e) => setLnameContact(e.target.value)}
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          type="text"
-          id="email"
-          autoComplete="off"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          autoComplete="current-password"
-        />
-        <label htmlFor="password">Password Confirmation</label>
-        <input
-          type="password"
-          id="password_confirmation"
-          value={passwordConfirmation}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-          autoComplete="current-password"
-        />
-        <button type="submit">Sign Up</button>
-        <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
-                    class="fw-bold text-body"><u>Login here</u></a></p>
+  return (
+    <section class="vh-80">
+      <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+          <div class="col-md-8 col-lg-7 col-xl-6">
+            <img src={connect} class="img-fluid" alt="Phone image"></img>
+          </div>
+          <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+            <form>
+              <h4 style={{ color: "darkblue" }} className="text-center">
+                Employer Registration
+              </h4>
+              <div className="col">
+                <input
+                  type="text"
+                  className="form-control form-control-lg mb-2"
+                  placeholder="Company Name"
+                  required
+                />
+              </div>
+              <div className="col">
+                <input
+                  type="text"
+                  className="form-control form-control-lg mb-2"
+                  placeholder="Contact Person First Name"
+                  required
+                />
+              </div>
+              <div className="col">
+                <input
+                  type="text"
+                  className="form-control form-control-lg mb-2"
+                  placeholder="Contact Person Second Name"
+                  required
+                />
+              </div>
+              <div className="col">
+                <input
+                  type="text"
+                  className="form-control form-control-lg"
+                  id="confirmPassword"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+              <div className="row mt-2">
+                <div className="col">
+                  <input
+                    type="text"
+                    className="form-control form-control-lg"
+                    id="password"
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+                <div className="col">
+                  <input
+                    type="text"
+                    className="form-control form-control-lg"
+                    id="confirmPassword"
+                    placeholder="Confirm Password"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="d-flex justify-content-around align-items-center mb-4">
+                <a href="#!">Forgot password?</a>
+              </div>
 
-      </form>
-    </div>
-);
+              <div>
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg btn-block"
+                  style={{ width: "100%" }}
+                >
+                  Sign in
+                </button>
+              </div>
+
+              <div class="divider d-flex align-items-center my-4">
+                <p class="text-center fw-bold mx-3 mb-0 text-muted">
+                  HAVE AN ACCOUNT?
+                </p>
+              </div>
+              <div>
+                <a
+                  class="btn btn-primary btn-lg btn-block mb-1"
+                  style={{ backgroundColor: "#3b5998", width: "100%" }}
+                  href="#!"
+                  role="button"
+                >
+                  Login
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default SignCompanies;
