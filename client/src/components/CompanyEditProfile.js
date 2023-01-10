@@ -1,29 +1,8 @@
 import React, { useState } from "react";
 import "../styles/CompanyEditProfile.css"
 function CompanyEditProfile() {
-  const [formData, setFormData] = useState({
-    organizationName: "",
-    organizationType: "",
-    dateOfEstablishment: "",
-    websiteURL: "",
-    company: "",
-    firstName: "",
-    lastName: "",
-    designation: "",
-    email: "",
-  });
 
-  const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Submit the form data to your backend or API here
-  };
+ 
 
   return (
     <div className="container mt-4 mb-4">

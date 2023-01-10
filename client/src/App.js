@@ -18,6 +18,7 @@ import CompanyEditProfile from "./components/CompanyEditProfile";
 import JobPostPreview from "./components/JobPostPreview";
 import SearchTalent from "./components/SearchTalents";
 import  Pricing from "./components/pricing";
+import PostAJob from "./components/PostAJob";
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
       <Route path="/searchtalents" element={<SearchTalent/>}></Route>
       <Route path="/pricing" element={<Pricing/>}></Route>
       <Route path="/previewjob" element={<JobPostPreview/>}></Route>
+      <Route path="/postajob" element={<PostAJob/>}></Route>
       <Route path="*" element={<Errorpage></Errorpage>}/>
 
 
