@@ -2,8 +2,8 @@ import React from 'react'
 import Jobcard from './Jobcard'
 export default function Jobsearch() {
   return (
-<div class="container">
-  <div class="row mt-5 mb-5">
+    <div class="container">
+      <div class="row mt-5 mb-5">
         <aside class="col-md-3">
             <div class="card">
 
@@ -69,8 +69,7 @@ export default function Jobsearch() {
                <Jobcard></Jobcard>
 
         </main>
-	</div>
-</div>
-  )
+      </div>
+    </div>
+  );
 }
-

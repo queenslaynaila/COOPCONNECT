@@ -12,14 +12,19 @@ import Seekerprofile from "./components/Seekerprofile";
 import Jobsearch from "./components/Jobsearch";
 import Assesement from "./components/Assesement";
 import Jobcard from "./components/Jobcard";
+import Viewjob from "./components/Viewjob";
+import ViewCompany from "./components/ViewCompany";
 function App() {
 
 
   return (
 <>
- <Navbar></Navbar>
+
+ <Navbar/>
+
 
     <Routes>
+
       <Route exact path="/" element={<Home></Home>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/signupcompanies" element={<SignCompanies/>}/>
@@ -29,12 +34,17 @@ function App() {
       <Route path="/searchjob" element={<Jobsearch></Jobsearch>}></Route>
       <Route path="/asesement" element={<Assesement></Assesement>}></Route>
       <Route path="/employerdash" element={<DashBoardBody></DashBoardBody>}></Route>
-     
-      <Route path="*" element={<Errorpage></Errorpage>}></Route>
+
+      <Route path="/employerdash" element={<DashBoardBody></DashBoardBody>}/>
+      <Route path="/viewjob" element={<Viewjob/>}/>
+      <Route path="/viewcompany" element={<ViewCompany />}/>
+
+      <Route path="*" element={<Errorpage></Errorpage>}/>
 
     </Routes>
 
-  <Footer></Footer>
+
+  <Footer/>
 </>
   );
 }

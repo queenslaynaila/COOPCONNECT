@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import connect from "../assets/connect.png"
+import connect from "../assets/connect.png";
 function SignUpJobSeekers({ setUser }) {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
     function handleSubmit(e) {
       e.preventDefault();
@@ -96,28 +96,38 @@ function SignUpJobSeekers({ setUser }) {
               <a href="#!">Forgot password?</a>
             </div>
 
-           <div  >
-           <button type="submit" class="btn btn-primary btn-lg btn-block" style={{width:"100%"}}  >Sign in</button>
-           </div>
+                <div>
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-lg btn-block"
+                    style={{ width: "100%" }}
+                  >
+                    Sign in
+                  </button>
+                </div>
 
-
-            <div class="divider d-flex align-items-center my-4">
-              <p class="text-center fw-bold mx-3 mb-0 text-muted">HAVE AN ACCOUNT?</p>
+                <div class="divider d-flex align-items-center my-4">
+                  <p class="text-center fw-bold mx-3 mb-0 text-muted">
+                    HAVE AN ACCOUNT?
+                  </p>
+                </div>
+                <div>
+                  <a
+                    class="btn btn-primary btn-lg btn-block mb-1"
+                    style={{ backgroundColor: "#3b5998", width: "100%" }}
+                    href="#!"
+                    role="button"
+                  >
+                    Login
+                  </a>
+                </div>
+              </form>
             </div>
-             <div>
-            <a class="btn btn-primary btn-lg btn-block mb-1" style={{backgroundColor: "#3b5998",width:"100%"}} href="#!"
-              role="button">
-               Login
-            </a>
-
-</div>
-          </form>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
-  </>
+      </section>
+    </>
   );
 }
 
-export default  SignUpJobSeekers
+export default SignUpJobSeekers;
