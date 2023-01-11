@@ -1,7 +1,8 @@
 import React from 'react'
-
+import { useNavigate } from "react-router-dom";
 export default function SeekerDashboard() {
-    let me = "https://mdbcdn.b-cdn.net/img/new/avatars/9.webp"
+  let navigate = useNavigate();
+
   return (
     <div className='container p-4 pb-0 mb-4'>
       <h4>Dashboard</h4>
@@ -23,7 +24,9 @@ export default function SeekerDashboard() {
           <ul class="list-group list-group-flush ">
                 <li style={{backgroundColor:"#f8f9fa"}} class="list-group-item right ">
                 <div className='col-md-12 bg-light text-right'>
-                <button type="button " class="btn btn-primary float-right me-1">Edit Profile</button>
+                <button type="button" onClick={() => {
+                          navigate("/seekerprofile");
+                        }} class="btn btn-primary float-right me-1">Edit Profile</button>
                 <button type="button " class="btn btn-primary float-right me-1">Upload Resume</button>
                 </div>
 

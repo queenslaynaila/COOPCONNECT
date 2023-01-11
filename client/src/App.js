@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Login from "./components/Login"
 import SignCompanies from "./components/SignCompanies"
 import SignUpJobSeekers from "./components/SignUpJobSeekers"
-import DashBoardBody from "./components/CompanyDashboard/DashBoardBody";
+import DashBoardBody from "./components/DashBoardBody";
 import Errorpage from "./components/404page";
 import SeekerDashboard from "./components/SeekerDashboard";
 import Seekerprofile from "./components/Seekerprofile";
@@ -17,7 +17,10 @@ import ViewCompany from "./components/ViewCompany";
 import CompanyEditProfile from "./components/CompanyEditProfile";
 import JobPostPreview from "./components/JobPostPreview";
 import SearchTalent from "./components/SearchTalents";
-import  Pricing from "./components/CompanyDashboard/pricing";
+import  Pricing from "./components/pricing";
+import PostAJob from "./components/PostAJob";
+import Viewaseeker from "./components/Viewaseeker";
+
 function App() {
 
 
@@ -43,7 +46,11 @@ function App() {
       <Route path="/companyeditprofile" element={<CompanyEditProfile></CompanyEditProfile>}></Route>
       <Route path="/searchtalents" element={<SearchTalent/>}></Route>
       <Route path="/pricing" element={<Pricing/>}></Route>
+      <Route path="/previewjob" element={<JobPostPreview/>}></Route>
+      <Route path="/postajob" element={<PostAJob/>}></Route>
+      <Route path="/viewaseeker" element={<Viewaseeker/>}></Route>
       <Route path="*" element={<Errorpage></Errorpage>}/>
+
 
 
     </Routes>

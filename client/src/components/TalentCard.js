@@ -1,7 +1,8 @@
 import React from 'react'
-
-export default function 
+import { useNavigate } from "react-router-dom";
+export default function TalentCard
 () {
+  let navigate = useNavigate();
   return (
  <div class="card mt-3"  >
         <div class="card-body d-flex justify-content-between    " style=  {{backgroundColor:"#EEEEEE",height:"60px"}}>
@@ -10,7 +11,9 @@ export default function
             <p style={{lineHeight:"5px",color:"darkblue"}} >Location:Nairobi</p>
           </div>
           <div  >
-               <button type="button" class="btn btn-primary">VIEW PROFILE</button>
+               <button type="button" class="btn btn-primary" onClick={() => {
+                          navigate("/viewaseeker");
+                        }}>VIEW PROFILE</button>
                </div>
         </div>
         <div class="card-body">
@@ -30,7 +33,7 @@ export default function
                <button type="button" class="btn btn-primary">SEND EMAIL</button>
                </div>
         </div>
-        </div>  
+        </div>
   )
 }
 
