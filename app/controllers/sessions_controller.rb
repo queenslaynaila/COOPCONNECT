@@ -1,19 +1,16 @@
 class SessionsController < ApplicationController
-    skip_before_action :authorize, only: :create
-
   def create
-    user = User.find_by(username: params[:username])
-    if user&.authenticate(params[:password])
-      session[:user_id] = user.id
-      render json: user
+    @user_account = UserAccount.find_by(email: params[:email])
+    if @user_account&.authenticate(params[:password])
+      session[:user_account_id] = @user_account.id
+      redirect_to '/me'
     else
-      render json: { errors: ["Invalid username or password"] }, status: :unauthorized
+      flash[:danger] = 'Invalid email/password combination'
+      render 'new'
     end
   end
-
   def destroy
-    session.delete :user_id
-    head :no_content
+    session.delete(:user_account_id)
+    redirect_to login_path
   end
-
 end

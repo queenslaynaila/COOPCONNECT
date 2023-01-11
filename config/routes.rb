@@ -1,31 +1,26 @@
 Rails.application.routes.draw do
-  resources :answers
-  resources :survey_propmts
-  resources :questions
-  resources :surveys
-  resources :saved_profiles
-  resources :saved_companies
-  resources :saved_jobs
-  resources :applicantions
-  resources :job_requirements
-  resources :job_skill_sets
-  resources :jobs
-  resources :job_categories
-  resources :companies
-  resources :skeer_skills
-  resources :experiences
-  resources :user_accounts
   resources :user_types
-  resources :education_details
-  resources :employers
+  resources :user_accounts
   resources :jobseekers
-  post "/signup", to: "users#create"
-  get "/me", to: "users#show"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-  get '/hello', to: 'application#hello_world'
+  resources :companies
+  resources :job_categories
+  resources :jobs do
+    resources :jobskillsets, :jobrequirements
+  end
+  resources :applications
+  resources :savedjobs
+  resources :savedcompanies
+  resources :savedprofiles
+  resources :surveys do
+    resources :questions do
+      resources :surveyprompts
+    end
+    resources :answers
+  end
+  
+  resources :sessions, only: [:new, :create, :destroy]
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'me', to: 'users#me', as: 'me'
 end

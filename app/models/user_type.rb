@@ -1,3 +1,3 @@
 class UserType < ApplicationRecord
-    include Authentication
+    has_many :user_accounts
 end
