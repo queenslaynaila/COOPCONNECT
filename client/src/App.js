@@ -19,6 +19,7 @@ import JobPostPreview from "./components/JobPostPreview";
 import SearchTalent from "./components/SearchTalents";
 import  Pricing from "./components/pricing";
 import PostAJob from "./components/PostAJob";
+import Viewaseeker from "./components/Viewaseeker";
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
       <Route path="/pricing" element={<Pricing/>}></Route>
       <Route path="/previewjob" element={<JobPostPreview/>}></Route>
       <Route path="/postajob" element={<PostAJob/>}></Route>
+      <Route path="/viewaseeker" element={<Viewaseeker/>}></Route>
       <Route path="*" element={<Errorpage></Errorpage>}/>
 
 

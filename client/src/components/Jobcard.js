@@ -1,8 +1,9 @@
 import React from 'react'
-
+import { useNavigate } from "react-router-dom";
 export default function Jobcard() {
+  let navigate = useNavigate();
   return (
- 
+
     <div class="card mt-3"  >
         <div class="card-body">
             <div className='d-flex flex-row'
@@ -13,7 +14,7 @@ export default function Jobcard() {
                 </div>
                 <div>
                     <p>HR Executives</p>
-                    <p className='fw-bold'  style={{color:"darkblue"}}>Tech Software</p>
+                    <p className='fw-bold companyname' onClick={() => {navigate("/viewcompany")}}    >Tech Software</p>
                 </div>
           </div>
           <div className='d-flex flex-row' style={{gap:"25px"}}>
@@ -32,7 +33,7 @@ export default function Jobcard() {
             <p>Posted 16 days ago</p>
           </div>
           <div>
-             <a href="#" class="card-link">View Job</a>
+             <a href="#" class="card-link" onClick={() => {navigate("/viewjob")}} >View Job</a>
              <a href="#" class="card-link">Save Job</a>
           </div>
         </div>

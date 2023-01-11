@@ -1,11 +1,13 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
+import "../styles/seeker.css"
 export default function Seekerprofile() {
-  let me =
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF2psCzfbB611rnUhxgMi-lc2oB78ykqDGYb4v83xQ1pAbhPiB&usqp=CAU";
+  let navigate = useNavigate();
   return (
     <div class="container">
       <div class="row gutters mt-5 mb-5">
+      <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard
+      </p>
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
           <div class="card h-100">
             <div class="card-body">

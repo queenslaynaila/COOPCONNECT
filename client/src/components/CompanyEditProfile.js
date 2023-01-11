@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "../styles/CompanyEditProfile.css"
+import { useNavigate } from "react-router-dom";
 function CompanyEditProfile() {
-
- 
-
+  let navigate = useNavigate();
   return (
     <div className="container mt-4 mb-4">
        <h4 style={{color:"darkblue"}}>Profile Edit Mode</h4>
+       <p  className="dash" onClick={() => {navigate("/employerdash")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard
+            </p>
         <div class="card">
           <div class="card-header">
           <h4> Organizational Information</h4>

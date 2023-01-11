@@ -1,10 +1,13 @@
 import React from 'react'
-
+import { useNavigate } from "react-router-dom";
 export default function PostAJob
 () {
+	let navigate = useNavigate();
   return (
     <div className='container mt-4 mb-4'>
 	      <h4 style={{color:"darkblue"}}>Post Your Job</h4>
+		  <p  className="dash" onClick={() => {navigate("/employerdash")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard
+            </p>
 		  <div class="row">
 				<div class="col-8">
 				<div className='card'>
@@ -101,7 +104,7 @@ export default function PostAJob
 
 		  <div class="card-footer">
             <div className="d-flex justify-content-end gap-2">
-               <button type="button " class="btn btn-primary">PREVIEW POST</button>
+               <button type="button " onClick={() => {navigate("/previewjob")}}  class="btn btn-primary">PREVIEW POST</button>
                <button type="button" class="btn btn-primary">CANCEL</button>
 			   <button type="button " class="btn btn-primary">POST</button>
             </div>
@@ -114,7 +117,7 @@ export default function PostAJob
 						   <h5 style={{color:"darkblue"}} className="text-center">Recruiter Details</h5>
 						   <p className="text-center">Companyname</p>
 						   <p className="text-center">companygmail@gmail.com</p>
-						   <p className="text-center"><a href="#" class="link-primary text-center">Editprofile</a></p>
+						   <p onClick={() => {navigate("/companyeditprofile")}} className="text-center"><a href="" class="link-primary text-center">Editprofile</a></p>
                         </div>
                     </div>
 				</div>

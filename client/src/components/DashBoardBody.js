@@ -2,10 +2,14 @@
  import Table from './Table'
  import JobpostedTable from './JobpostedTable'
  import SurveyTable from './SurveyTable'
+import { useNavigate } from "react-router-dom";
+
  export default function DashBoardBody() {
+  let navigate = useNavigate();
    return (
      <div className='container mt-4 mb-4'>
        <h4 style={{color:"darkblue"}}>COMPANY DASHBOARD</h4>
+      
         <div class="card shadow-sm">
             <div class="card-body">
                 <div className='d-flex' style={{gap:"4px"}}>
@@ -23,9 +27,9 @@
             </div>
             <div class="card-body" style=  {{backgroundColor:"#EEEEEE",height:"60px"}}>
                 <div className="d-flex justify-content-end gap-2">
-                     <button type="button " class="btn btn-primary">EDIT PROFILE</button>
+                     <button type="button" onClick={() => {navigate("/companyeditprofile")}} class="btn btn-primary">EDIT PROFILE</button>
                      <button type="button" class="btn btn-primary">POST SURVEYS</button>
-                     <button type="button" class="btn btn-primary">POST JOBS</button>
+                     <button onClick={() => {navigate("/postajob")}} type="button" class="btn btn-primary">POST JOBS</button>
                 </div>
            </div>
         </div>

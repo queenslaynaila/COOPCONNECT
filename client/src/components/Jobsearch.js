@@ -1,9 +1,14 @@
 import React from 'react'
 import Jobcard from './Jobcard'
+import { useNavigate } from "react-router-dom";
 export default function Jobsearch() {
+    let navigate = useNavigate();
   return (
     <div class="container">
+
       <div class="row mt-5 mb-5">
+            <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard
+            </p>
         <aside class="col-md-3">
             <div class="card">
 
