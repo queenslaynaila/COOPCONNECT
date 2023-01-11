@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../styles/login.css"
+import {useNavigate} from "react-router-dom"
 function Login({ setUser }) {
+  let navigate = useNavigate()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -54,7 +56,7 @@ function Login({ setUser }) {
             </div>
 
            <div  >
-           <button type="submit" class="btn btn-primary btn-lg btn-block" style={{width:"100%",backgroundColor: "#green"}}  >Sign in</button>
+           <button onClick={()=>{navigate("/talentdashboard")}} type="submit" class="btn btn-primary btn-lg btn-block" style={{width:"100%",backgroundColor: "#green"}}   >Sign in</button>
            </div>
 
 
