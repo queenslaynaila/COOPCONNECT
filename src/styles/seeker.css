@@ -1,0 +1,10 @@
+.dash:hover{
+    color: blue;
+}
+.companyname:hover{
+    color: indigo;
+    cursor: pointer;
+}
+.companyname{
+    color: blue;
+}

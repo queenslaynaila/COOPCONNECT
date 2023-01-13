@@ -1,0 +1,52 @@
+#profile .btn
+
+{
+        margin: 1rem;
+        padding: 0.7rem 1rem 0.7rem 1rem;
+        outline: none;
+        border: none;
+        background-color: blue;
+        color: white;
+    }
+
+    #profile #profile-content
+    {
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 0.1rem solid rgba(0,0,0,0.4);
+        padding:0.5rem;
+       
+
+    }
+    
+   #profile #profile-content .btn
+   {
+   margin-top: 1rem;
+   margin-left: 0;
+   
+   }
+
+    #profile img.profile-pic 
+    {
+        object-fit: contain;
+        border: 0.1rem solid;
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        padding: 0.2rem;
+
+    }
+
+
+
+    #profile #buttons
+    {
+        min-width: 30vw;
+        max-width: 19rem;
+    }
+    
+    #profile h1
+    {
+      margin-top: 2rem;
+    }
