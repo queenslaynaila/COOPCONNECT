@@ -1,8 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/seeker.css"
-export default function Seekerprofile() {
+export default function Seekerprofile({seeker}) {
   let navigate = useNavigate();
+  console.log(seeker)
   return (
     <div class="container">
       <div class="row gutters mt-5 mb-5">
@@ -26,16 +27,15 @@ export default function Seekerprofile() {
                     }}
                     class="circle-singleline "
                   >
-                    QJ
+                    {seeker.seeker.firstname.charAt(0)}{seeker.seeker.secondname.charAt(0)}
                   </div>
-                  <h5 class="user-name">Queenslay Jema</h5>
-                  <h6 class="user-email">queenslayjema@gmail</h6>
+                  <h5 class="user-name">{seeker.seeker.firstname}  {seeker.seeker.secondname}</h5>
+                  <h6 class="user-email">{seeker.email}</h6>
                 </div>
                 <div class="about">
                   <h5>About</h5>
                   <p>
-                    I'm Queenslay. Full Stack Designer I enjoy creating
-                    user-centric, delightful and human experiences.
+                  {seeker.seeker.about}
                   </p>
                 </div>
               </div>
