@@ -90,11 +90,7 @@ function SignUpJobSeekers({ setUser }) {
                         />
                     </div>
           </div>
-            <div class="d-flex justify-content-around align-items-center mb-4">
-
-
-              <a href="#!">Forgot password?</a>
-            </div>
+             
 
                 <div>
                   <button

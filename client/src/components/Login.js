@@ -64,10 +64,7 @@ function Login({onLoginEmployer,onLoginSeeker,setSeeker,setEmployer}) {
 
             <div class="d-flex justify-content-around align-items-center mb-4">
 
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-                <label class="form-check-label" for="form1Example3"> Remember me </label>
-              </div>
+              
               <a href="#!">Forgot password?</a>
             </div>
 

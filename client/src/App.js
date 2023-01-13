@@ -28,7 +28,7 @@ function App() {
     let navigate = useNavigate()
        const [employer , setEmployer] = useState(null)
        const [seeker,setSeeker] = useState(null)
-
+  
 
   return (
 <>
@@ -37,7 +37,7 @@ function App() {
     <Routes>
       <Route exact path="/" element={<Home/>}/>
       <Route path="/login" element={<Login onLoginEmployer={setEmployer} onLoginSeeker={setSeeker}/>}/>
-      <Route path="/signupcompanies" element={<SignCompanies/>}/>
+      <Route path="/signupcompanies" element={<SignCompanies onSignUpEmployer={setEmployer}/>}/>
       <Route path="/signuptalents" element={<SignUpJobSeekers/>}/>
       <Route path="/talentdashboard" element={<SeekerDashboard seeker={seeker} />}/>
       <Route path="/seekerprofile" element={<Seekerprofile  seeker={seeker} />}/>
