@@ -1,29 +1,35 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom"
+
 import connect from "../assets/connect.png";
-function SignUpJobSeekers({ setUser }) {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+function SignUpJobSeekers({onSignUpSeeker}) {
+  let navigate = useNavigate()
+  const [firstname, setFirstName] = useState("");
+  const [secondname, setSecondName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
     function handleSubmit(e) {
       e.preventDefault();
-      fetch("/signup", {
+      fetch("/seekersignup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          firstName,
-          lastName,
+          firstname,
+         secondname,
           email,
           password,
-          password_confirmation: passwordConfirmation,
+          passwordConfirmation,
         }),
       }).then((r) => {
         if (r.ok) {
-          r.json().then((user) => setUser(user));
+          r.json().then((seeker) =>{
+            onSignUpSeeker(seeker)
+            navigate("/talentdashboard")
+          });
         }
       });
     }
@@ -43,62 +49,86 @@ function SignUpJobSeekers({ setUser }) {
           <h4 style={{color:"darkblue"}} className="text-center">Job Seeker Registration</h4>
           <div className="row mb-2">
                     <div className="col">
-                        <input
+                        <input onChange={(e) =>{
+                         setFirstName(e.target.value)
+                          }}
                             type="text"
                             className="form-control form-control-lg"
                             id="password"
                             placeholder="First Name"
                             required
+                            value={firstname}
                         />
                     </div>
                     <div className="col">
                         <input
+                          onChange={(e) =>{
+                         setSecondName(e.target.value)
+                           }}
                             type="text"
                             className="form-control form-control-lg"
                             id="confirmPassword"
                             placeholder="Second Name"
+                            value={secondname}
                             required
                         />
                     </div>
           </div>
           <div className="col">
                         <input
+                        onChange={(e) =>{
+                     setEmail(e.target.value)
+                      }}
                             type="text"
                             className="form-control form-control-lg"
                             id="confirmPassword"
                             placeholder="Email"
+                            value={email}
                             required
                         />
            </div>
            <div className="row mt-2">
                     <div className="col">
                         <input
+                        onChange={(e) =>{
+                setPassword(e.target.value)
+                }}
                             type="text"
                             className="form-control form-control-lg"
                             id="password"
                             placeholder="Password"
+                            value = {password}
                             required
                         />
                     </div>
                     <div className="col">
                         <input
+                        onChange={(e) =>{
+                setPasswordConfirmation(e.target.value)
+                }}
                             type="text"
                             className="form-control form-control-lg"
                             id="confirmPassword"
                             placeholder="Confirm Password"
+                            value={passwordConfirmation}
                             required
                         />
                     </div>
           </div>
-             
+            <div class="d-flex justify-content-around align-items-center mb-4">
+
+
+              <a href="#!">Forgot password?</a>
+            </div>
 
                 <div>
                   <button
                     type="submit"
                     class="btn btn-primary btn-lg btn-block"
                     style={{ width: "100%" }}
+                    onClick={(e)=>{handleSubmit(e)}}
                   >
-                    Sign in
+                    Create Account
                   </button>
                 </div>
 
