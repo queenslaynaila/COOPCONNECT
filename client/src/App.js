@@ -51,7 +51,7 @@ function App() {
       <Route path="/pricing" element={<Pricing/>}/>
       <Route path="/previewjob" element={<JobPostPreview/>}/>
       <Route path="/postajob" element={<PostAJob/>}/>
-      <Route path="/viewaseeker" element={<Viewaseeker seeker={seeker} />}/>
+      <Route path="/viewaseeker" element={<Viewaseeker seeker={seeker} employer={employer} />}/>
       <Route path="*" element={<Errorpage></Errorpage>}/>
 
 

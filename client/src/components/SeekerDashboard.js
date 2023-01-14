@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-export default function SeekerDashboard() {
+export default function SeekerDashboard({seeker}) {
+  console.log(seeker)
   let navigate = useNavigate();
 
   return (
@@ -12,13 +13,14 @@ export default function SeekerDashboard() {
                <div class="p-2">
                    <div
                         style={{backgroundColor:"darkblue",  width:   "100px",  height: "100px", borderRadius: "50%",textAlign:"center",color:"white",lineHeight:"100px",fontSize:"3rem"}} class="circle-singleline ">
-                         QJ
+                         {seeker.firstname.charAt(0)}{seeker.secondname.charAt(0)}
                     </div>
                </div>
                 <div class="p-2 ml-auto p-2">
-                   <p>queenslay jema</p>
-                   <p>queenslayjema@gmail.com</p>
-                   <p>Since:09-11-2022</p></div>
+                   <p>{seeker.firstname} {seeker.secondname}</p>
+                   <p>{seeker.account.email}</p>
+                   <p>{seeker.created_at}</p>
+                  </div>
                 </div>
              </div>
           <ul class="list-group list-group-flush ">
@@ -27,7 +29,7 @@ export default function SeekerDashboard() {
                 <button type="button" onClick={() => {
                           navigate("/seekerprofile");
                         }} class="btn btn-primary float-right me-1">Edit Profile</button>
-                <button type="button " class="btn btn-primary float-right me-1">Upload Resume</button>
+                <button type="button " class="btn btn-primary float-right me-1" onClick={() => {navigate("/viewaseeker")}}>View Public Profile</button>
                 </div>
 
                 </li>

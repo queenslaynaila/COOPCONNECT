@@ -12,3 +12,7 @@
     left: 0;
     z-index: 99999;
 }
+.nav-link:hover{
+    cursor: pointer;
+    color: blue;
+}

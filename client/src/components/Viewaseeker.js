@@ -1,13 +1,15 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-export default function Viewaseeker() {
+export default function Viewaseeker({seeker,employer}) {
     let navigate = useNavigate();
   return (
     <div className='container'>
          <div class="row gutters mt-5 mb-5">
-         <p  className="dash" onClick={() => {navigate("/searchtalents")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard</p>
+          {seeker ? <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard</p>
+          : <p  className="dash" onClick={() => {navigate("/searchtalents")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard</p> }
+
             <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-            <div class="card h-100">
+            <div class="card ">
                 <div class="card-body">
                 <div class="account-settings">
                     <div class="user-profile">
@@ -40,7 +42,7 @@ export default function Viewaseeker() {
                 <div className='card'>
                   <div className='card-body'>
                     <h5 style={{ color: "darkblue" }} className='fw-bold'>Profile Summary</h5>
-                    <p>I am a fresher and a enthusiastic person to learn new things and i can easily adopt to new environment very quickly and i have some basic knowledge in C , C++ , Python , Html, , CSS and Mysql i would like to maintain my surrounding with good and positive vibes and self motivated person , in recent time me and my friend work together to make blogg our web page name is queen.com</p>
+                    <p>{seeker.about}</p>
                     <h5 style={{ color: "darkblue" }} className='fw-bold'>Key Skills</h5>
                     <ul class="list-inline">
                         <li class="list-inline-item"><i class="bi bi-check"></i>Python</li>

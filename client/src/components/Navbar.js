@@ -88,19 +88,51 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
           <>
               <ul className="navbar-nav">
                 <li className="nav-item  ">
-                  <a className="nav-link login text-dark">Dashboard</a>
+                  <a className="nav-link " onClick={()=>{
+                    navigate("/talentdashboard");
+                  }} >Dashboard</a>
                 </li>
                 <li className="nav-item  ">
-                  <a className="nav-link login text-dark">Profile</a>
+                  <a className="nav-link "onClick={()=>{
+                    navigate("/seekerprofile");
+                  }} >Profile</a>
                 </li>
                 <li className="nav-item  ">
-                  <a className="nav-link login text-dark">Search</a>
+                  <a className="nav-link "  onClick={()=>{
+                    navigate("/searchjob");
+                  }}>Search</a>
+                </li>
+                <li className="nav-item dropdown ms-sm-3 d-inline-flex">
+                  <a
+                    className="nav-link signup dropdown-toggle"
+                    href="#/"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                   More Options
+                  </a>
+                  <ul className="dropdown-menu  ">
+                    <li><a className="dropdown-item fw-bold"
+                        href="#/">Jobs aplied</a></li>
+                    <li><a className="dropdown-item fw-bold"
+                        href="#/">Saved Jobs</a></li>
+                          <li><a className="dropdown-item fw-bold"
+                        href="#/">Saved Companies</a></li>
+                         <li><a className="dropdown-item fw-bold"
+                        href="#/">Saved Internships</a></li>
+                        <li><a className="dropdown-item fw-bold"
+                        href="#/">Applied Internships</a></li>
+                         <li><a className="dropdown-item fw-bold"
+                        href="#/">Surveys Done</a></li>
+                          <li><a className="dropdown-item fw-bold"
+                        href="#/">Surveys Saved</a></li>
+                  </ul>
                 </li>
                 <li className="nav-item  ">
-                  <a className="nav-link login text-dark">More Options</a>
-                </li>
-                <li className="nav-item  ">
-                  <a className="nav-link login text-dark">Assesements</a>
+                  <a className="nav-link"  onClick={()=>{
+                    navigate("/asesement");
+                  }} >Assesements</a>
                 </li>
               </ul>
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -143,16 +175,16 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
            :  <>
               <ul className="navbar-nav">
                 <li className="nav-item  ">
-                  <a className="nav-link login text-dark">Dashboard</a>
+                  <a className="nav-link active">Dashboard</a>
                 </li>
                 <li className="nav-item  ">
-                  <a className="nav-link login text-dark">Search</a>
+                  <a className="nav-link">Search</a>
                 </li>
                 <li className="nav-item  ">
-                  <a className="nav-link login text-dark">More Options</a>
+                  <a className="nav-link">More Options</a>
                 </li>
                 <li className="nav-item  ">
-                  <a className="nav-link login text-dark">Pricing</a>
+                  <a className="nav-link ">Pricing</a>
                 </li>
               </ul>
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
