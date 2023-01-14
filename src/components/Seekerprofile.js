@@ -1,16 +1,33 @@
-import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/seeker.css"
+
 export default function Seekerprofile({seeker}) {
-  console.log(seeker)
   let navigate = useNavigate();
+  const [workExperience, setWorkExperience] = useState([    { jobTitle: "", description: "", startDate: "", endDate: "" }  ]);
+  const [education, setEducation] = useState([    { level: "", startDate: "", endDate: "", certAwarded: "", institution: "" }  ]);
+
+  const addWorkExperience = () => {
+    setWorkExperience([...workExperience, { jobTitle: "", description: "", startDate: "", endDate: ""  }]);
+  }
+
+  const addEducation = () => {
+    setEducation([...education, { level: "", startDate: "", endDate: "", certAwarded: "", institution: "" }]);
+  }
+
+  const deleteWorkExperience = (index) => {
+    setWorkExperience(workExperience.filter((_, i) => i !== index));
+  }
+
+  const deleteEducation = (index) => {
+    setEducation(education.filter((_, i) => i !== index));
+  }
+
   return (
     <div class="container">
-
       <div class="row gutters mt-5 mb-5">
-
-      <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard
-      </p>
+        <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard
+        </p>
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
           <div class="card ">
             <div class="card-body">
@@ -36,199 +53,171 @@ export default function Seekerprofile({seeker}) {
                 </div>
                 <div class="about">
                   <h5>About</h5>
-                  <p>
-                  {seeker.about}
-                  </p>
+                  <p>{seeker.about}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-
           <div class="card h-100">
-
             <div class="card-body">
-
               <div class="row gutters">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                  <h6 class="mb-2 text-primary">Personal Details</h6>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <div class="form-group">
-                    <label for="fullName">First Name</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="fullName"
-                      placeholder={seeker.firstname}
-                    ></input>
-                  </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <div class="form-group">
-                    <label for="eMail">Second Name</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="eMail"
-                      placeholder={seeker.secondname}
-                    ></input>
-                  </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <div class="form-group">
-                    <label for="phone">Phone</label>
-                    {seeker.phone ?  <input
-                      type="text"
-                      class="form-control"
-                      id="phone"
-                      placeholder={seeker.phone}
-                    ></input> : <input
-                      type="text"
-                      class="form-control"
-                      id="phone"
-                      placeholder="Enter your phonenumber"
-                    ></input>}
-
-                  </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <div class="form-group">
-                    <label for="website">Email</label>
-                    <input
-                      type="url"
-                      class="form-control"
-                      id="website"
-                      placeholder={seeker.account.email}
-                    ></input>
-                  </div>
-                </div>
-              </div>
-
-		<div class="row gutters">
-			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-				<h6 class="mt-3 mb-2 text-primary">Address</h6>
-			</div>
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="Street">Country</label>
-                 {seeker.country ?  <input
-                      class="form-control"
-                      placeholder={seeker.country}
-                    ></input> : <input
-                      type="text"
-                      class="form-control"
-                      id="phone"
-                      placeholder="Enter your country"
-                    ></input>}
-
-				</div>
-			</div>
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="ciTy">City</label>
-          {seeker.city ? <input type="name" class="form-control" id="ciTy" placeholder={seeker.city}></input>:<input type="name" class="form-control" id="ciTy" placeholder="Update City LOcation"></input>}
-
-				</div>
-			</div>
-
-		</div>
-        <div class="row gutters">
-			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-				<h6 class="mb-2 text-primary">Education</h6>
-			</div>
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="fullName">Level</label>
-					<input type="text" class="form-control" id="fullName" placeholder="Enter full name"></input>
-				</div>
-			</div>
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="eMail">Start Date</label>
-					<input type="email" class="form-control" id="eMail" placeholder="Enter email ID"></input>
-				</div>
-			</div>
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="phone">End Date</label>
-					<input type="text" class="form-control" id="phone" placeholder="Enter phone number"></input>
-				</div>
-			</div>
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="website">Cert Awarded</label>
-					<input type="url" class="form-control" id="website" placeholder="Website url"></input>
-				</div>
-			</div>
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="website">Institution</label>
-					<input type="url" class="form-control" id="website" placeholder="Website url"></input>
-				</div>
-			</div>
-
-		</div>
-        <div class="row gutters">
-			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-				<h6 class="mb-2 text-primary">Work Experience</h6>
-			</div>
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="fullName">Job Title</label>
-					<input type="text" class="form-control" id="fullName" placeholder="Enter full name"></input>
-				</div>
-			</div>
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="eMail">Description</label>
-					<input type="email" class="form-control" id="eMail" placeholder="Enter email ID"></input>
-				</div>
-			</div>
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="phone">Start Date</label>
-					<input type="text" class="form-control" id="phone" placeholder="Enter phone number"></input>
-				</div>
-			</div>
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="phone">End Date</label>
-					<input type="text" class="form-control" id="phone" placeholder="Enter phone number"></input>
-				</div>
-			</div>
-
-
-
-		</div>
-
-         <div className='row gutters'>
-		     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-			   <h6 class="mb-2 text-primary">About Me</h6>
-			   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-			       <div class="mb-3">
-
-                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <h6 class="mb-2 text-primary">Work Experience</h6>
+                  <button onClick={addWorkExperience}>Add</button>
+                  {workExperience.map((wkp, index) => (
+                    <div key={index}>
+                      <div class="form-group">
+                        <label for="job-title">Job Title</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="job-title"
+                          placeholder="Enter job title"
+                          value={wkp.jobTitle}
+                          onChange={e => {
+                            const newWorkExperience = [...workExperience];
+                            newWorkExperience[index].jobTitle = e.target.value;
+                            setWorkExperience(newWorkExperience);
+                          }}
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="description">Description</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="description"
+                          placeholder="Enter Description"
+                          value={wkp.description}
+                          onChange={e => {
+                            const newWorkExperience = [...workExperience];
+                            newWorkExperience[index].description = e.target.value;
+                            setWorkExperience(newWorkExperience);
+                          }}
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="startDate">Start Date</label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="startDate"
+                          value={wkp.startDate}
+                          onChange={e => {
+                            const newWorkExperience = [...workExperience];
+                            newWorkExperience[index].startDate = e.target.value;
+                            setWorkExperience(newWorkExperience);
+                          }}
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="endDate">End Date</label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="endDate"
+                          value={wkp.endDate}
+                          onChange={e => {
+                            const newWorkExperience = [...workExperience];
+                            newWorkExperience[index].endDate = e.target.value;
+                            setWorkExperience(newWorkExperience);
+                          }}
+                        />
+                      </div>
+                      <button onClick={() => deleteWorkExperience(index)}>Delete</button>
                     </div>
-			   </div>
-			 </div>
-		 </div>
-		 <div class="row gutters">
-			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-				<div class="text-right">
-					<button type="button" onClick={() => {navigate("/talentdashboard")}} id="submit" name="submit" class="btn btn-secondary me-1 mt-1">Cancel</button>
-					<button type="button" id="submit" name="submit" class="btn btn-primary me-1 mt-1" >Update</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-  )
-}
+                  ))}
+                </div>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <h6 class="mb-2 text-primary">Education</h6>
+                <button onClick={addEducation}>Add</button>
+                {education.map((edu, index) => (
+                <div key={index}>
+                <div class="form-group">
+                <label for="level">Level</label>
+                <input
+                type="text"
+                class="form-control"
+                id="level"
+                placeholder="Enter level of education"
+                value={edu.level}
+                onChange={e => {
+                const newEducation = [...education];
+                newEducation[index].level = e.target.value;
+                setEducation(newEducation);
+                }}
+                />
+                </div>
+                <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <input
+                type="date"
+                class="form-control"
+                id="startDate"
+                value={edu.startDate}
+                onChange={e => {
+                const newEducation = [...education];
+                newEducation[index].startDate = e.target.value;
+                setEducation(newEducation);
+                }}
+                />
+                </div>
+                <div class="form-group">
+                <label for="endDate">End Date</label>
+                <input
+                type="date"
+                class="form-control"
+                id="endDate"
+                value={edu.endDate}
+                onChange={e => {
+                const newEducation = [...education];
+                newEducation[index].endDate = e.target.value;
+                setEducation(newEducation);
+                }}
+                />
+                </div>
+                <div class="form-group">
+                <label for="certAwarded">Certificate/Degree Awarded</label>
+                <input
+                type="text"
+                class="form-control"
+                id="certAwarded"
+                placeholder="Enter certificate/degree awarded"
+                value={edu.certAwarded}
+                onChange={e => {
+                const newEducation = [...education];
+                newEducation[index].certAwarded = e.target.value;
+                setEducation(newEducation);
+                }}
+                />
+                
+                </div>
+                <div class="form-group">
+                <label for="institution">Institution</label>
+                <input
+                type="text"
+                class="form-control"
+                id="institution"
+                placeholder="Enter institution"
+                value={edu.institution}
+                onChange={e => {
+                const newEducation = [...education];
+                newEducation[index].institution = e.target.value;
+                setEducation(newEducation);
+                }}
+                />
+                </div>
+                <button onClick={() => deleteEducation(index)}>Delete</button>
+                </div>
+                ))}
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                );
+                }
