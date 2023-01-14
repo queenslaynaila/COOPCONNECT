@@ -29,11 +29,6 @@ function App() {
        const [employer , setEmployer] = useState(null)
        const [seeker,setSeeker] = useState(null)
 
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
 
   return (
 <>
