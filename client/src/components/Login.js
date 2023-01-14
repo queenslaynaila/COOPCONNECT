@@ -1,26 +1,38 @@
 import React, { useState } from "react";
 import "../styles/login.css"
 import {useNavigate} from "react-router-dom"
-function Login({ setUser }) {
+function Login({onLoginEmployer,onLoginSeeker,setSeeker,setEmployer}) {
+  let link ="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
   let navigate = useNavigate()
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState([]);
   function handleSubmit(e) {
-    e.preventDefault();
-    fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
+    e.preventDefault()
+    fetch('/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email,password})
+  })
+  .then((r)=>{
+      if(r.ok){
+          r.json().then((user)=>{
+             if (user.user_type === "Employer"){
+              onLoginEmployer(user)
+              navigate('/employerdash')
+            }
+             else{
+               onLoginSeeker(user)
+               navigate("/talentdashboard")
+            }
+          })
+      }else{
+          r.json().then((err) => setErrors(err.errors))
       }
-    });
+  })
   }
- let link ="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+
+
   return (
     <section class="vh-80">
     <div class="container py-5 h-100">
@@ -35,28 +47,29 @@ function Login({ setUser }) {
 
             <div class="form-outline mb-4">
             <label class="form-label" for="form1Example13">Email address:</label>
-              <input type="email" id="form1Example13" class="form-control form-control-lg" />
-
+              <input onChange={(e) =>{
+                setEmail(e.target.value)
+                setErrors(null)
+                }} value={email} type="email" id="form1Example13" class="form-control form-control-lg" required />
             </div>
 
 
             <div class="form-outline mb-4">
               <label class="form-label" for="form1Example23">Password:</label>
-              <input type="password" id="form1Example23" class="form-control form-control-lg" />
-
+              <input  onChange={(e) =>{
+                setPassword(e.target.value)
+                setErrors(null)
+                }} type="password" id="form1Example23" class="form-control form-control-lg" required />
             </div>
 
             <div class="d-flex justify-content-around align-items-center mb-4">
 
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-                <label class="form-check-label" for="form1Example3"> Remember me </label>
-              </div>
+
               <a href="#!">Forgot password?</a>
             </div>
 
            <div  >
-           <button onClick={()=>{navigate("/talentdashboard")}} type="submit" class="btn btn-primary btn-lg btn-block" style={{width:"100%",backgroundColor: "#green"}}   >Sign in</button>
+           <button  onClick={(e)=>handleSubmit(e)} type="submit" class="btn btn-primary btn-lg btn-block" style={{width:"100%",backgroundColor: "#green"}}  >Sign in</button>
            </div>
 
 
@@ -64,11 +77,11 @@ function Login({ setUser }) {
               <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
             </div>
              <div>
-            <a class="btn btn-primary btn-lg btn-block mb-1" style={{backgroundColor: "#3b5998",width:"100%"}} href="#!"
+            <a   onClick={()=>{navigate("/signuptalents")}} class="btn btn-primary btn-lg btn-block mb-1" style={{backgroundColor: "#3b5998",width:"100%"}} href="#!"
               role="button">
               Sign Up As JobSeeker
             </a>
-            <a class="btn btn-primary btn-lg btn-block"    style={{backgroundColor: " #55acee",width:"100%"}} href="#!"
+            <a class="btn btn-primary btn-lg btn-block"  onClick={()=>{navigate("/signupcompanies")}}  style={{backgroundColor: " #55acee",width:"100%"}} href="#!"
               role="button">
                Sign Up As  Company</a>
 </div>
