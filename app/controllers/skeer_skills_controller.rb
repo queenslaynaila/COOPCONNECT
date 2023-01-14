@@ -1,5 +1,5 @@
 class SkeerSkillsController < ApplicationController
-    before_action :set_seekerskill, only: [:show, :edit, :update, :destroy]
+  before_action :set_seekerskill, only: [:show, :edit, :update, :destroy]
 
   def index
     @seekerskills = Seekerskill.all
@@ -14,11 +14,12 @@ class SkeerSkillsController < ApplicationController
 
   def edit
   end
+
   def create
     @seekerskill = Seekerskill.new(seekerskill_params)
 
     if @seekerskill.save
-      redirect_to @seekerskill, notice: 'Seekerskill was successfully created.'
+      redirect_to @seekerskill, notice: "Seekerskill was successfully created."
     else
       render :new
     end
@@ -26,7 +27,7 @@ class SkeerSkillsController < ApplicationController
 
   def update
     if @seekerskill.update(seekerskill_params)
-      redirect_to @seekerskill, notice: 'Seekerskill was successfully updated.'
+      redirect_to @seekerskill, notice: "Seekerskill was successfully updated."
     else
       render :edit
     end
@@ -34,15 +35,16 @@ class SkeerSkillsController < ApplicationController
 
   def destroy
     @seekerskill.destroy
-    redirect_to seekerskills_url, notice: 'Seekerskill was successfully destroyed.'
+    redirect_to seekerskills_url, notice: "Seekerskill was successfully destroyed."
   end
 
   private
-    def set_seekerskill
-      @seekerskill = Seekerskill.find(params[:id])
-    end
 
-    def seekerskill_params
-      params.require(:seekerskill).permit(:jobseeker_id, :skillname)
-    end
+  def set_seekerskill
+    @seekerskill = Seekerskill.find(params[:id])
+  end
+
+  def seekerskill_params
+    params.require(:seekerskill).permit(:jobseeker_id, :skillname)
+  end
 end

@@ -1,3 +1,4 @@
+# Resolving dependencies...
 class CreateJobseekers < ActiveRecord::Migration[7.0]
   def change
     create_table :jobseekers do |t|
@@ -8,7 +9,6 @@ class CreateJobseekers < ActiveRecord::Migration[7.0]
       t.string :preferred_contact_method
       t.text :about
       t.string :experience
-
 
       t.timestamps
     end
