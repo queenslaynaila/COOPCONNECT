@@ -1,17 +1,20 @@
 import React, {useEffect, useState} from 'react'
 import Jobcard from './Jobcard'
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate  } from "react-router-dom";
+// import { useEffect,useState } from 'react';
 export default function Jobsearch() {
-    const [jobs, setJobs] = useState([])
-    const navigate = useNavigate();
-
-    useEffect(() => { fetch('/jobs').then(r => r.json()).then(data=>setJobs(data))}, [])
-    const cards = jobs.map(job => <Jobcard key={job.id} job={job} />)
-
-    return (
+let navigate = useNavigate();
+const [jobs,setJobs] = useState([])
+useEffect(()=>{
+    fetch("/jobs")
+    .then((r)=>{
+        r.json().then((res)=>setJobs(res))
+    })
+  },[])
+  console.log(jobs)
+  return (
     <div class="container">
-        <div class="row mt-5 mb-5">
+      <div class="row mt-5 mb-5">
             <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard
             </p>
             <aside class="col-md-3">
@@ -72,7 +75,10 @@ export default function Jobsearch() {
                 </div>
                 </div>
             </header>
-            {cards}
+
+            {jobs.map(job=> <Jobcard job={job}/>)}
+
+              
 
         </main>
       </div>

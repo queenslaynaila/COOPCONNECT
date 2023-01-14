@@ -1,15 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/seeker.css"
-export default function Seekerprofile() {
+export default function Seekerprofile({seeker}) {
+  console.log(seeker)
   let navigate = useNavigate();
   return (
     <div class="container">
+
       <div class="row gutters mt-5 mb-5">
+
       <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard
       </p>
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-          <div class="card h-100">
+          <div class="card ">
             <div class="card-body">
               <div class="account-settings">
                 <div class="user-profile">
@@ -26,16 +29,15 @@ export default function Seekerprofile() {
                     }}
                     class="circle-singleline "
                   >
-                    QJ
+                    {seeker.firstname.charAt(0)}{seeker.secondname.charAt(0)}
                   </div>
-                  <h5 class="user-name">Queenslay Jema</h5>
-                  <h6 class="user-email">queenslayjema@gmail</h6>
+                  <h5 class="user-name">{seeker.firstname} {seeker.secondname}</h5>
+                  <h6 class="user-email">{seeker.account.email}</h6>
                 </div>
                 <div class="about">
                   <h5>About</h5>
                   <p>
-                    I'm Queenslay. Full Stack Designer I enjoy creating
-                    user-centric, delightful and human experiences.
+                  {seeker.about}
                   </p>
                 </div>
               </div>
@@ -43,8 +45,11 @@ export default function Seekerprofile() {
           </div>
         </div>
         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+
           <div class="card h-100">
+
             <div class="card-body">
+
               <div class="row gutters">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                   <h6 class="mb-2 text-primary">Personal Details</h6>
@@ -56,7 +61,7 @@ export default function Seekerprofile() {
                       type="text"
                       class="form-control"
                       id="fullName"
-                      placeholder="Enter full name"
+                      placeholder={seeker.firstname}
                     ></input>
                   </div>
                 </div>
@@ -67,19 +72,25 @@ export default function Seekerprofile() {
                       type="email"
                       class="form-control"
                       id="eMail"
-                      placeholder="Enter email ID"
+                      placeholder={seeker.secondname}
                     ></input>
                   </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div class="form-group">
                     <label for="phone">Phone</label>
-                    <input
+                    {seeker.phone ?  <input
                       type="text"
                       class="form-control"
                       id="phone"
-                      placeholder="Enter phone number"
-                    ></input>
+                      placeholder={seeker.phone}
+                    ></input> : <input
+                      type="text"
+                      class="form-control"
+                      id="phone"
+                      placeholder="Enter your phonenumber"
+                    ></input>}
+
                   </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -89,7 +100,7 @@ export default function Seekerprofile() {
                       type="url"
                       class="form-control"
                       id="website"
-                      placeholder="Website url"
+                      placeholder={seeker.account.email}
                     ></input>
                   </div>
                 </div>
@@ -102,13 +113,23 @@ export default function Seekerprofile() {
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="Street">Country</label>
-					<input type="name" class="form-control" id="Street" placeholder="Enter Street"></input>
+                 {seeker.country ?  <input
+                      class="form-control"
+                      placeholder={seeker.country}
+                    ></input> : <input
+                      type="text"
+                      class="form-control"
+                      id="phone"
+                      placeholder="Enter your country"
+                    ></input>}
+
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="ciTy">City</label>
-					<input type="name" class="form-control" id="ciTy" placeholder="Enter City"></input>
+          {seeker.city ? <input type="name" class="form-control" id="ciTy" placeholder={seeker.city}></input>:<input type="name" class="form-control" id="ciTy" placeholder="Update City LOcation"></input>}
+
 				</div>
 			</div>
 
@@ -196,8 +217,8 @@ export default function Seekerprofile() {
 		 <div class="row gutters">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<div class="text-right">
-					<button type="button" id="submit" name="submit" class="btn btn-secondary me-1 mt-1">Cancel</button>
-					<button type="button" id="submit" name="submit" class="btn btn-primary me-1 mt-1">Update</button>
+					<button type="button" onClick={() => {navigate("/talentdashboard")}} id="submit" name="submit" class="btn btn-secondary me-1 mt-1">Cancel</button>
+					<button type="button" id="submit" name="submit" class="btn btn-primary me-1 mt-1" >Update</button>
 				</div>
 			</div>
 		</div>

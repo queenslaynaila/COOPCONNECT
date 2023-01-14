@@ -130,6 +130,10 @@ GEM
     nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+<<<<<<< HEAD
+=======
+    pg (1.4.5)
+>>>>>>> origin/employeedashboard
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.1)

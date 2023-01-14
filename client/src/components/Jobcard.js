@@ -1,15 +1,8 @@
 import React from 'react'
-import { useNavigate} from "react-router-dom";
-import Viewjob from './Viewjob';
-
+import { useNavigate } from "react-router-dom";
 export default function Jobcard({job}) {
-  const navigate = useNavigate();
-
-  const handleClick = id => {
-    fetch(`/jobs/${id}`).then(r => r.json()).then(job1=> <Viewjob job={job1} />)
-    navigate('/viewjob')
-  }
-
+  console.log(job)
+  let navigate = useNavigate();
   return (
     <div class="card mt-3"  >
         <div class="card-body">
@@ -20,20 +13,18 @@ export default function Jobcard({job}) {
                   TS
                 </div>
                 <div>
-                    <p>{job.jobtitle}</p>
-                    <p className='fw-bold companyname' onClick={() => {navigate("/viewcompany")}}    >
-                    {job.employer.name}
-                    </p>
+                    <p>{job.employer.name}</p>
+                    <p className='fw-bold companyname' onClick={() => {navigate("/viewcompany")}}    >{job.employer.companytype}</p>
                 </div>
           </div>
           <div className='d-flex flex-row' style={{gap:"25px"}}>
-                <div><span className='fw-bold'>Opennings:</span>&nbsp;&nbsp; {job.positionsavailable}</div>
-                <div><span className='fw-bold'>Category:</span>&nbsp;&nbsp; {job.category.name}</div>
-                <div><span className='fw-bold'> Salary Range</span>:&nbsp;&nbsp; {job.minsalary}-{job.maximumsalary}</div>
+                <div><span className='fw-bold'>Opennings:</span>&nbsp;&nbsp;{job.positionsavailable}</div>
+                <div><span className='fw-bold'>Category:</span>&nbsp;&nbsp;{job.category.name}</div>
+                <div><span className='fw-bold'> Salary Range</span>:&nbsp;&nbsp;{job.minsalary}-{job.maximumsalary}</div>
           </div>
 
           <div className='mt-1'>
-            <p>{job.responsibilities}</p>
+            <p>{job.overallsummarry}</p>
           </div>
         </div>
         <div class="card-body d-flex flex-row justify-content-between"
@@ -44,7 +35,7 @@ export default function Jobcard({job}) {
           <div>
             {/* <a href="#" class="card-link" onClick={() => {navigate("/viewjob")}} >View Job</a>
             <a href="#" class="card-link">Save Job</a> */}
-            <button onClick={e => handleClick(job.id)} > View Job</button>
+            <button  > View Job</button>
             <button> Save Job</button>
           </div>
         </div>

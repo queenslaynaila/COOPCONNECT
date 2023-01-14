@@ -1,6 +1,5 @@
-import React from "react";
-import CompanyProfile from "./reusableComponents/CompanyProfile";
-import ContainerOutline from "./reusableComponents/ContainerOutline";
+import React from 'react'
+ 
 
 function ViewCompany() {
   return (
