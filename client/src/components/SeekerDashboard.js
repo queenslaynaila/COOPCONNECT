@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 export default function SeekerDashboard({seeker}) {
-  console.log(seeker)
+  console.log(seeker.jobapplications.length)
   let navigate = useNavigate();
 
   return (
@@ -39,10 +39,10 @@ export default function SeekerDashboard({seeker}) {
         <div class="row">
          <div class="col-lg-3 mt-4">
             <div style={{maxWidth: "18rem"}} class="card card-block card-outline-primary">
-                <p class="card-text">0&nbsp;
+                <p class="card-text">{seeker.jobapplications.length}&nbsp;
                     <a href="#" class=" float-right">Jobs applied</a>
                 </p>
-                <p class="card-text">0&nbsp;
+                <p class="card-text">{seeker.savedjobs.length}&nbsp;
                     <a href="#" class=" float-right">Jobs Saved </a>
                 </p>
             </div>
@@ -52,7 +52,7 @@ export default function SeekerDashboard({seeker}) {
                 <p class="card-text">0&nbsp;
                     <a href="#" class=" float-right">Internships applied</a>
                 </p>
-                <p class="card-text">0&nbsp;
+                <p class="card-text">{seeker.savedinternships.length}&nbsp;
                     <a href="#" class=" float-right">Internships Saved </a>
                 </p>
             </div>
@@ -62,7 +62,7 @@ export default function SeekerDashboard({seeker}) {
                 <p class="card-text">0&nbsp;
                     <a href="#" class=" float-right">Companies applied</a>
                 </p>
-                <p class="card-text">0&nbsp;
+                <p class="card-text">{seeker.savedcompanies.length}&nbsp;
                     <a href="#" class=" float-right">Companies Saved </a>
                 </p>
             </div>

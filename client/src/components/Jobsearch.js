@@ -1,11 +1,19 @@
 import React from 'react'
 import Jobcard from './Jobcard'
-import { useNavigate } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
+import { useEffect,useState } from 'react';
 export default function Jobsearch() {
-    let navigate = useNavigate();
+let navigate = useNavigate();
+const [jobs,setJobs] = useState([])
+useEffect(()=>{
+    fetch("/jobs")
+    .then((r)=>{
+        r.json().then((res)=>setJobs(res))
+    })
+  },[])
+  console.log(jobs)
   return (
     <div class="container">
-
       <div class="row mt-5 mb-5">
             <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard
             </p>
@@ -70,8 +78,9 @@ export default function Jobsearch() {
                     </div>
             </header>
 
-               <Jobcard></Jobcard>
-               <Jobcard></Jobcard>
+            {jobs.map(job=> <Jobcard job={job}/>)}
+
+              
 
         </main>
       </div>
