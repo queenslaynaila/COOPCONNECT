@@ -6,17 +6,17 @@ export default function PostAJob
 () {
 	let navigate = useNavigate();
 	const [formData, setFormData] = useState({
-		organizationname: "",
-		experience: "",
-		position: "",
+		jobtitle: "",
+		experienceinyears: "",
 		positionavailable: "",
 		minsalary: "",
-		maxsalary: "",
-		education: "",
-		jobresponsibilities: "",
+		maximumsalary: "",
+		minimumeducationallevel: "",
+		responsibilities: "",
 		keyskills: "",
-		joblocation:"",
+		location:"",
 		senioritylevel: "",
+		overallsummarry: "",
 	  });
 	
 	  const handleChange = (event) => {
@@ -37,17 +37,17 @@ export default function PostAJob
 	
 	  const handleCancel = () => {
 		setFormData({
-		  organizationname: "",
-		  experience: "",
-		  position: "",
+		  jobtitle: "",
+		  experienceinyears: "",
 		  positionavailable: "",
 		  minsalary: "",
-		  maxsalary: "",
-		  education: "",
-		  jobresponsibilities: "",
+		  maximumsalary: "",
+		  minimumeducationallevel: "",
+		  responsibilities: "",
 		  keyskills: "",
-		  joblocation:"",
+		  location:"",
 		  senioritylevel: "",
+		  overallsummarry: "",
 		});
 	  };
   return (
@@ -63,17 +63,17 @@ export default function PostAJob
 			  <div className='row'>
 					<div className='col'>
 				     	<div class="mb-3">
-							<label htmlFor="organizationname" class="form-label fs-5 ">Organization Name:</label>
-							<input type="text" id="organizationname" class="form-control" name='organizationname'
-                        value={formData.organizationname}
+							<label htmlFor="jobtitle" class="form-label fs-5 ">Job Title:</label>
+							<input type="text" id="jobtitle" class="form-control" name='jobtitle'
+                        value={formData.jobtitle}
                         onChange={handleChange}></input>
 						</div>
 					</div>
 					<div className='col'>
 					   <div class="mb-3">
-							<label htmlFor="experience" class="form-label fs-5">Experience in Years:</label>
-							<input type="text" id="experience" class="form-control" name='experience'
-                            value={formData.experience}
+							<label htmlFor="experienceinyears" class="form-label fs-5">experienceinyears in Years:</label>
+							<input type="text" id="experienceinyears" class="form-control" name='experienceinyears'
+                            value={formData.experienceinyears}
                             onChange={handleChange}></input>
                        </div>
 					</div>
@@ -81,14 +81,14 @@ export default function PostAJob
 
 
 			  <div className='row'>
-				<div className='col'>
+				{/* <div className='col'>
 				  <div class="mb-3">
 			    <label htmlFor="position" class="form-label fs-5">Position:</label>
 				<input type="text" id="position" class="form-control"        name='position'
                     value={formData.position}
                     onChange={handleChange}></input>
                   </div>
-				</div>
+				</div> */}
 				<div className='col'>
 				  <div class="mb-3">
 			    <label htmlFor="positionavailable" class="form-label fs-5">Positions Available:</label>
@@ -111,22 +111,22 @@ export default function PostAJob
 				<div className='col'>
 				  <div class="mb-3">
 					<label htmlFor="minsalary" class="form-label fs-5">Maximum Slary:</label>
-					<input type="text" id="minsalary" class="form-control" name='maxsalary'
-                    value={formData.maxsalary}
+					<input type="text" id="minsalary" class="form-control" name='maximumsalary'
+                    value={formData.maximumsalary}
                     onChange={handleChange}></input>
                    </div>
 				</div>
 			 </div>
 			 <div className='row'>
 				<div className='col'>
-				<label htmlFor='education' class='form-label fs-5'>
-                    Minimum Educational Qualifications:
+				<label htmlFor='minimumeducationallevel' class='form-label fs-5'>
+                    Minimum minimumeducationallevelal Qualifications:
                   </label>
 				<select
                     class='form-select form-select-lg mb-3'
                     aria-label='.form-select-lg example'
-                    name='education'
-                    value={formData.education}
+                    name='minimumeducationallevel'
+                    value={formData.minimumeducationallevel}
                     onChange={handleChange}
                   >
 				<option selected >Select</option>
@@ -138,7 +138,7 @@ export default function PostAJob
                   </select>
 				</div>
 				<div className='col'>
-				<label htmlFor='education' class='form-label fs-5'>
+				<label htmlFor='minimumeducationallevel' class='form-label fs-5'>
 				      Seniority Level:
                   </label>
 				<select
@@ -160,9 +160,9 @@ export default function PostAJob
 			 <div className='row'>
 			   <div className='col'>
 					<div class="mb-3">
-						<label htmlFor="joblocation" class="form-label fs-5">Job Location:</label>
-						<input type="text" id="joblocation" class="form-control" name='joblocation'
-                        value={formData.joblocation}
+						<label htmlFor="location" class="form-label fs-5">Job Location:</label>
+						<input type="text" id="location" class="form-control" name='location'
+                        value={formData.location}
                         onChange={handleChange}></input>
 					</div>
 				</div>
@@ -176,9 +176,15 @@ export default function PostAJob
 				</div>
 			  </div>
 			  <div class="form-group">
+				<label for="exampleFormControlTextarea1" className='fs-5'>Overall Summarry</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" placeholder='Enter job overall summary,searate them with commas' rows="3"   name='overallsummarry'
+                 value={formData.overallsummarry}
+                 onChange={handleChange}></textarea>
+             </div>
+			  <div class="form-group">
 				<label for="exampleFormControlTextarea1" className='fs-5'>Job Responsibilities</label>
-				<textarea class="form-control" id="exampleFormControlTextarea1" placeholder='Enter job responsibilities,searate them with commas' rows="3"   name='jobresponsibilities'
-                 value={formData.jobresponsibilities}
+				<textarea class="form-control" id="exampleFormControlTextarea1" placeholder='Enter job responsibilities,searate them with commas' rows="3"   name='responsibilities'
+                 value={formData.responsibilities}
                  onChange={handleChange}></textarea>
              </div>
 			</form>

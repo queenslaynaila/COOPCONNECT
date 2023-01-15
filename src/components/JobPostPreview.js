@@ -34,7 +34,7 @@ navigate("/employerdash");
             <div class="card-body">
               <div>
                     <div>
-                    <h6 style={{ color: "darkblue" }} className='fw-bold'>{jobPost.organizationname}</h6>
+                    <h6 style={{ color: "darkblue" }} className='fw-bold'>{jobPost.jobtitle}</h6>
                       <p>Salary Range:{jobPost.minsalary}-{jobPost.maxsalary}</p>
                       <p>Positions Available:{jobPost.positionavailable}</p>
                       <p>Location: {jobPost.location}</p>

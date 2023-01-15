@@ -26,7 +26,7 @@ function CompanyEditProfile() {
     
     const handleSubmit = (event) => {
     event.preventDefault();
-    axios.patch('/company', formData)
+    axios.patch('/employers/:id', formData)
     .then(response => {
     console.log(response);
     navigate("/employerdash");
