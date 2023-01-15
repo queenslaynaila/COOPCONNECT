@@ -13,29 +13,37 @@ function SignUpJobSeekers({onSignUpSeeker}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-
+  const [errors, setErrors] = useState([]);
     function handleSubmit(e) {
       e.preventDefault();
-      fetch("/seekersignup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          firstname,
-         secondname,
-          email,
-          password,
-          passwordConfirmation,
-        }),
-      }).then((r) => {
-        if (r.ok) {
-          r.json().then((seeker) =>{
-            onSignUpSeeker(seeker)
-            navigate("/talentdashboard")
-          });
-        }
-      });
+      if (password === passwordConfirmation ){
+        fetch("/seekersignup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            firstname,
+           secondname,
+            email,
+            password,
+            passwordConfirmation,
+          }),
+        }).then((r) => {
+          if (r.ok) {
+            r.json().then((seeker) =>{
+              onSignUpSeeker(seeker)
+              navigate("/talentdashboard")
+            });
+          }else{
+            r.json().then((err) => {
+              setErrors((err))
+            })}
+        });
+      } else {
+         setErrors({passwordconfirmation:"passwords dont match"})
+      }
+
     }
 
   return(
@@ -55,6 +63,7 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                     <div className="col">
                         <input onChange={(e) =>{
                          setFirstName(e.target.value)
+                         setErrors([])
                           }}
                             type="text"
                             className="form-control form-control-lg"
@@ -62,12 +71,15 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                             placeholder="First Name"
                             required
                             value={firstname}
+
                         />
+                          {errors.firstname ? <p className="text-danger">{`firstname: ${errors.firstname}`}</p>:null}
                     </div>
                     <div className="col">
                         <input
                           onChange={(e) =>{
                          setSecondName(e.target.value)
+                         setErrors([])
                            }}
                             type="text"
                             className="form-control form-control-lg"
@@ -76,12 +88,14 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                             value={secondname}
                             required
                         />
+                          {errors.secondname ? <p className="text-danger">{`secondname: ${errors.secondname}`}</p>:null}
                     </div>
              </div>
              <div className="col ">
                         <input
                         onChange={(e) =>{
                      setEmail(e.target.value)
+                     setErrors([])
                       }}
                             type="text"
                             className="form-control form-control-lg"
@@ -90,6 +104,7 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                             value={email}
                             required
                         />
+                        {errors.email? <p className="text-danger">{`email: ${errors.email}`}</p>:null}
              </div>
              <div className="col mt-2">
                 <select style={{color:"gray"}} class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
@@ -97,6 +112,7 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
+               {errors.gender ? <p  className="text-danger">{`gender: ${errors.gender}`}</p>:null}
              </div>
              <div className="row mt-2">
              <small style={{color:"grey"}}>ENTER DOB IN dd/mm/yyyy</small>
@@ -106,10 +122,12 @@ function SignUpJobSeekers({onSignUpSeeker}) {
 
                           selected={startDate}
                           placeholderText="Choose DOB in dd/mm/yyyy"
-                          onChange={date => setStartDate(date)}
+                          onChange={date => {
+                          setErrors([])
+                         setStartDate(date)}}
                            name="startDate"
                            dateFormat="dd/MM/yyyy" />
-
+                        {errors.yearofbirth ? <p  className="text-danger">{`dateofbirth: ${errors.yearofbirth}`}</p>:null}
                     </div>
              </div>
              <div className="row mt-2">
@@ -117,6 +135,7 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                         <input
                         onChange={(e) =>{
                 setPassword(e.target.value)
+                setErrors([])
                 }}
                             type="text"
                             className="form-control form-control-lg"
@@ -130,6 +149,7 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                         <input
                         onChange={(e) =>{
                 setPasswordConfirmation(e.target.value)
+                setErrors([])
                 }}
                             type="text"
                             className="form-control form-control-lg"
@@ -138,7 +158,11 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                             value={passwordConfirmation}
                             required
                         />
+
+
                     </div>
+                    {errors.passwordconfirmation? <p className="text-danger">{` ${errors.passwordconfirmation}`}</p>:null}
+                    {errors.password? <p className="text-danger">{`paswword: ${errors.password}`}</p>:null}
              </div>
              <div class="d-flex justify-content-around align-items-center mb-4">
 
