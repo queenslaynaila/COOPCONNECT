@@ -23,6 +23,9 @@ import SearchTalent from "./components/SearchTalents";
 import  Pricing from "./components/pricing";
 import PostAJob from "./components/PostAJob";
 import Viewaseeker from "./components/Viewaseeker";
+import JobApplied from './components/JobsApplied';
+import JobsSaved from './components/JobsSaved';
+import CompaniesSaved from './components/CompaniesSaved';
 
 function App() {
     let navigate = useNavigate()
@@ -53,9 +56,9 @@ function App() {
       <Route path="/postajob" element={<PostAJob/>}/>
       <Route path="/viewaseeker" element={<Viewaseeker seeker={seeker} employer={employer} />}/>
       <Route path="*" element={<Errorpage></Errorpage>}/>
-
-
-
+      <Route path='/jobsapplied' element={<JobApplied></JobApplied>}/>
+      <Route path="/jobssaved" element = {<JobsSaved></JobsSaved>}/>
+      <Route path="/companiessaved" element={<CompaniesSaved></CompaniesSaved>}/>
     </Routes>
 
 

@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Jobcard from './Jobcard'
 import { useNavigate  } from "react-router-dom";
-import { useEffect,useState } from 'react';
+// import { useEffect,useState } from 'react';
 export default function Jobsearch() {
 let navigate = useNavigate();
 const [jobs,setJobs] = useState([])
@@ -17,7 +17,7 @@ useEffect(()=>{
       <div class="row mt-5 mb-5">
             <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard
             </p>
-        <aside class="col-md-3">
+            <aside class="col-md-3">
             <div class="card">
 
                 <article class="filter-group">
@@ -29,14 +29,12 @@ useEffect(()=>{
                     </header>
                     <div class="filter-content collapse show" id="collapse_2"  >
                         <div class="card-body">
-                         <p>Marketing</p>
-                         <p>Software Engineering</p>
-                         <p>Customer Service</p>
-                         <p>Care Jobs</p>
-                         <p>Analytics</p>
-
-
-                </div>
+                        <p>Marketing</p>
+                        <p>Software Engineering</p>
+                        <p>Customer Service</p>
+                        <p>Care Jobs</p>
+                        <p>Analytics</p>
+                    </div>
                     </div>
                 </article>
                 <article class="filter-group">
@@ -67,15 +65,15 @@ useEffect(()=>{
             </div>
         </aside>
         <main class="col-md-9">
-            <header  >
-                    <div class="form-inline">
-                        <div class="input-group">
-	                        <input id="search-input" type="search" class="form-control" placeholder="Search a job, company..."></input>
-                            <button id="search-button" type="button" class="btn btn-primary">
-                                   <i class="fa fa-search"></i>
-  	                        </button>
-                        </div>
-                    </div>
+            <header>
+                <div class="form-inline">
+                <div class="input-group">
+	                <input id="search-input" type="search" class="form-control" placeholder="Search a job, company..."></input>
+                    <button id="search-button" type="button" class="btn btn-primary">
+                    <i class="fa fa-search"></i>
+  	                </button>
+                </div>
+                </div>
             </header>
 
             {jobs.map(job=> <Jobcard job={job}/>)}

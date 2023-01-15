@@ -16,6 +16,7 @@ function SignUpJobSeekers({onSignUpSeeker}) {
   const [errors, setErrors] = useState([]);
     function handleSubmit(e) {
       e.preventDefault();
+<<<<<<< HEAD:src/components/SignUpJobSeekers.js
       if (password === passwordConfirmation ){
         fetch("/seekersignup", {
           method: "POST",
@@ -44,6 +45,29 @@ function SignUpJobSeekers({onSignUpSeeker}) {
          setErrors({passwordconfirmation:"passwords dont match"})
       }
 
+=======
+      fetch("/seekersignup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstname,
+         secondname,
+          email,
+          password,
+          passwordConfirmation,
+        }),
+      }).then((r) => {
+        if (r.ok) {
+          r.json().then((seeker) =>{
+            onSignUpSeeker(seeker)
+            navigate("/talentdashboard")
+          });
+        }
+      });
+      console.log(firstname, secondname, email, password, password)
+>>>>>>> origin/employerdashboard:client/src/components/SignUpJobSeekers.js
     }
 
   return(
@@ -53,8 +77,7 @@ function SignUpJobSeekers({onSignUpSeeker}) {
 
       <div class="row d-flex align-items-center justify-content-center h-100">
         <div class="col-md-8 col-lg-7 col-xl-6"  >
-          <img src={connect}
-            class="img-fluid" alt="Phone image"></img>
+          <img src={connect}  alt="Phone profile" className="img-fluid" />
         </div>
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1"  >
           <form>

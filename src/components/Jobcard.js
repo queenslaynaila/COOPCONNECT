@@ -10,14 +10,13 @@ export default function Jobcard({job}) {
     navigate("/viewjob")
    };
   return (
-
     <div class="card mt-3"  >
         <div class="card-body">
             <div className='d-flex flex-row'
                         style=  {{gap:"15px"}}>
                 <div
                         style={{backgroundColor:"darkblue",  width:   "70px",  height: "70px", borderRadius: "50%",textAlign:"center",color:"white",lineHeight:"70px",fontSize:"2rem"}} class="circle-singleline mr-auto ">
-                                TS
+                  TS
                 </div>
                 <div>
                     <p>{job.employer.name}</p>
@@ -33,20 +32,25 @@ export default function Jobcard({job}) {
           <div className='mt-1'>
             <p>{job.overallsummarry}</p>
           </div>
-       </div>
-       <div class="card-body d-flex flex-row justify-content-between"
+        </div>
+        <div class="card-body d-flex flex-row justify-content-between"
             style=  {{backgroundColor:"#EEEEEE",height:"60px"}}>
           <div>
             <p>Posted on {job.dateposted}</p>
           </div>
           <div>
+<<<<<<< HEAD:src/components/Jobcard.js
              <a href="#" class="card-link" onClick={changeState}   >View Job</a>
              <a href="#" class="card-link">Save Job</a>
+=======
+            {/* <a href="#" class="card-link" onClick={() => {navigate("/viewjob")}} >View Job</a>
+            <a href="#" class="card-link">Save Job</a> */}
+            <button  > View Job</button>
+            <button> Save Job</button>
+>>>>>>> origin/employerdashboard:client/src/components/Jobcard.js
           </div>
         </div>
     </div>
-
-
   )
 }
 
