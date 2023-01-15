@@ -12,7 +12,7 @@ const handleCancel = () => {
 
 const handleSave = () => {
   axios
-  .post("/api/formData", formData)
+  .post("/jobs", formData)
   .then((response) => {
   console.log(response);
   navigate("/employerdash");
