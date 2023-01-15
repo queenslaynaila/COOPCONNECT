@@ -32,6 +32,7 @@ function SignUpJobSeekers({onSignUpSeeker}) {
           });
         }
       });
+      console.log(firstname, secondname, email, password, password)
     }
 
   return(
@@ -41,8 +42,7 @@ function SignUpJobSeekers({onSignUpSeeker}) {
 
       <div class="row d-flex align-items-center justify-content-center h-100">
         <div class="col-md-8 col-lg-7 col-xl-6"  >
-          <img src={connect}
-            class="img-fluid" alt="Phone image"></img>
+          <img src={connect}  alt="Phone profile" className="img-fluid" />
         </div>
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1"  >
           <form>
