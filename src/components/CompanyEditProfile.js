@@ -5,15 +5,15 @@ import axios from 'axios';
 function CompanyEditProfile() {
   let navigate = useNavigate();
   const [formData, setFormData] = useState({
-    companyName: "",
-    companyType: "",
-    companySize: "",
-    website: "",
-    companyDescription: "",
-    firstName: "",
-    lastName: "",
+    name: "",
+    companytype: "",
+    // companySize: "",
+    websiteurl: "",
+    description: "",
+    firstname: "",
+    secondname: "",
     designation: "",
-    email: ""
+    // email: ""
     });
     
     const handleChange = (event) => {
@@ -47,12 +47,12 @@ function CompanyEditProfile() {
           <div class="card-body">
              <form id="bookingForm" action="#" method="" class="needs-validation" novalidate autocomplete="off">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="inputName" name="companyName" placeholder="Organization Name"  onChange={handleChange} value={formData.companyName}  />
+                    <input type="text" class="form-control" id="inputName" name="name" placeholder="Organization Name"  onChange={handleChange} value={formData.name}  />
                 </div>
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
-                                  <input type="text" class="form-control" id="inputEmail" name="companyType" placeholder="Organization Type" onChange={handleChange} value={formData.companyType}  />
+                                  <input type="text" class="form-control" id="inputEmail" name="companytype" placeholder="Organization Type" onChange={handleChange} value={formData.companytype}  />
                         </div>
                     </div>
                     <div class="col">
@@ -62,10 +62,10 @@ function CompanyEditProfile() {
                     </div>
                </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="inputPhone" name="website" placeholder="Website url" onChange={handleChange} value={formData.website} />
+                <input type="text" class="form-control" id="inputPhone" name="websiteurl" placeholder="websiteurl url" onChange={handleChange} value={formData.websiteurl} />
               </div>
               <div class="form-group">
-              <textarea class="form-control" name="companyDescription" id="textAreaRemark" rows="2" placeholder="Describe your company..." onChange={handleChange} value={formData.companyDescription}></textarea>
+              <textarea class="form-control" name="description" id="textAreaRemark" rows="2" placeholder="Describe your company..." onChange={handleChange} value={formData.description}></textarea>
              </div>
             </form>
           </div>
@@ -77,12 +77,12 @@ function CompanyEditProfile() {
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
-                        <input type="text" class="form-control" id="inputEmail" name="firstName" placeholder="First Name" onChange={handleChange} value={formData.firstName}/>
+                        <input type="text" class="form-control" id="inputEmail" name="firstname" placeholder="First Name" onChange={handleChange} value={formData.firstname}/>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                        <input type="text" class="form-control" id="inputEmail" name="lastName" placeholder="Last Name" onChange={handleChange} value={formData.lastName}/>
+                        <input type="text" class="form-control" id="inputEmail" name="secondname" placeholder="Last Name" onChange={handleChange} value={formData.secondname}/>
                         </div>
                     </div>
                </div>
