@@ -1,8 +1,14 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
 export default function Jobcard({job}) {
-  console.log(job)
+
+  const [state, setstate] = useState({data:""})
   let navigate = useNavigate();
+  const changeState = () => {
+    setstate(job);
+    navigate("/viewjob")
+   };
   return (
 
     <div class="card mt-3"  >
@@ -34,7 +40,7 @@ export default function Jobcard({job}) {
             <p>Posted on {job.dateposted}</p>
           </div>
           <div>
-             <a href="#" class="card-link" onClick={() => {navigate("/viewjob")}} >View Job</a>
+             <a href="#" class="card-link" onClick={changeState}   >View Job</a>
              <a href="#" class="card-link">Save Job</a>
           </div>
         </div>

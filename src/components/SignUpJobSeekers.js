@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import {useNavigate} from "react-router-dom"
+import DatePicker from 'react-datepicker';
 
+import "react-datepicker/dist/react-datepicker.css";
 import connect from "../assets/connect.png";
 function SignUpJobSeekers({onSignUpSeeker}) {
+   const [startDate, setStartDate] = useState(new Date());
+
   let navigate = useNavigate()
   const [firstname, setFirstName] = useState("");
   const [secondname, setSecondName] = useState("");
@@ -46,8 +50,8 @@ function SignUpJobSeekers({onSignUpSeeker}) {
         </div>
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1"  >
           <form>
-          <h4 style={{color:"darkblue"}} className="text-center">Job Seeker Registration</h4>
-          <div className="row mb-2">
+            <h4 style={{color:"darkblue"}} className="text-center">Job Seeker Registration</h4>
+             <div className="row mb-2">
                     <div className="col">
                         <input onChange={(e) =>{
                          setFirstName(e.target.value)
@@ -73,8 +77,8 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                             required
                         />
                     </div>
-          </div>
-          <div className="col">
+             </div>
+             <div className="col ">
                         <input
                         onChange={(e) =>{
                      setEmail(e.target.value)
@@ -86,8 +90,29 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                             value={email}
                             required
                         />
-           </div>
-           <div className="row mt-2">
+             </div>
+             <div className="col mt-2">
+                <select style={{color:"gray"}} class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected  >Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+             </div>
+             <div className="row mt-2">
+             <small style={{color:"grey"}}>ENTER DOB IN dd/mm/yyyy</small>
+                    <div className="col">
+
+                       <DatePicker
+
+                          selected={startDate}
+                          placeholderText="Choose DOB in dd/mm/yyyy"
+                          onChange={date => setStartDate(date)}
+                           name="startDate"
+                           dateFormat="dd/MM/yyyy" />
+
+                    </div>
+             </div>
+             <div className="row mt-2">
                     <div className="col">
                         <input
                         onChange={(e) =>{
@@ -114,14 +139,13 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                             required
                         />
                     </div>
-          </div>
-            <div class="d-flex justify-content-around align-items-center mb-4">
+             </div>
+             <div class="d-flex justify-content-around align-items-center mb-4">
 
 
               <a href="#!">Forgot password?</a>
-            </div>
-
-                <div>
+             </div>
+             <div>
                   <button
                     type="submit"
                     class="btn btn-primary btn-lg btn-block"
@@ -130,14 +154,13 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                   >
                     Create Account
                   </button>
-                </div>
-
-                <div class="divider d-flex align-items-center my-4">
+             </div>
+             <div class="divider d-flex align-items-center my-4">
                   <p class="text-center fw-bold mx-3 mb-0 text-muted">
                     HAVE AN ACCOUNT?
                   </p>
-                </div>
-                <div>
+             </div>
+             <div>
                   <a
                     class="btn btn-primary btn-lg btn-block mb-1"
                     style={{ backgroundColor: "#3b5998", width: "100%" }}
@@ -146,7 +169,7 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                   >
                     Login
                   </a>
-                </div>
+              </div>
               </form>
             </div>
           </div>

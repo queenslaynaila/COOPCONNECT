@@ -13,13 +13,13 @@ export default function SeekerDashboard({seeker}) {
                <div class="p-2">
                    <div
                         style={{backgroundColor:"darkblue",  width:   "100px",  height: "100px", borderRadius: "50%",textAlign:"center",color:"white",lineHeight:"100px",fontSize:"3rem"}} class="circle-singleline ">
-                         qj
+                          {seeker.firstname.charAt(0)}{seeker.secondname.charAt(0)}
                     </div>
                </div>
                 <div class="p-2 ml-auto p-2">
-                   <p>h</p>
-                   <p>email</p>
-                   <p>l</p>
+                <p>{seeker.firstname} {seeker.secondname}</p>
+                   <p>{seeker.email}</p>
+                   <p>{seeker.created_at}</p>
                   </div>
                 </div>
              </div>

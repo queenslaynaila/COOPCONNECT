@@ -1,6 +1,8 @@
 import React from 'react'
+import { useState } from 'react';
+function Viewjob(props) {
 
-function Viewjob() {
+ 
   return (
     <div className="container mt-4 mb-4">
        <div class="card mt-3"  >

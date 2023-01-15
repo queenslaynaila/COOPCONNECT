@@ -28,7 +28,7 @@ function App() {
     let navigate = useNavigate()
        const [employer , setEmployer] = useState(null)
        const [seeker,setSeeker] = useState(null)
-
+        
 
   return (
 <>

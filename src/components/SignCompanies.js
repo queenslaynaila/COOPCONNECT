@@ -10,6 +10,8 @@ function SignCompanies({onSignUpEmployer }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [errors, setErrors] = useState([]);
+  const [me,setMe] = useState([])
   let navigate = useNavigate()
 
   function handleSubmit(e) {
@@ -32,12 +34,22 @@ function SignCompanies({onSignUpEmployer }) {
           onSignUpEmployer(employer)
           navigate("/employerdash")
         });
-      }
+      }else{
+        r.json().then((err) => {
+          setErrors((err))
+
+        })
+
+    }
     });
   }
+
+console.log((errors) )
+ 
   return (
     <section class="vh-80">
       <div class="container py-5 h-100">
+
         <div class="row d-flex align-items-center justify-content-center h-100">
           <div class="col-md-8 col-lg-7 col-xl-6">
             <img src={connect} class="img-fluid" alt="Phone image"></img>
@@ -94,6 +106,7 @@ function SignCompanies({onSignUpEmployer }) {
                   required
                 />
               </div>
+               { errors ? Object.values(errors).forEach(item =>  <p>{item}</p>):null}
               <div className="row mt-2">
                 <div className="col">
                   <input
