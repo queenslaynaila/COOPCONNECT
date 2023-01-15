@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 
 function Table() {
     const [applicantData, setApplicantData] = useState([]);
 
     useEffect(() => {
-        fetch("/applicants")
+      axios.get("/applicants")
             .then(response => response.json())
             .then(data => {
                 setApplicantData(data);
