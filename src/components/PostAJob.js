@@ -18,6 +18,10 @@ export default function PostAJob
 		senioritylevel: "",
 		overallsummarry: "",
 	  });
+
+	  const handlePreview = () => {
+		navigate("/previewjob", {state: {formData}});
+	  };
 	
 	  const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -193,7 +197,7 @@ export default function PostAJob
 
 		  <div class="card-footer">
             <div className="d-flex justify-content-end gap-2">
-               <button type="button " onClick={() => {navigate("/previewjob")}}  class="btn btn-primary">PREVIEW POST</button>
+               <button type="button " onClick={handlePreview}  class="btn btn-primary">PREVIEW POST</button>
                <button type="button" class="btn btn-primary" onClick={handleCancel}>CANCEL</button>
 			   <button type="button " class="btn btn-primary" onClick={handleSubmit}>POST</button>
             </div>
