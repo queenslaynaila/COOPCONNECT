@@ -1,44 +1,42 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-export default function Table() {
-  return (
-    <table class="table">
-      <thead>
-         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Applied For</th>
-            <th scope="col">Application Status</th>
-            <th scope="col">Date Applied</th>
-            <th scope="col">Job Category</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td >Larry the Bird</td>
-          <td>@twitter</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-        </tr>
-      </tbody>
-    </table>
-  )
+function Table() {
+    const [applicantData, setApplicantData] = useState([]);
+
+    useEffect(() => {
+        fetch("/applicants")
+            .then(response => response.json())
+            .then(data => {
+                setApplicantData(data);
+            });
+    }, []);
+
+    return (
+        <table className="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Applied For</th>
+                    <th scope="col">Application Status</th>
+                    <th scope="col">Date Applied</th>
+                    <th scope="col">Job Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                {applicantData.map((applicant, index) => (
+                    <tr key={index}>
+                        <th scope="row">{index + 1}</th>
+                        <td>{applicant.name}</td>
+                        <td>{applicant.appliedFor}</td>
+                        <td>{applicant.status}</td>
+                        <td>{applicant.dateApplied}</td>
+                        <td>{applicant.jobCategory}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    )
 }
+
+export default Table;
