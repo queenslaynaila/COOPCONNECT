@@ -32,26 +32,26 @@ export default function Viewaseeker({seeker}) {
                       </li>
                       <li className='list-group-item'>
                         <h5 style={{ color: "darkblue" }} className='fw-bold'>Key Skills</h5>
-                        <ul class="list-inline">
+                        {/* <ul class="list-inline">
                         {seeker.keyskills.map((skill)=>{
                           return <li class="list-inline-item"><i class="bi bi-check"></i>{skill}</li>
                         })}
-                        </ul>
+                        </ul> */}
                       </li>
                       <li class="list-group-item">
                             <h4 style={{ color: "darkblue" }} >Education</h4>
-                            {seeker.educations.map((education)=>{
+                            {/* {seeker.educations.map((education)=>{
                           return (<>
                             <p><span className='fw-bold'>Cerificate name</span>:{education.certificatename}</p>
                             <p><span className='fw-bold'>Institution</span>:{education.institution}</p>
 
                           </>
                           )
-                        })}
+                        })} */}
                       </li>
                       <li class="list-group-item">
                       <h4 style={{ color: "darkblue" }}>Work Experience</h4>
-                      {seeker.experiences.map((experience)=>{
+                      {/* {seeker.experiences.map((experience)=>{
                           return <>
                           <h6 className='fw-bold'>Job Title</h6>
                           <p className='fw-bold'>{experience.jobtitle}</p>
@@ -61,7 +61,7 @@ export default function Viewaseeker({seeker}) {
                             <p className='fw-bold'>Start Year:{experience.startdate}</p>
                             <p className='fw-bold'>End Year:{experience.enddate}</p>
                           </>
-                        })}
+                        })} */}
 
                       </li>
                   </ul>

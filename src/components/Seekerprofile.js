@@ -29,10 +29,10 @@ export default function Seekerprofile({seeker}) {
                     }}
                     class="circle-singleline "
                   >
-                    {seeker.firstname.charAt(0)}{seeker.secondname.charAt(0)}
+                    {seeker.firstname.charAt(0)} {seeker.secondname.charAt(0)}
                   </div>
                   <h5 class="user-name">{seeker.firstname} {seeker.secondname}</h5>
-                  <h6 class="user-email">{seeker.account.email}</h6>
+                  <h6 class="user-email">{seeker.email}</h6>
                 </div>
                 <div class="about">
                   <h5>About</h5>
@@ -94,15 +94,7 @@ export default function Seekerprofile({seeker}) {
                   </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                  <div class="form-group">
-                    <label for="website">Email</label>
-                    <input
-                      type="url"
-                      class="form-control"
-                      id="website"
-                      placeholder={seeker.account.email}
-                    ></input>
-                  </div>
+                   
                 </div>
               </div>
 
