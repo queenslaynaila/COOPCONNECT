@@ -23,6 +23,7 @@ import SearchTalent from "./components/SearchTalents";
 import  Pricing from "./components/pricing";
 import PostAJob from "./components/PostAJob";
 import Viewaseeker from "./components/Viewaseeker";
+import SavedJob from './components/SavedJob';
 
 function App() {
     let navigate = useNavigate()
@@ -41,7 +42,8 @@ function App() {
       <Route path="/signuptalents" element={<SignUpJobSeekers/>}/>
       <Route path="/talentdashboard" element={<SeekerDashboard seeker={seeker} />}/>
       <Route path="/seekerprofile" element={<Seekerprofile  seeker={seeker} />}/>
-      <Route path="/searchjob" element={<Jobsearch/>}/>
+      <Route path="/searchjob" element={<Jobsearch />} />
+      <Route path="/savedjob" element={<SavedJob/>}/>
       <Route path="/asesement" element={<Assesement/>}/>
       <Route path="/employerdash" element={<DashBoardBody employer={employer} />}/>
       <Route path="/viewjob" element={<Viewjob/>}/>
