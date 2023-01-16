@@ -27,15 +27,17 @@ function Login({onLoginEmployer,onLoginSeeker,setSeeker,setEmployer}) {
             }
           })
       }else{
-          r.json().then((err) => setErrors(err.errors))
+          r.json().then((err) => setErrors(err))
+
       }
   })
   }
-
+ 
 
   return (
     <section class="vh-80">
     <div class="container py-5 h-100">
+
       <div class="row d-flex align-items-center justify-content-center h-100">
         <div class="col-md-8 col-lg-7 col-xl-6">
           <img src={link}
@@ -61,10 +63,11 @@ function Login({onLoginEmployer,onLoginSeeker,setSeeker,setEmployer}) {
                 setErrors(null)
                 }} type="password" id="form1Example23" class="form-control form-control-lg" required />
             </div>
+             {errors?  <div  >
+               <p className="text-danger">{errors.error}</p>
+            </div>:null}
 
             <div class="d-flex justify-content-around align-items-center mb-4">
-
-
               <a href="#!">Forgot password?</a>
             </div>
 

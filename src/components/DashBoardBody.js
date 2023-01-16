@@ -3,24 +3,25 @@
  import JobpostedTable from './JobpostedTable'
  import SurveyTable from './SurveyTable'
 import { useNavigate } from "react-router-dom";
+import { SelectPicker } from 'rsuite';
 
- export default function DashBoardBody() {
+ export default function DashBoardBody({employer}) {
   let navigate = useNavigate();
    return (
      <div className='container mt-4 mb-4'>
        <h4 style={{color:"darkblue"}}>COMPANY DASHBOARD</h4>
-      
+
         <div class="card shadow-sm">
             <div class="card-body">
                 <div className='d-flex' style={{gap:"4px"}}>
                     <div
                         style={{backgroundColor:"darkblue",  width:   "100px",  height: "100px", borderRadius: "50%",textAlign:"center",color:"white",lineHeight:"100px",fontSize:"3rem"}} class="circle-singleline ">
-                         LM
+                         {employer.name.charAt(0).toUpperCase()}
                     </div>
                      <div>
-                    <p>lencare merchants</p>
-                    <p>lencaremerchants@gmail.com</p>
-                    <p>since:01-01-2022</p>
+                    <p>{employer.name}</p>
+                    <p>{employer.mail}</p>
+                    <p>{employer.created_at}</p>
                     </div>
                 </div>
 
@@ -44,27 +45,27 @@ import { useNavigate } from "react-router-dom";
                        <div class="border border-dark d-flex justify-content-center w-50"  >
                           <div
                                style={{backgroundColor:"darkblue",borderRadius: "50%",textAlign:"center",color:"white",lineHeight:"100px",fontSize:"3rem"}} class="circle-singleline" className='w-50 mt-2 mb-2'>
-                               0
+                               {employer.totaljobsposted}
                           </div>
-                          <p className='fw-bold text-center'>Applied</p>
+                          <p className='fw-bold text-center'>Jobs Posted</p>
                        </div>
                      </div>
                      <div class="col-sm">
                         <div class="border border-dark d-flex justify-content-center w-50 "  >
                           <div
                             style={{backgroundColor:"darkblue", borderRadius: "50%",textAlign:"center",color:"white",lineHeight:"100px",fontSize:"3rem"}} class="circle-singleline" className='w-50 mt-2 mb-2'>
-                              0
+                             {employer.totalinternshipsposted}
                          </div>
-                         <p className='fw-bold text-center'>Applied</p>
+                         <p className='fw-bold text-center'>Internships posted</p>
                         </div>
                      </div>
                      <div class="col-sm">
                        <div class="border border-dark d-flex justify-content-center w-50 "  >
                          <div
                               style={{backgroundColor:"darkblue" , borderRadius: "50%",textAlign:"center",color:"white",lineHeight:"100px",fontSize:"3rem"}} class="circle-singleline"  className='w-50 mt-2 mb-2'>
-                           0
+                            {employer.totaljobapplications}
                          </div>
-                         <p className='fw-bold text-center'>Applied</p>
+                         <p className='fw-bold text-center'>Applications Received</p>
                         </div>
                       </div>
                 </div>
@@ -75,7 +76,7 @@ import { useNavigate } from "react-router-dom";
               <h4 style={{color:"darkblue"}}>RECENT APPLICANTS</h4>
             </div>
             <div class="card-body">
-               <Table></Table>
+               <Table applications={employer.allapplicants}></Table>
             </div>
         </div>
         <div class="card shadow-sm mt-4">
@@ -83,7 +84,7 @@ import { useNavigate } from "react-router-dom";
               <h4 style={{color:"darkblue"}}>JOBS POSTED</h4>
             </div>
             <div class="card-body">
-              <JobpostedTable></JobpostedTable>
+              <JobpostedTable jobs={employer.jobs}></JobpostedTable>
             </div>
         </div>
         <div class="card shadow-sm mt-4">
