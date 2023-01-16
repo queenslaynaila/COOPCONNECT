@@ -6,6 +6,9 @@ export default function Jobsearch() {
 let navigate = useNavigate();
 const [jobs,setJobs] = useState([])
 const [search,setsearch] = useState(" ")
+const [maximumsalary,setMaximumSalary] = useState(null)
+const [minsalary,setMinSalary ] = useState(null)
+
 useEffect(()=>{
     fetch("/jobs")
     .then((r)=>{
@@ -16,7 +19,13 @@ useEffect(()=>{
 function handleSearch(){
     const filterSEarch = jobs.filter((job)=>{return job.jobtitle.toLowerCase().includes(search.toLowerCase()) })
     setJobs(filterSEarch)
-      
+
+}
+function handleWageFilter(){
+    const filterredjobs = jobs.filter((job)=>{return job.minsalary > minsalary && job.maximumsalary < maximumsalary})
+     setJobs(filterredjobs)
+     console.log(jobs)
+
 }
 function handleChange(event){
     setsearch(event.target.value)
@@ -33,24 +42,21 @@ function handleChange(event){
 
                 <article class="filter-group">
                     <header class="card-header">
-
                             <h6 class="title">Salary range </h6>
-
                     </header>
                     <div class="filter-content collapse show" id="collapse_3"  >
                         <div class="card-body">
-
                             <div class="form-row">
                             <div class="form-group col-md-6">
                             <label>Min</label>
-                            <input class="form-control" placeholder="$0" type="number"></input>
+                            <input onChange={(e)=>setMinSalary(e.target.value)} class="form-control" placeholder="0" type="number"></input>
                             </div>
                             <div class="form-group text-right col-md-6">
                             <label>Max</label>
-                            <input class="form-control" placeholder="$1,0000" type="number"></input>
+                            <input class="form-control" onChange={(e)=>setMaximumSalary(e.target.value)}   placeholder="1,0000" type="number"></input>
                             </div>
                             </div>
-                            <button class="btn btn-block btn-primary">Apply</button>
+                            <button onClick={handleWageFilter} class="btn btn-block btn-primary">Apply</button>
                         </div>
                     </div>
                 </article>

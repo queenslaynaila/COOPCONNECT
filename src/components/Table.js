@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default function Table() {
+export default function Table({applications}) {
+
   return (
     <table class="table">
       <thead>
@@ -16,28 +17,19 @@ export default function Table() {
       <tbody>
         <tr>
           <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          {applications.map((applicants)=>{
+            return <>
+            <td>{applicants.firstname}</td>
+            <td>{applicants.firstname}</td>
+            <td>{applicants.firstname}</td>
+            <td>{applicants.firstname}</td>
+            <td>{applicants.firstname}</td>
+            
+            </>
+          })}
+
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td >Larry the Bird</td>
-          <td>@twitter</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-        </tr>
+
       </tbody>
     </table>
   )

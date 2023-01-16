@@ -113,43 +113,9 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
                             href="#/">Employers</a></li>
                      </ul>
                 </li>
-                <li className="nav-item dropdown ms-sm-3 d-inline-flex">
-                  <a
-                    className="nav-link signup dropdown-toggle"
-                    href="#/"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                   More Options
-                  </a>
-                  <ul className="dropdown-menu  ">
-                    <li><a className="dropdown-item fw-bold"
-                        href="#/"  onClick={() => {
-                    navigate("/jobsapplied");
-                  }}>Jobs aplied</a></li>
-                    <li><a className="dropdown-item fw-bold"
-                        href="#/"onClick={() => {
-                    navigate("/jobssaved");
-                  }} >Saved Jobs</a></li>
-                          <li><a  className="dropdown-item fw-bold"
-                        href="#/" onClick={() => {
-                    navigate("/companiessaved");
-                  }}>Saved Companies</a></li>
-                         <li><a className="dropdown-item fw-bold"
-                        href="#/" onClick={() => {
-                    navigate("/mysavedinternships");
-                  }} >Saved Internships</a></li>
-                        <li><a onClick={() => {
-                    navigate("/myappliedinternships");
-                  }} className="dropdown-item fw-bold"
-                        href="#/">Applied Internships</a></li>
-                         <li><a className="dropdown-item fw-bold"
-                        href="#/">Surveys Done</a></li>
-                          <li><a className="dropdown-item fw-bold"
-                        href="#/">Surveys Saved</a></li>
-                  </ul>
-                </li>
+
+
+
                 <li className="nav-item  ">
                   <a className="nav-link"  onClick={()=>{
                     navigate("/asesement");
@@ -196,16 +162,54 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
            :  <>
               <ul className="navbar-nav">
                 <li className="nav-item  ">
-                  <a className="nav-link active">Dashboard</a>
+                  <a className="nav-link active" onClick={()=>{
+                    navigate("/employerdash");
+                  }} >Dashboard</a>
                 </li>
                 <li className="nav-item  ">
-                  <a className="nav-link">Search</a>
+                  <a className="nav-link" onClick={()=>{
+                    navigate("/searchtalents");
+                  }} >Search</a>
                 </li>
-                <li className="nav-item  ">
-                  <a className="nav-link">More Options</a>
+                <li className="nav-item dropdown ms-sm-3 d-inline-flex">
+                  <a
+                    className="nav-link signup dropdown-toggle"
+                    href="#/"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                       More Options
+                  </a>
+                  <ul className="dropdown-menu  ">
+                    <li>
+                      <a
+                        className="dropdown-item fw-bold"
+                        href="#/"
+                      >
+                      Jobs Posted
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item fw-bold"
+                        href="#/"
+                      >
+                         Applications
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item fw-bold"
+                        href="#/"
+                      >
+                         Profiles Saved
+                      </a>
+                    </li>
+                  </ul>
                 </li>
-                <li className="nav-item  ">
-                  <a className="nav-link ">Pricing</a>
+                 <li className="nav-item  ">
+                  <a className="nav-link " onClick={(e)=>navigate("/pricing")}>Pricing</a>
                 </li>
               </ul>
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">

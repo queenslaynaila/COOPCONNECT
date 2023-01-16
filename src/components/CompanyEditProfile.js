@@ -3,6 +3,9 @@ import "../styles/CompanyEditProfile.css"
 import { useNavigate } from "react-router-dom";
 function CompanyEditProfile() {
   let navigate = useNavigate();
+  function handleUpdate(e){
+    e.preventDefault()
+  }
   return (
     <div className="container mt-4 mb-4">
        <h4 style={{color:"darkblue"}}>Profile Edit Mode</h4>
@@ -18,14 +21,10 @@ function CompanyEditProfile() {
                     <input type="text" class="form-control" id="inputName" name="name" placeholder="Organization Name"  />
                 </div>
                 <div class="row">
+
                     <div class="col">
                         <div class="form-group">
-                                  <input type="text" class="form-control" id="inputEmail" name="email" placeholder="Organization Type"  />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                                      <input type="text" class="form-control" id="inputEmail" name="email" placeholder="Organization Type"  />
+                                      <input type="text" class="form-control" id="inputEmail" name="email" placeholder="companytype"  />
                         </div>
                     </div>
                </div>
@@ -60,14 +59,10 @@ function CompanyEditProfile() {
                                   <input type="text" class="form-control" id="inputEmail" name="email" placeholder="Designation"  />
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="form-group">
-                                      <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email"  />
-                        </div>
-                    </div>
+
                </div>
                <div className="d-flex justify-content-end">
-               <button type="button" class="btn btn-primary">UPDATE</button>
+               <button onClick={(e)=>handleUpdate} type="button" class="btn btn-primary" >UPDATE</button>
                </div>
 
             </form>

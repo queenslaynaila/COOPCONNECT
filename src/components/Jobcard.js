@@ -5,7 +5,7 @@ export default function Jobcard({job}) {
 
 
   let navigate = useNavigate();
-
+ 
   return (
     <div class="card mt-3"  >
         <div class="card-body">
@@ -13,7 +13,7 @@ export default function Jobcard({job}) {
                         style=  {{gap:"15px"}}>
                 <div
                         style={{backgroundColor:"darkblue",  width:   "70px",  height: "70px", borderRadius: "50%",textAlign:"center",color:"white",lineHeight:"70px",fontSize:"2rem"}} class="circle-singleline mr-auto ">
-                  TS
+                  {job.employer.name.charAt(0).toUpperCase()}
                 </div>
                 <div>
 
@@ -21,7 +21,7 @@ export default function Jobcard({job}) {
                     <p className='fw-bold companyname' onClick={() => {navigate("/viewcompany")}}    >{job.employer.companytype}</p>
                 </div>
           </div>
-          <p><span className='fw-bold'>JobTitle: </span>&nbsp;&nbsp;{job.jobtitle}</p>
+          <p><span className='fw-bold'>JobTitle: </span>&nbsp;{job.jobtitle}</p>
           <div className='d-flex flex-row' style={{gap:"10px"}}>
                 <div><span className='fw-bold'>Opennings:</span>&nbsp;&nbsp;{job.positionsavailable}</div>
                 <div><span className='fw-bold'>Category:</span>&nbsp;&nbsp;{job.category.name}</div>
@@ -29,6 +29,10 @@ export default function Jobcard({job}) {
                 <div><span className='fw-bold'>Location</span>:&nbsp;&nbsp;{job.location}</div>
                 <div><span className='fw-bold'>Experience:</span>:&nbsp;&nbsp;{job.senioritylevel}</div>
 
+          </div>
+          <div  className='d-flex flex-row' style={{gap:"10px"}}>
+          <p><span className='fw-bold'>Maximum Salary: </span>&nbsp;&nbsp;{job.maximumsalary}</p>
+          <p><span className='fw-bold'>Minimum Salary: </span>&nbsp;&nbsp;{job.minsalary}</p>
           </div>
 
           <div className='mt-1'>
