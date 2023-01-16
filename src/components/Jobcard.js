@@ -5,7 +5,7 @@ export default function Jobcard({job}) {
 
 
   let navigate = useNavigate();
- 
+
   return (
     <div class="card mt-3"  >
         <div class="card-body">

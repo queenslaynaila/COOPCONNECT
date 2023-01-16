@@ -1,7 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
+import { useEffect } from 'react';
 function Viewjob({job}) {
-
+  console.log(job)
+  
 
   return (
     <div className="container mt-4 mb-4">

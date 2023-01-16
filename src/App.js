@@ -35,6 +35,7 @@ function App() {
     let navigate = useNavigate()
        const [employer , setEmployer] = useState(null)
        const [seeker,setSeeker] = useState(null)
+      const [user,setUser] = useState(null)
 
 
   return (
@@ -63,7 +64,7 @@ function App() {
       <Route path="/viewaseeker" element={<Viewaseeker seeker={seeker} employer={employer} />}/>
 
       <Route path='/jobsapplied' element={<JobApplied seeker={seeker}/>}/>
-      <Route path="/jobssaved" element = {<JobsSaved></JobsSaved>}/>
+      <Route path="/jobssaved" element = {<JobsSaved seeker={seeker}></JobsSaved>}/>
       <Route path="/companiessaved" element={<CompaniesSaved seeker={seeker}/>}/>
       <Route path="/myappliedinternships" element={<Myinternships seeker={seeker}/>} />
       <Route path="/mysavedinternships" element={<Mysavedinternships seeker={seeker}/>} />
