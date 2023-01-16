@@ -16,7 +16,6 @@ function SignUpJobSeekers({onSignUpSeeker}) {
   const [errors, setErrors] = useState([]);
     function handleSubmit(e) {
       e.preventDefault();
-<<<<<<< HEAD:src/components/SignUpJobSeekers.js
       if (password === passwordConfirmation ){
         fetch("/seekersignup", {
           method: "POST",
@@ -45,29 +44,6 @@ function SignUpJobSeekers({onSignUpSeeker}) {
          setErrors({passwordconfirmation:"passwords dont match"})
       }
 
-=======
-      fetch("/seekersignup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          firstname,
-         secondname,
-          email,
-          password,
-          passwordConfirmation,
-        }),
-      }).then((r) => {
-        if (r.ok) {
-          r.json().then((seeker) =>{
-            onSignUpSeeker(seeker)
-            navigate("/talentdashboard")
-          });
-        }
-      });
-      console.log(firstname, secondname, email, password, password)
->>>>>>> origin/employerdashboard:client/src/components/SignUpJobSeekers.js
     }
 
   return(

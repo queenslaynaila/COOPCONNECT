@@ -5,7 +5,7 @@ export default function Viewaseeker({seeker}) {
     console.log(seeker.profession
       )
   return (
-    <div class="container ">
+    <div class="container d-flex justify-content-center w-75">
          <div class=" mt-5 mb-5">
           {seeker ? <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard</p>
           : <p  className="dash" onClick={() => {navigate("/searchtalents")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard</p> }

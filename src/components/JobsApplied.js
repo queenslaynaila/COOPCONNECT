@@ -1,25 +1,18 @@
 import React  from "react";
-import "../styles/JobsApplied.css";
-import JobsTitle from "../components/reusablecards/JobsTitle"
-import Parentcontainer from "./reusablecards/Parentcontainer";
 
 
-function JobsApplied() {
-  // function fetchJob()
+function JobsApplied({seeker}) {
+
+ 
+
   return (
-    <Parentcontainer >
-      <JobsTitle>
-        <h2>My Applications</h2>
-      </JobsTitle>
-      <div className="job-applications-details">
-        <p>Title: Software Developer</p>
-        <p>Company: Tech Software</p>
-        <p>Posted Date: 20/12/2022</p>
-        <p>Category: IT</p>
-        <p>Salary: 20-30000</p>
-        <button className="section-btn">View</button>
-      </div>
-    </Parentcontainer>
+    <div class="container-sm mt-4 mb-4">
+        <h2 className="mt-2" style={{color:"blue"}}>JOB APPLICATIONS </h2>
+        <p>Here are some jobs youve applied to</p>
+
+    </div>
+
+
   );
 }
 

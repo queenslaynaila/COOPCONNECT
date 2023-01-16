@@ -3,12 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 export default function Jobcard({job}) {
 
-  const [state, setstate] = useState({data:""})
+
   let navigate = useNavigate();
-  const changeState = () => {
-    setstate(job);
-    navigate("/viewjob")
-   };
+
   return (
     <div class="card mt-3"  >
         <div class="card-body">
@@ -19,14 +16,19 @@ export default function Jobcard({job}) {
                   TS
                 </div>
                 <div>
+
                     <p>{job.employer.name}</p>
                     <p className='fw-bold companyname' onClick={() => {navigate("/viewcompany")}}    >{job.employer.companytype}</p>
                 </div>
           </div>
-          <div className='d-flex flex-row' style={{gap:"25px"}}>
+          <p><span className='fw-bold'>JobTitle: </span>&nbsp;&nbsp;{job.jobtitle}</p>
+          <div className='d-flex flex-row' style={{gap:"10px"}}>
                 <div><span className='fw-bold'>Opennings:</span>&nbsp;&nbsp;{job.positionsavailable}</div>
                 <div><span className='fw-bold'>Category:</span>&nbsp;&nbsp;{job.category.name}</div>
                 <div><span className='fw-bold'> Salary Range</span>:&nbsp;&nbsp;{job.minsalary}-{job.maximumsalary}</div>
+                <div><span className='fw-bold'>Location</span>:&nbsp;&nbsp;{job.location}</div>
+                <div><span className='fw-bold'>Experience:</span>:&nbsp;&nbsp;{job.senioritylevel}</div>
+
           </div>
 
           <div className='mt-1'>
@@ -39,18 +41,14 @@ export default function Jobcard({job}) {
             <p>Posted on {job.dateposted}</p>
           </div>
           <div>
-<<<<<<< HEAD:src/components/Jobcard.js
-             <a href="#" class="card-link" onClick={changeState}   >View Job</a>
-             <a href="#" class="card-link">Save Job</a>
-=======
             {/* <a href="#" class="card-link" onClick={() => {navigate("/viewjob")}} >View Job</a>
             <a href="#" class="card-link">Save Job</a> */}
-            <button  > View Job</button>
-            <button> Save Job</button>
->>>>>>> origin/employerdashboard:client/src/components/Jobcard.js
+            <button onClick={()=>{navigate(`/searchjob/${job.id}`)}} className='btn btn-primary'  > View Job</button>&nbsp;&nbsp;
+            <button className='btn btn-primary' onClick={()=>{navigate(`/searchjob/${job.id}`)}} > Save Job</button>
           </div>
         </div>
     </div>
+
   )
 }
 

@@ -1,23 +1,13 @@
 import React from "react";
-import JobsTitle from "./reusablecards/JobsTitle";
-import Parentcontainer from "./reusablecards/Parentcontainer";
-import "../styles/JobsApplied.css";
+ 
 
 function JobsSaved() {
   return (
-    <Parentcontainer>
-      <JobsTitle>
-        <h2>Jobs Saved</h2>
-      </JobsTitle>
-      <div className="job-applications-details">
-        <p>Company: Moringa School</p>
-        <p>Role: Tech Software</p>
-        <p>Posted Date: 25/12/2022</p>
-        <p>Job Description: Tutor</p>
-        <p>Salary: 200000-3000000</p>
-        <button className="section-btn">View</button>
-      </div>
-    </Parentcontainer>
+    <div class="container-sm mt-4 mb-4">
+    <h2 className="mt-2" style={{color:"blue"}}>JOBS SAVED</h2>
+    <p>Here are some jobs youve applied to</p>
+
+</div>
   );
 }
 

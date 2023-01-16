@@ -1,15 +1,8 @@
-<<<<<<< HEAD:src/components/Viewjob.js
 import React from 'react'
 import { useState } from 'react';
-function Viewjob(props) {
+function Viewjob({job}) {
 
- 
-=======
-import React from "react";
 
-function Viewjob( {job} ) {
-
->>>>>>> origin/employerdashboard:client/src/components/Viewjob.js
   return (
     <div className="container mt-4 mb-4">
       <div class="card mt-3">
@@ -31,22 +24,22 @@ function Viewjob( {job} ) {
               TS
             </div>
             <div>
-              <p>{job.jobtitle}</p>
+              <p>job.jobtitle</p>
               <p className="fw-bold" style={{ color: "darkblue" }}>
-                {job.employer.name}
+                job.employer.name
               </p>
             </div>
           </div>
           <div>
             <div>
-              <span className="fw-bold">Opennings:</span>&nbsp;&nbsp; {job.positionsavailable}
+              <span className="fw-bold">Opennings:</span>&nbsp;&nbsp; job.positionsavailable
             </div>
             <div>
-              <span className="fw-bold">Category:</span>&nbsp;&nbsp; {job.category.name}
+              <span className="fw-bold">Category:</span>&nbsp;&nbsp; job.category.name
             </div>
             <div>
               <span className="fw-bold"> Salary Range</span>
-              :&nbsp;&nbsp; {job.minsalary}-{job.maximumsalary}
+              :&nbsp;&nbsp; job.minsalary-job.maximumsalary
             </div>
           </div>
         </div>
@@ -55,7 +48,7 @@ function Viewjob( {job} ) {
           style={{ backgroundColor: "#EEEEEE", height: "60px" }}
         >
           <div>
-            <p>Posted on {job.dateposted}</p>
+            <p>Posted on job.dateposted</p>
           </div>
           <div>
             <button type="button" class="btn btn-primary">
@@ -67,7 +60,7 @@ function Viewjob( {job} ) {
       <div class="card mt-3">
         <div class="card-body">
           <h5 style={{ color: "darkblue" }}>job Description</h5>
-          <p> {job.responsibilities} </p>
+          <p> job.responsibilities </p>
           <div>
             <span className="fw-bold">Positions available:</span>&nbsp;&nbsp;7
           </div>
@@ -80,7 +73,7 @@ function Viewjob( {job} ) {
       <div class="card mt-3">
         <div class="card-body">
           <h5 style={{ color: "darkblue" }}>About Company</h5>
-          <p> {job.employer.description}</p>
+          <p> job.employer.description</p>
         </div>
       </div>
     </div>

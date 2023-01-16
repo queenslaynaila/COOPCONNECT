@@ -93,14 +93,25 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
                   }} >Dashboard</a>
                 </li>
                 <li className="nav-item  ">
-                  <a className="nav-link "onClick={()=>{
+                  <a className="nav-link " onClick={()=>{
                     navigate("/seekerprofile");
                   }} >Profile</a>
                 </li>
-                <li className="nav-item  ">
-                  <a className="nav-link "  onClick={()=>{
+                <li className="nav-item dropdown ms-sm-3 d-inline-flex">
+                  <a className="nav-link signup dropdown-toggle "  href="#/"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false">Search</a>
+                     <ul className="dropdown-menu  ">
+                        <li><a className="dropdown-item fw-bold"
+                            href="#/"  onClick={()=>{
                     navigate("/searchjob");
-                  }}>Search</a>
+                  }} >Jobs</a></li>
+                        <li><a onClick={()=>{
+                    navigate("/searchemployer");
+                  }}  className="dropdown-item fw-bold"
+                            href="#/">Employers</a></li>
+                     </ul>
                 </li>
                 <li className="nav-item dropdown ms-sm-3 d-inline-flex">
                   <a
@@ -114,14 +125,24 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
                   </a>
                   <ul className="dropdown-menu  ">
                     <li><a className="dropdown-item fw-bold"
-                        href="#/">Jobs aplied</a></li>
+                        href="#/"  onClick={() => {
+                    navigate("/jobsapplied");
+                  }}>Jobs aplied</a></li>
                     <li><a className="dropdown-item fw-bold"
-                        href="#/">Saved Jobs</a></li>
-                          <li><a className="dropdown-item fw-bold"
-                        href="#/">Saved Companies</a></li>
+                        href="#/"onClick={() => {
+                    navigate("/jobssaved");
+                  }} >Saved Jobs</a></li>
+                          <li><a  className="dropdown-item fw-bold"
+                        href="#/" onClick={() => {
+                    navigate("/companiessaved");
+                  }}>Saved Companies</a></li>
                          <li><a className="dropdown-item fw-bold"
-                        href="#/">Saved Internships</a></li>
-                        <li><a className="dropdown-item fw-bold"
+                        href="#/" onClick={() => {
+                    navigate("/mysavedinternships");
+                  }} >Saved Internships</a></li>
+                        <li><a onClick={() => {
+                    navigate("/myappliedinternships");
+                  }} className="dropdown-item fw-bold"
                         href="#/">Applied Internships</a></li>
                          <li><a className="dropdown-item fw-bold"
                         href="#/">Surveys Done</a></li>

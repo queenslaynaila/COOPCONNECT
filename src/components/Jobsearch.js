@@ -5,13 +5,24 @@ import { useNavigate  } from "react-router-dom";
 export default function Jobsearch() {
 let navigate = useNavigate();
 const [jobs,setJobs] = useState([])
+const [search,setsearch] = useState(" ")
 useEffect(()=>{
     fetch("/jobs")
     .then((r)=>{
         r.json().then((res)=>setJobs(res))
     })
   },[])
-  console.log(jobs)
+
+function handleSearch(){
+    const filterSEarch = jobs.filter((job)=>{return job.jobtitle.toLowerCase().includes(search.toLowerCase()) })
+    setJobs(filterSEarch)
+      
+}
+function handleChange(event){
+    setsearch(event.target.value)
+    console.log(search)
+   }
+
   return (
     <div class="container">
       <div class="row mt-5 mb-5">
@@ -20,23 +31,6 @@ useEffect(()=>{
             <aside class="col-md-3">
             <div class="card">
 
-                <article class="filter-group">
-                    <header class="card-header">
-
-
-                            <h6 class="title">Category </h6>
-
-                    </header>
-                    <div class="filter-content collapse show" id="collapse_2"  >
-                        <div class="card-body">
-                        <p>Marketing</p>
-                        <p>Software Engineering</p>
-                        <p>Customer Service</p>
-                        <p>Care Jobs</p>
-                        <p>Analytics</p>
-                    </div>
-                    </div>
-                </article>
                 <article class="filter-group">
                     <header class="card-header">
 
@@ -68,9 +62,9 @@ useEffect(()=>{
             <header>
                 <div class="form-inline">
                 <div class="input-group">
-	                <input id="search-input" type="search" class="form-control" placeholder="Search a job, company..."></input>
-                    <button id="search-button" type="button" class="btn btn-primary">
-                    <i class="fa fa-search"></i>
+	                <input  onChange={handleChange}  id="search-input" type="search" class="form-control" placeholder="Search a job, company..."></input>
+                    <button onClick={handleSearch}  id="search-button" type="button" class="btn btn-primary">
+                    <i  onClick={(e)=>handleSearch}  class="fa fa-search"></i>
   	                </button>
                 </div>
                 </div>
@@ -78,7 +72,7 @@ useEffect(()=>{
 
             {jobs.map(job=> <Jobcard job={job}/>)}
 
-              
+
 
         </main>
       </div>
