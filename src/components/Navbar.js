@@ -114,6 +114,49 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
                      </ul>
                 </li>
 
+                <li className="nav-item dropdown ms-sm-3 d-inline-flex">
+                  <a
+                    className="nav-link signup dropdown-toggle"
+                    href="#/"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                   More Options
+                  </a>
+                  <ul className="dropdown-menu  ">
+                    <li><a className="dropdown-item fw-bold"
+                        href="#/" onClick={()=>{
+                             navigate("/jobsapplied");
+                  }}>Jobs aplied</a></li>
+
+                    <li><a  onClick={()=>{
+                    navigate("/jobssaved");
+                  }} className="dropdown-item fw-bold"
+                        href="#/">Saved Jobs</a></li>
+
+                          <li><a onClick={()=>{
+                    navigate("/companiessaved");
+                  }}  className="dropdown-item fw-bold"
+                        href="#/" >Saved Companies</a></li>
+
+                         <li><a onClick={()=>{
+                    navigate("/mysavedinternships");
+                  }}   className="dropdown-item fw-bold"
+                        href="#/">Saved Internships</a></li>
+
+                        <li><a onClick={()=>{
+                    navigate("/myappliedinternships");
+                  }}  className="dropdown-item fw-bold"
+                        href="#/">Applied Internships</a></li>
+
+                         <li><a className="dropdown-item fw-bold"
+                        href="#/">Surveys Done</a></li>
+
+                          <li><a className="dropdown-item fw-bold"
+                        href="#/">Surveys Saved</a></li>
+                  </ul>
+                </li>
 
 
                 <li className="nav-item  ">

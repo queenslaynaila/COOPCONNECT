@@ -15,7 +15,7 @@ useEffect(()=>{
         r.json().then((res)=>setJobs(res))
     })
   },[])
-
+console.log(jobs)
 function handleSearch(){
     const filterSEarch = jobs.filter((job)=>{return job.jobtitle.toLowerCase().includes(search.toLowerCase()) })
     setJobs(filterSEarch)
