@@ -23,6 +23,13 @@ import SearchTalent from "./components/SearchTalents";
 import  Pricing from "./components/pricing";
 import PostAJob from "./components/PostAJob";
 import Viewaseeker from "./components/Viewaseeker";
+import JobApplied from './components/JobsApplied';
+import JobsSaved from './components/JobsSaved';
+import CompaniesSaved from './components/CompaniesSaved';
+import Myinternships from './components/Myinternships';
+import Mysavedinternships from './components/Mysavedinternships';
+import MyappliedCompanies from './components/MyappliedCompanies';
+import Searchemployer from './components/Searchemployer';
 
 function App() {
     let navigate = useNavigate()
@@ -42,9 +49,11 @@ function App() {
       <Route path="/talentdashboard" element={<SeekerDashboard seeker={seeker} />}/>
       <Route path="/seekerprofile" element={<Seekerprofile  seeker={seeker} />}/>
       <Route path="/searchjob" element={<Jobsearch/>}/>
+      <Route path="/searchjob/:id" element={<Viewjob/>}/>
+      <Route path='searchemployer' element={<Searchemployer/>} />
       <Route path="/asesement" element={<Assesement/>}/>
       <Route path="/employerdash" element={<DashBoardBody employer={employer} />}/>
-      <Route path="/viewjob" element={<Viewjob/>}/>
+
       <Route path="/viewcompany" element={<ViewCompany employer={employer} />}/>
       <Route path="/companyeditprofile" element={<CompanyEditProfile employer={employer}/>}/>
       <Route path="/searchtalents" element={<SearchTalent/>}/>
@@ -52,10 +61,14 @@ function App() {
       <Route path="/previewjob" element={<JobPostPreview/>}/>
       <Route path="/postajob" element={<PostAJob/>}/>
       <Route path="/viewaseeker" element={<Viewaseeker seeker={seeker} employer={employer} />}/>
+
+      <Route path='/jobsapplied' element={<JobApplied seeker={seeker}/>}/>
+      <Route path="/jobssaved" element = {<JobsSaved></JobsSaved>}/>
+      <Route path="/companiessaved" element={<CompaniesSaved seeker={seeker}/>}/>
+      <Route path="/myappliedinternships" element={<Myinternships seeker={seeker}/>} />
+      <Route path="/mysavedinternships" element={<Mysavedinternships seeker={seeker}/>} />
+      <Route path="/myappliedcompanies" element={<MyappliedCompanies seeker={seeker}/>} />
       <Route path="*" element={<Errorpage></Errorpage>}/>
-
-
-
     </Routes>
 
 
