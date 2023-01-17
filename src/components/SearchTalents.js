@@ -1,9 +1,20 @@
 import React from 'react'
 import TalentCard from './TalentCard'
-
-function SearchTalent()
-{
-
+import { useState,useEffect } from 'react'
+import { useNavigate } from 'react-router'
+function SearchTalent(){
+    let navigate = useNavigate()
+    const [talents,SetTalents] = useState([])
+    useEffect(()=>{
+        fetch("/seekers")
+        .then((r)=>{
+            r.json().then((res)=>{
+                SetTalents(res)
+                // onFetchJobs(res)
+            })
+        })
+      },[])
+    console.log(talents)
     return (
        <div class="container">
     <div class="row mt-5 mb-5">
@@ -15,20 +26,12 @@ function SearchTalent()
                   </header>
                   <div>
                       <div class="card-body">
-                      <div class="dropdown">
-                            <a class="btn border dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                Educational Level
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">PHD</a></li>
-                                <li><a class="dropdown-item" href="#">Masters</a></li>
-                                <li><a class="dropdown-item" href="#">Degree</a></li>
-                                <li><a class="dropdown-item" href="#">Diploma</a></li>
-                                <li><a class="dropdown-item" href="#">Certificate</a></li>
-                            </ul>
-                      </div>
+
+
+                     <input type="text" class="form-control form-control-sm"  aria-label=".form-control-sm example" placeholder='PROFESSION'></input>
+                     <input type="text" class="form-control form-control-sm"  aria-label=".form-control-sm example" placeholder='SKILLS'></input>
                      <input type="text" class="form-control form-control-sm"  aria-label=".form-control-sm example" placeholder='INSTITUTE'></input>
-                     <input type="text" class="form-control form-control-sm"  aria-label=".form-control-sm example" placeholder='COURSE'></input>
+                     <input type="text" class="form-control form-control-sm"  aria-label=".form-control-sm example" placeholder='EXPERIENCE'></input>
                      </div>
                   </div>
               </article>
@@ -38,14 +41,17 @@ function SearchTalent()
           <header  >
                   <div class="form-inline">
                       <div class="input-group">
-                          <input id="search-input" type="search" class="form-control" placeholder="Search via skill or name..."></input>
+                          <input id="search-input" type="search" class="form-control" placeholder="Search via name..."></input>
                           <button id="search-button" type="button" class="btn btn-primary">
                                  <i class="fa fa-search"></i>
                             </button>
                       </div>
                   </div>
           </header>
-          <TalentCard></TalentCard>
+          {talents.map((talent)=>{
+             return <TalentCard talent={talent}></TalentCard>
+          })}
+
       </main>
     </div>
   </div>
