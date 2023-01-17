@@ -1,76 +1,90 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
+import '../styles/cv.css'
 export default function Viewaseeker({seeker}) {
     let navigate = useNavigate();
-    console.log(seeker.profession
-      )
+
+      let me="https://media.geeksforgeeks.org/wp-content/uploads/20220202083519/gfglogo.png"
   return (
-    <div class="container d-flex justify-content-center w-75">
-         <div class=" mt-5 mb-5">
-          {seeker ? <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard</p>
-          : <p  className="dash" onClick={() => {navigate("/searchtalents")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard</p> }
+    <div class=" container  mt-4 mb-4 cv">
+     <div id="page-wrap">
+
+    <img src={me} alt="Photo of Cthulu" id="pic" />
+
+    <div id="contact-info" class="vcard">
 
 
-             <div >
-                <div className='card'>
-                  <ul class="list-group list-group-flush">
-                      <li class="list-group-item">
-                            <h4 style={{ color: "darkblue" }} className='fw-bold'>{seeker.firstname} {seeker.secondname}</h4>
-                            <p style={{ color: "gray" }} className='fw-bold'>{seeker.profession}  &middot;{seeker.yearsinprofesion}years </p>
-                            <p>{seeker.city},{seeker.country}</p>
-                      </li>
 
-                      <li class="list-group-item">
-                            <h4 style={{ color: "darkblue" }} className='fw-bold'>Contact</h4>
-                            <p  className='fw-bold'>{seeker.email}</p>
-                            <p>{seeker.phone}</p>
-                      </li>
+        <h1 class="fn">{`${seeker.firstname} ${seeker.secondname}`}</h1>
 
-                      <li class="list-group-item">
-                            <h4 style={{ color: "darkblue" }} className='fw-bold'>About</h4>
-                            <p  >{seeker.about}</p>
-                      </li>
-                      <li className='list-group-item'>
-                        <h5 style={{ color: "darkblue" }} className='fw-bold'>Key Skills</h5>
-                        {/* <ul class="list-inline">
-                        {seeker.keyskills.map((skill)=>{
-                          return <li class="list-inline-item"><i class="bi bi-check"></i>{skill}</li>
-                        })}
-                        </ul> */}
-                      </li>
-                      <li class="list-group-item">
-                            <h4 style={{ color: "darkblue" }} >Education</h4>
-                            {/* {seeker.educations.map((education)=>{
-                          return (<>
-                            <p><span className='fw-bold'>Cerificate name</span>:{education.certificatename}</p>
-                            <p><span className='fw-bold'>Institution</span>:{education.institution}</p>
+        <p>
+            Cell:  {seeker.phone ? <><span class="tel">{seeker.phone}</span><br /></>:<><span class="tel">Update phone number</span></>}
+            Email: <a class="email" href="mailto:greatoldone@lovecraft.com">{seeker.email}</a>
+        </p>
+    </div>
 
-                          </>
-                          )
-                        })} */}
-                      </li>
-                      <li class="list-group-item">
-                      <h4 style={{ color: "darkblue" }}>Work Experience</h4>
-                      {/* {seeker.experiences.map((experience)=>{
-                          return <>
-                          <h6 className='fw-bold'>Job Title</h6>
-                          <p className='fw-bold'>{experience.jobtitle}</p>
-
-                            <h6 className='fw-bold'>Job Description</h6>
-                            <p>{experience.description}</p>
-                            <p className='fw-bold'>Start Year:{experience.startdate}</p>
-                            <p className='fw-bold'>End Year:{experience.enddate}</p>
-                          </>
-                        })} */}
-
-                      </li>
-                  </ul>
-
-
-                </div>
-             </div>
-         </div>
+    <div id="objective">
+         {seeker.about ? <p>{seeker.about}</p> : <p>Update account details in the profile section</p>}
 
     </div>
+
+    <div class="clear"></div>
+
+    <dl>
+        <dd class="clear"></dd>
+
+        <dt>Education</dt>
+{seeker.educations.map((ed)=>{
+  return (<dd>
+    <h2>{ed.certificatename}<span> </span></h2>
+            <h2>{ed.institution}</h2>
+            <p><strong>Startdate:</strong>{ed.startdate}<br />
+               <strong>Enddate:</strong> {ed.enddate}</p>
+        </dd>)
+
+})}
+<dd class="clear"></dd>
+
+
+<dt>Experiences</dt>
+{seeker.experiences.map((ed)=>{
+  return (<dd>
+            <h2>{ed.jobtitle}</h2>
+            <p>{ed.description}<br />
+               <strong>Start:</strong>{ed.startdate}<br></br>
+               <strong>End:</strong>{ed.enddate}</p>
+        </dd>)
+
+})}
+
+<dd class="clear"></dd>
+<dt>keyskills</dt>
+{seeker.keyskills.map((ed)=>{
+  return (<dd>
+            <h2>{ed.skillname}</h2>
+            <p> Public Relations<br />
+               <strong>Description:</strong>Im good at public speaking</p>
+        </dd>)
+
+})}
+<dd class="clear"></dd>
+
+            <dt>References</dt>
+            <dd>Available on request</dd>
+
+            <dd class="clear"></dd>
+
+
+
+
+
+        <dd class="clear"></dd>
+    </dl>
+
+    <div class="clear"></div>
+
+</div>
+    </div>
+
   )
 }

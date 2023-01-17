@@ -29,15 +29,16 @@ export default function Table({employer}) {
       </thead>
       <tbody>
         {seekers.map((seeker,index)=>{
-                return <tr>
-                <th scope="row">{index + 1}</th>
+                return (
+                <tr>
+                  <th scope="row">{index + 1}</th>
                   <td>{seeker.seeker.firstname} {seeker.seeker.secondname}</td>
                   <td>{seeker.job.jobtitle}</td>
                   <td>{seeker.status}</td>
                   <td>{seeker.dateapplied}</td>
                   {/* <td>5</td> */}
                   <td>{seeker.seeker.email}</td>
-                </tr>
+                </tr>)
          })
         }
       </tbody>

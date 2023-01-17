@@ -47,7 +47,7 @@ export default function Internshipappliedcard({internship}) {
         {/* <a href="#" class="card-link" onClick={() => {navigate("/viewjob")}} >View Job</a>
         <a href="#" class="card-link">Save Job</a> */}
         <button  className='btn btn-primary'  >MORE</button>&nbsp;&nbsp;
-        <button className='btn btn-primary'  >DELETE</button>
+        <button className='btn btn-primary'  >DELETE APPLICATION</button>
       </div>
     </div>
 </div>

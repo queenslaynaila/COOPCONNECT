@@ -1,5 +1,7 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
+import Jobapplications from './seekerstable/Jobapplications';
+import Internshipapplications from './seekerstable/Internshipapplications';
 export default function SeekerDashboard({seeker}) {
 
   let navigate = useNavigate();
@@ -90,43 +92,21 @@ export default function SeekerDashboard({seeker}) {
             </div>
          </div>
         </div>
-        <div class="row">
-         <div class="col-lg-3 mt-4">
-            <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Recomended Jobs</h5>
-                    <p class="card-text">Here are some companies matching your skillset and insterests</p>
-                    <a href="#" class="btn btn-primary">View Recomeded</a>
-                  </div>
+        <div class="card shadow-sm mt-4">
+            <div class="card-header">
+              <h4 style={{color:"darkblue"}}>RECENT JOB APPLICATIONS</h4>
             </div>
-         </div>
-         <div class="col-lg-3 mt-4">
-            <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Recomended Internships</h5>
-                    <p class="card-text">Here are some internnships matching your  interests</p>
-                    <a href="#" class="btn btn-primary">View Recomeded</a>
-                  </div>
+            <div class="card-body">
+               <Jobapplications seeker={seeker}></Jobapplications>
             </div>
-         </div>
-         <div class="col-lg-3 mt-4">
-            <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Recomended Companies</h5>
-                    <p class="card-text">Here are some companies matching your  interests</p>
-                    <a href="#" class="btn btn-primary">View Recomeded</a>
-                  </div>
+        </div>
+        <div class="card shadow-sm mt-4">
+            <div class="card-header">
+              <h4 style={{color:"darkblue"}}>RECENT INTERNSHIP APPLICATIONS</h4>
             </div>
-         </div>
-         <div class="col-lg-3 mt-4">
-            <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Reccommended Surveys</h5>
-                    <p class="card-text">Check out these surveys by companies you saved</p>
-                    <a href="#" class="btn btn-primary">View Recomeded</a>
-                  </div>
+            <div class="card-body">
+              <Internshipapplications seeker={seeker}></Internshipapplications>
             </div>
-         </div>
         </div>
     </div>
   )

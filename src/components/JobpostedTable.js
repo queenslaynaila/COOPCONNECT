@@ -25,9 +25,9 @@ export default function JobpostedTable({employer}) {
       </tr>
     </thead>
     <tbody>
-      <tr>
+
       {jobs.map((job,index)=>{
-            return <>
+            return (<tr>
 
             <th scope="row">{index + 1}</th>
               <td>{job.jobtitle}</td>
@@ -36,10 +36,10 @@ export default function JobpostedTable({employer}) {
               <td>{job.totalsaved}</td>
               <td>{job.category.name}</td>
 
-            </>
+            </tr>)
           })}
 
-      </tr>
+
 
     </tbody>
   </table>

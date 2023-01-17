@@ -35,12 +35,12 @@ import Offers from './components/employermoreoptions/Offers'
 import Savedprofiles from './components/employermoreoptions/Savedprofiles'
 import Applicationsreceived from './components/employermoreoptions/Applicationsreceived'
 function App() {
-    let navigate = useNavigate()
+  let navigate = useNavigate()
        const [employer , setEmployer] = useState(null)
        const [seeker,setSeeker] = useState(null)
-      const [user,setUser] = useState(null)
-     const [jobs,setJobs] = useState(null)
-     const [employers,setEmployers] = useState(null)
+       const [user,setUser] = useState(null)
+      const [jobs,setJobs] = useState(null)
+      const [employers,setEmployers] = useState(null)
 
   return (
 <>

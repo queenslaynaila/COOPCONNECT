@@ -34,7 +34,7 @@ export default function Companyappcard({employer}) {
           </div>
           <div>
              <a href="#" class="card-link">VIEW COMPANY</a>
-             <a href="#" class="card-link">DELETE</a>
+             <a href="#" class="card-link">DELETE FROM SAVED</a>
           </div>
         </div>
     </div>
