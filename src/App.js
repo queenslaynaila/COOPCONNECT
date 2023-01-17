@@ -30,6 +30,7 @@ import Myinternships from './components/Myinternships';
 import Mysavedinternships from './components/Mysavedinternships';
 import MyappliedCompanies from './components/MyappliedCompanies';
 import Searchemployer from './components/Searchemployer';
+import Settings from './components/Settings';
 
 function App() {
     let navigate = useNavigate()
@@ -52,7 +53,9 @@ function App() {
       <Route path="/searchjob/:id" element={<Viewjob/>}/>
       <Route path='searchemployer' element={<Searchemployer/>} />
       <Route path="/asesement" element={<Assesement/>}/>
-      <Route path="/employerdash" element={<DashBoardBody employer={employer} />}/>
+      <Route path="/employerdash" element={<DashBoardBody employer={employer} />} />
+      <Route path="/settings" element={<Settings/>} />
+        
 
       <Route path="/viewcompany" element={<ViewCompany employer={employer} />}/>
       <Route path="/companyeditprofile" element={<CompanyEditProfile employer={employer}/>}/>
