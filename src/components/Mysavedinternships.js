@@ -1,10 +1,67 @@
 import React from 'react'
-
-export default function Mysavedinternships() {
+import { useEffect ,useState} from "react";
+import { useNavigate } from 'react-router';
+import Internshipssavedcard from "./Internshipssavedcard"
+export default function Mysavedinternships({seeker}) {
+  let navigate = useNavigate()
+  const [internships,setInternships] = useState([])
+  useEffect(() => {
+    fetch(`seekers/${seeker.id}/savedinternships`).then((response) => {
+      if (response.ok) {
+        response.json().then((saved) => setInternships(saved));
+      }
+    });
+  }, []);
+ console.log(internships[0])
   return (
     <div class="container-sm mt-4 mb-4">
-    <h2 className="mt-2" style={{color:"blue"}}>INTERNSHIPS SAVED</h2>
-    <p>Here are some jobs youve applied to</p>
+    <h2 className="mt-2" style={{color:"darkblue"}}>INTERNSHIPS SAVED</h2>
+
+    <div class="row mt-5 mb-5">
+            <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard
+            </p>
+            <aside class="col-md-3">
+            <div class="card">
+
+                <article class="filter-group">
+                    <header class="card-header">
+                            <h6 class="title">Salary range </h6>
+                    </header>
+                    <div class="filter-content collapse show" id="collapse_3"  >
+                        <div class="card-body">
+                            <div class="form-row">
+                            <div class="form-group col-md-6">
+                            <label>Location</label>
+                            <input  class="form-control" placeholder="Location" type="text"></input>
+                            </div>
+
+                            </div>
+                            <button   class="btn btn-block btn-primary">Apply</button>
+                        </div>
+                    </div>
+                </article>
+
+
+            </div>
+        </aside>
+        <main class="col-md-9">
+            <header>
+                <div class="form-inline">
+                <div class="input-group">
+	                <input   id="search-input" type="search" class="form-control" placeholder="Search a job, company..."></input>
+                    <button o   id="search-button" type="button" class="btn btn-primary">
+                    <i     class="fa fa-search"></i>
+  	                </button>
+                </div>
+                </div>
+            </header>
+
+
+            {internships.map((internship)=><Internshipssavedcard internship={internship}/>)}
+
+
+        </main>
+      </div>
 
 </div>
   )

@@ -1,50 +1,55 @@
 import React, { useState } from "react";
-import {useNavigate} from "react-router-dom"
+import {  useNavigate } from "react-router-dom"
 import DatePicker from 'react-datepicker';
-
 import "react-datepicker/dist/react-datepicker.css";
 import connect from "../assets/connect.png";
 function SignUpJobSeekers({onSignUpSeeker}) {
-   const [startDate, setStartDate] = useState(new Date());
-
   let navigate = useNavigate()
+   const [startDate, setStartDate] = useState(new Date());
   const [firstname, setFirstName] = useState("");
   const [secondname, setSecondName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [gender,setGender] = useState("")
+  const [yearofbirth,SetYearofbirth] = useState("")
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
-    function handleSubmit(e) {
-      e.preventDefault();
-      if (password === passwordConfirmation ){
-        fetch("/seekersignup", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            firstname,
-           secondname,
-            email,
-            password,
-            passwordConfirmation,
-          }),
-        }).then((r) => {
-          if (r.ok) {
-            r.json().then((seeker) =>{
-              onSignUpSeeker(seeker)
-              navigate("/talentdashboard")
-            });
-          }else{
-            r.json().then((err) => {
-              setErrors((err))
-            })}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  if (password === passwordConfirmation ){
+    fetch("/seekersignup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstname,
+       secondname,
+        email,
+         gender,
+         password,
+         yearofbirth
+      }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((seeker) =>{
+          onSignUpSeeker(seeker)
+         navigate("/talentdashboard")
+
         });
-      } else {
-         setErrors({passwordconfirmation:"passwords dont match"})
-      }
+      }else{
+        r.json().then((err) => {
+          setErrors((err))
+
+        })
 
     }
+    });
+  } else {
+     setErrors({passwordconfirmation:"passwords dont match"})
+  }
+}
 
   return(
   <>
@@ -106,7 +111,9 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                         {errors.email? <p className="text-danger">{`email: ${errors.email}`}</p>:null}
              </div>
              <div className="col mt-2">
-                <select style={{color:"gray"}} class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <select style={{color:"gray"}} class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" value={gender} onChange={(e)=>{
+                  setGender(e.target.value)
+                }}>
                     <option selected  >Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -123,7 +130,8 @@ function SignUpJobSeekers({onSignUpSeeker}) {
                           placeholderText="Choose DOB in dd/mm/yyyy"
                           onChange={date => {
                           setErrors([])
-                         setStartDate(date)}}
+                         setStartDate(date)
+                         SetYearofbirth(date)}}
                            name="startDate"
                            dateFormat="dd/MM/yyyy" />
                         {errors.yearofbirth ? <p  className="text-danger">{`dateofbirth: ${errors.yearofbirth}`}</p>:null}

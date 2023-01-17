@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { SelectPicker } from 'rsuite';
 
  export default function DashBoardBody({employer}) {
+  console.log(employer)
   let navigate = useNavigate();
    return (
      <div className='container mt-4 mb-4'>
@@ -20,8 +21,9 @@ import { SelectPicker } from 'rsuite';
                     </div>
                      <div>
                     <p>{employer.name}</p>
-                    <p>{employer.mail}</p>
-                    <p>{employer.created_at}</p>
+                    <p>A {employer.companytype} Company</p>
+
+                    <p><span className='fw-bold'>Member Since</span>&nbsp;&nbsp;{employer.created_at}</p>
                     </div>
                 </div>
 
@@ -76,7 +78,7 @@ import { SelectPicker } from 'rsuite';
               <h4 style={{color:"darkblue"}}>RECENT APPLICANTS</h4>
             </div>
             <div class="card-body">
-               <Table applications={employer.allapplicants}></Table>
+               <Table employer={employer}></Table>
             </div>
         </div>
         <div class="card shadow-sm mt-4">
@@ -84,7 +86,7 @@ import { SelectPicker } from 'rsuite';
               <h4 style={{color:"darkblue"}}>JOBS POSTED</h4>
             </div>
             <div class="card-body">
-              <JobpostedTable jobs={employer.jobs}></JobpostedTable>
+              <JobpostedTable  employer={employer}></JobpostedTable>
             </div>
         </div>
         <div class="card shadow-sm mt-4">

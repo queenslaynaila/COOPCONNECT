@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-export default function PostAJob() {
+export default function PostAJob({employer}) {
+  console.log(employer.account.email)
   let navigate = useNavigate();
   return (
     <div className="container mt-4 mb-4">
@@ -27,19 +28,20 @@ export default function PostAJob() {
                         htmlFor="organizationname"
                         class="form-label fs-5 "
                       >
-                        Organization Name:
+                        Job Position:
                       </label>
                       <input
                         type="text"
                         id="organizationname"
                         class="form-control"
+
                       ></input>
                     </div>
                   </div>
                   <div className="col">
                     <div class="mb-3">
                       <label htmlFor="experience" class="form-label fs-5">
-                        Experience in Years:
+                         Positions Available:
                       </label>
                       <input
                         type="text"
@@ -54,12 +56,12 @@ export default function PostAJob() {
                   <div className="col">
                     <div class="mb-3">
                       <label htmlFor="position" class="form-label fs-5">
-                        Position:
+                        Experience in Years:
                       </label>
                       <input
-                        type="text"
+                        type="number"
                         id="position"
-                        class="form-control"
+                        class="form-control form-control-lg"
                       ></input>
                     </div>
                   </div>
@@ -162,6 +164,17 @@ export default function PostAJob() {
                   </div>
                 </div>
                 <div class="form-group">
+                  <label for="exampleFormControlTextarea" className="fs-5">
+                    OverallSummary
+                  </label>
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea"
+                    placeholder="Summary of the job"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <div class="form-group">
                   <label for="exampleFormControlTextarea1" className="fs-5">
                     Job Responsibilities
                   </label>
@@ -202,8 +215,8 @@ export default function PostAJob() {
               <h5 style={{ color: "darkblue" }} className="text-center">
                 Recruiter Details
               </h5>
-              <p className="text-center">Companyname</p>
-              <p className="text-center">companygmail@gmail.com</p>
+              <p className="text-center">{employer.name}</p>
+              <p className="text-center">{employer.account.email}</p>
               <p
                 onClick={() => {
                   navigate("/companyeditprofile");

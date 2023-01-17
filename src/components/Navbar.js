@@ -229,6 +229,9 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
                       <a
                         className="dropdown-item fw-bold"
                         href="#/"
+                        onClick={()=>{
+                    navigate("/jobsposted");
+                  }}
                       >
                       Jobs Posted
                       </a>
@@ -236,6 +239,9 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
                     <li>
                       <a
                         className="dropdown-item fw-bold"
+                        onClick={()=>{
+                    navigate("/app");
+                  }}
                         href="#/"
                       >
                          Applications
@@ -245,6 +251,9 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
                       <a
                         className="dropdown-item fw-bold"
                         href="#/"
+                        onClick={()=>{
+                    navigate("/savedprofiles");
+                  }}
                       >
                          Profiles Saved
                       </a>
