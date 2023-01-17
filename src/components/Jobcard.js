@@ -1,9 +1,19 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
-export default function Jobcard({job}) {
+export default function Jobcard({job,seeker}) {
 
-
+function handleSave(e){
+  fetch("/savedjobs", {
+    method: "POST",
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({job_id:job.id, seeker_id:seeker.id})
+  }).then(res => {
+     if (res.ok){
+      alert('saved')
+     }
+  });
+}
   let navigate = useNavigate();
 
   return (
@@ -48,7 +58,7 @@ export default function Jobcard({job}) {
             {/* <a href="#" class="card-link" onClick={() => {navigate("/viewjob")}} >View Job</a>
             <a href="#" class="card-link">Save Job</a> */}
             <button onClick={()=>{navigate(`/searchjob/${job.id}`)}} className='btn btn-primary'  > View Job</button>&nbsp;&nbsp;
-            <button className='btn btn-primary' onClick={()=>{navigate(`/searchjob/${job.id}`)}} > Save Job</button>
+            <button className='btn btn-primary' onClick={(e)=>handleSave(e)} > Save Job</button>
           </div>
         </div>
     </div>

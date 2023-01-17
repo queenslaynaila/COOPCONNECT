@@ -2,12 +2,15 @@ import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router'
 import TalentCard from './TalentCard'
 import Employersearchcard from './Employersearchcard'
-export default function Searchemployer() {
+export default function Searchemployer({onEmployerFetch}) {
   const [employers,setEmployers] = useState([])
   useEffect(()=>{
     fetch("/employers")
     .then((r)=>{
-        r.json().then((res)=>setEmployers(res))
+        r.json().then((res)=>{
+            setEmployers(res)
+            onEmployerFetch(res)
+        })
     })
   },[])
   let navigate = useNavigate()

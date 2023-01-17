@@ -1,7 +1,7 @@
 import React from 'react'
-
+import { useNavigate } from "react-router-dom";
 export default function Employersearchcard({employer}) {
-
+ let navigate = useNavigate()
   return (
     <>
       <div class="card shadow-sm mt-3">
@@ -38,7 +38,7 @@ export default function Employersearchcard({employer}) {
      <div>Jobs Posted : 1</div>
      <div>Internships Posted:1</div>
      <div>Location:Nairobi</div>
-     <div><button className='btn btn-primary'>VIEW MORE</button></div>
+     <div><button className='btn btn-primary' onClick={()=>{navigate(`/searchemployer/${employer.id}`)}}>VIEW MORE</button></div>
 </div>
      </div>
 

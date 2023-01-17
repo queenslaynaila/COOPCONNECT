@@ -20,7 +20,7 @@ export default function Seekerprofile({seeker}) {
     justified
   >
     <Tab eventKey="personal-details" title="PERSONAL DETAILS">
-      <Personaldetails></Personaldetails>
+      <Personaldetails seeker={seeker}></Personaldetails>
     </Tab>
     <Tab eventKey="education" title="EDUCATION">
        <AddDeleteTableRows seeker={seeker}></AddDeleteTableRows>

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { SelectPicker } from 'rsuite';
 
  export default function DashBoardBody({employer}) {
+  console.log(employer)
   let navigate = useNavigate();
    return (
      <div className='container mt-4 mb-4'>
@@ -20,7 +21,7 @@ import { SelectPicker } from 'rsuite';
                     </div>
                      <div>
                     <p>{employer.name}</p>
-                    <p>{employer.mail}</p>
+                 
                     <p>{employer.created_at}</p>
                     </div>
                 </div>

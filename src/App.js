@@ -36,7 +36,8 @@ function App() {
        const [employer , setEmployer] = useState(null)
        const [seeker,setSeeker] = useState(null)
       const [user,setUser] = useState(null)
-
+     const [jobs,setJobs] = useState(null)
+     const [employers,setEmployers] = useState(null)
 
   return (
 <>
@@ -49,13 +50,14 @@ function App() {
       <Route path="/signuptalents" element={<SignUpJobSeekers/>}/>
       <Route path="/talentdashboard" element={<SeekerDashboard seeker={seeker} />}/>
       <Route path="/seekerprofile" element={<Seekerprofile  seeker={seeker} />}/>
-      <Route path="/searchjob" element={<Jobsearch/>}/>
-      <Route path="/searchjob/:id" element={<Viewjob/>}/>
-      <Route path='searchemployer' element={<Searchemployer/>} />
+      <Route path="/searchjob" element={<Jobsearch onFetchJobs={setJobs} seeker={seeker}/>}/>
+      <Route path="/searchjob/:id" element={<Viewjob jobs={jobs} seeker={seeker}/>}/>
+      <Route path='searchemployer' element={<Searchemployer onEmployerFetch={setEmployers}/>} />
+      <Route path="/searchemployer/:id" element={<ViewCompany employers={employers} />}/>
       <Route path="/asesement" element={<Assesement/>}/>
       <Route path="/employerdash" element={<DashBoardBody employer={employer} />}/>
 
-      <Route path="/viewcompany" element={<ViewCompany employer={employer} />}/>
+
       <Route path="/companyeditprofile" element={<CompanyEditProfile employer={employer}/>}/>
       <Route path="/searchtalents" element={<SearchTalent/>}/>
       <Route path="/pricing" element={<Pricing/>}/>

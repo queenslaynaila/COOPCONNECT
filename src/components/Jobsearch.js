@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import Jobcard from './Jobcard'
 import { useNavigate  } from "react-router-dom";
 // import { useEffect,useState } from 'react';
-export default function Jobsearch() {
+export default function Jobsearch({onFetchJobs,seeker}) {
 let navigate = useNavigate();
 const [jobs,setJobs] = useState([])
 const [search,setsearch] = useState(" ")
@@ -12,7 +12,10 @@ const [minsalary,setMinSalary ] = useState(null)
 useEffect(()=>{
     fetch("/jobs")
     .then((r)=>{
-        r.json().then((res)=>setJobs(res))
+        r.json().then((res)=>{
+            setJobs(res)
+            onFetchJobs(res)
+        })
     })
   },[])
 console.log(jobs)
@@ -76,7 +79,7 @@ function handleChange(event){
                 </div>
             </header>
 
-            {jobs.map(job=> <Jobcard job={job}/>)}
+            {jobs.map(job=> <Jobcard job={job} seeker={seeker}/>)}
 
 
 

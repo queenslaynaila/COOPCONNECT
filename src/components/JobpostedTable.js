@@ -1,6 +1,8 @@
 import React from 'react'
 
 export default function JobpostedTable({jobs}) {
+
+  
   return (
     <table class="table">
     <thead>
