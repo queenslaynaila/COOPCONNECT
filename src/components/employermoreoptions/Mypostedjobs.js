@@ -1,20 +1,20 @@
 import React ,{useState,useEffect}from 'react'
 import { useNavigate  } from "react-router-dom";
-export default function Applicationsreceived({employer}) {
-  let navigate= useNavigate()
-  const [applications,setApplications] = useState([])
-  const [jobs,setJobs] = useState([])
-  useEffect(() => {
-      fetch(`employers/${employer.id}/applicants`).then((response) => {
-        if (response.ok) {
-          response.json().then((res) => setApplications(res));
-        }
-      });
-    }, []);
+
+export default function Mypostedjobs({employer}) {
+    let navigate = useNavigate()
+    const [jobs,setJobs] = useState([])
+    useEffect(() => {
+        fetch(`employers/${employer.id}/jobs`).then((response) => {
+          if (response.ok) {
+            response.json().then((jobssaved) => setJobs(jobssaved));
+          }
+        });
+      }, []);
   return (
     <div class="container">
-    <h3 className='mt-5' style={{color:"darkblue"}}>APPLICATIONS RECEIVED</h3>
-    <div class="row mb-5">
+     <h3 className='mt-4' style={{color:"darkblue"}}>Here are Jobs you posted</h3>
+    <div class="row  mb-5">
           <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard
           </p>
           <aside class="col-md-3">

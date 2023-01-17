@@ -30,7 +30,7 @@ import Myinternships from './components/Myinternships';
 import Mysavedinternships from './components/Mysavedinternships';
 import MyappliedCompanies from './components/MyappliedCompanies';
 import Searchemployer from './components/Searchemployer';
-import Jobsposted from './components/employermoreoptions/Jobsposted';
+ import Mypostedjobs from './components/employermoreoptions/Mypostedjobs';
 import Offers from './components/employermoreoptions/Offers'
 import Savedprofiles from './components/employermoreoptions/Savedprofiles'
 import Applicationsreceived from './components/employermoreoptions/Applicationsreceived'
@@ -50,8 +50,8 @@ function App() {
       <Route exact path="/" element={<Home/>}/>
       <Route path="/login" element={<Login onLoginEmployer={setEmployer} onLoginSeeker={setSeeker}/>}/>
       <Route path = "/savedprofiles" element={<Savedprofiles employer={employer}/>}/>
-      <Route path ="/app" element={<Applicationsreceived/>} />
-      <Route path="/jobsposted" element={Jobsposted}/>
+      <Route path ="/app" element={<Applicationsreceived employer={employer}/>} />
+      <Route path="/jobsposted" element={<Mypostedjobs employer={employer}></Mypostedjobs>}/>
       <Route path="/offersmade" element={Offers} />
       <Route path="/signupcompanies" element={<SignCompanies onSignUpEmployer={setEmployer}/>}/>
       <Route path="/signuptalents" element={<SignUpJobSeekers onSignUpSeeker={setSeeker}/>}/>
