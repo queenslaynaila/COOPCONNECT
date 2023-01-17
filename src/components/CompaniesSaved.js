@@ -16,7 +16,7 @@ function CompaniesSaved({seeker}) {
     <div class="container-sm mt-4 mb-4">
     <h2 className="mt-2" style={{color:"blue"}}> COMPANIES SAVED</h2>
 
-     {employers.map((employer)=><Companyappcard employer={employer}/>)} 
+     {employers.map((employer)=><Companyappcard employer={employer}/>)}
 </div>
   );
 }
