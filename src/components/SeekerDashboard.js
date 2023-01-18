@@ -84,7 +84,7 @@ export default function SeekerDashboard({seeker}) {
          <div class="col-lg-3 mt-4">
             <div style={{maxWidth: "18rem"}} class="card card-block card-outline-primary">
                 <p class="card-text">0&nbsp;
-                    <a href="#" class=" float-right">Surveys done</a>
+                    <a href="#" class=" float-right">Offers received</a>
                 </p>
                 <p class="card-text">0&nbsp;
                     <a href="#" class=" float-right">Surevys Saved </a>

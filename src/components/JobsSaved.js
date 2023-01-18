@@ -12,7 +12,7 @@ function JobsSaved({seeker}) {
         response.json().then((jobssaved) => setJobs(jobssaved));
       }
     });
-  }, []);
+  }, [jobs]);
 
   return (
     <div class="container-sm mt-4 mb-4">

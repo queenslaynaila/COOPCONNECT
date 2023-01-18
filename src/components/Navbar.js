@@ -180,7 +180,9 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
                   <ul className="dropdown-menu  ">
                     <li>
                       <a
-
+                          onClick={()=>{
+                    navigate("/settings");
+                  }}
                         className="dropdown-item fw-bold"
                         href="#/"
                       >
@@ -278,7 +280,10 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
                   </a>
                   <ul className="dropdown-menu  ">
                     <li>
-                      <a
+                    <a
+                          onClick={()=>{
+                    navigate("/settings");
+                  }}
                         className="dropdown-item fw-bold"
                         href="#/"
                       >

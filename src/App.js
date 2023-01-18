@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react';
-import {useNavigate} from "react-router-dom"
-
+import {useNavigate, useRoutes} from "react-router-dom"
+import Settings from './components/Settings';
 import { Routes, Route} from "react-router-dom"
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -37,14 +37,14 @@ import Applicationsreceived from './components/employermoreoptions/Applicationsr
 import Viewseeker from './components/employermoreoptions/Viewseeker';
 function App() {
   let navigate = useNavigate()
-       const [employer , setEmployer] = useState(null)
+       const [employer , setEmployer] = useState([])
        const [seeker,setSeeker] = useState(null)
        const [user,setUser] = useState(null)
-      const [jobs,setJobs] = useState(null)
+      const [jobs,setJobs] = useState([])
       const [employers,setEmployers] = useState(null)
-     const [seekers,setSeekers] = useState(null)
+     const [seekers,setSeekers] = useState([])
 
-console.log(seekers)
+
 
   return (
 <>
@@ -59,23 +59,24 @@ console.log(seekers)
       <Route path="/offersmade" element={Offers} />
       <Route path="/signupcompanies" element={<SignCompanies onSignUpEmployer={setEmployer}/>}/>
       <Route path="/signuptalents" element={<SignUpJobSeekers onSignUpSeeker={setSeeker}/>}/>
-
-      <Route path="/seekerprofile" element={<Seekerprofile  seeker={seeker} />}/>
-      <Route path="/searchjob" element={<Jobsearch onFetchJobs={setJobs} seeker={seeker}/>}/>
-      <Route path="/searchjob/:id" element={<Viewjob jobs={jobs} seeker={seeker}/>}/>
+      <Route path="/settings" element={<Settings seeker={seeker}
+      employer={employer}/>}/>
+      <Route path="/seekerprofile" element={<Seekerprofile seeker={seeker} onSeekeredit={setSeeker} />}/>
+      <Route path="/searchjob" element={<Jobsearch onFetchJobs={setJobs} jobs={jobs} seeker={seeker}/>}/>
+      <Route path="/searchjob/:id" element={<Viewjob employer={employer} jobs={jobs} seeker={seeker}/>}/>
       <Route path='searchemployer' element={<Searchemployer onEmployerFetch={setEmployers}/>} />
       <Route path="/searchemployer/:id" element={<ViewCompany employers={employers} />}/>
       <Route path="/asesement" element={<Assesement/>}/>
       <Route path="/employerdash" element={<DashBoardBody employer={employer} />}/>
       <Route path="/talentdashboard" element={<SeekerDashboard seeker={seeker} />}/>
 
-      <Route path="/companyeditprofile" element={<CompanyEditProfile employer={employer}/>}/>
+      <Route path="/companyeditprofile" element={<CompanyEditProfile employer={employer} onEmployeredit={setEmployer}/>}/>
       <Route path="/searchtalents" element={<SearchTalent
       onSeekersFetch={setSeekers} employer={employer}/>}/>
       <Route path ="/searchtalents/:id" element={<Viewseeker seekers={seekers}/>}  />
       <Route path="/pricing" element={<Pricing/>}/>
       <Route path="/previewjob" element={<JobPostPreview/>}/>
-      <Route path="/postajob" element={<PostAJob employer={employer}/>}/>
+      <Route path="/postajob" element={<PostAJob employer={employer} onEmployer={setEmployer}  />}/>
       <Route path="/viewaseeker" element={<Viewaseeker seeker={seeker} employer={employer} />}/>
 
       <Route path='/jobsapplied' element={<JobApplied seeker={seeker}/>}/>

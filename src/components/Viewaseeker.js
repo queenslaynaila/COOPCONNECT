@@ -1,8 +1,16 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import { useNavigate } from "react-router-dom";
 import '../styles/cv.css'
 export default function Viewaseeker({seeker}) {
+     const [user,setUser] = useState(seeker)
+
     let navigate = useNavigate();
+    useEffect(()=>{
+      fetch(`seekers/${seeker.id}`)
+	.then(response => response.json())
+	.then(data =>  setUser(data))
+	.catch(err => console.error(err));
+    },[])
 
       let me="https://media.geeksforgeeks.org/wp-content/uploads/20220202083519/gfglogo.png"
   return (
@@ -15,16 +23,16 @@ export default function Viewaseeker({seeker}) {
 
 
 
-        <h1 class="fn">{`${seeker.firstname} ${seeker.secondname}`}</h1>
+        <h1 class="fn">{`${user.firstname} ${user.secondname}`}</h1>
 
         <p>
-            Cell:  {seeker.phone ? <><span class="tel">{seeker.phone}</span><br /></>:<><span class="tel">Update phone number</span></>}
-            Email: <a class="email" href="mailto:greatoldone@lovecraft.com">{seeker.email}</a>
+            Cell:  {user.phone ? <><span class="tel">{user.phone}</span><br /></>:<><span class="tel">Update phone number</span></>}
+            Email: <a class="email" href="mailto:greatoldone@lovecraft.com">{user.email}</a>
         </p>
     </div>
 
     <div id="objective">
-         {seeker.about ? <p>{seeker.about}</p> : <p>Update account details in the profile section</p>}
+         {user.about ? <p>{user.about}</p> : <p>Update account details in the profile section</p>}
 
     </div>
 
@@ -34,7 +42,7 @@ export default function Viewaseeker({seeker}) {
         <dd class="clear"></dd>
 
         <dt>Education</dt>
-{seeker.educations.map((ed)=>{
+{user.educations.map((ed)=>{
   return (<dd>
     <h2>{ed.certificatename}<span> </span></h2>
             <h2>{ed.institution}</h2>
@@ -47,7 +55,7 @@ export default function Viewaseeker({seeker}) {
 
 
 <dt>Experiences</dt>
-{seeker.experiences.map((ed)=>{
+{user.experiences.map((ed)=>{
   return (<dd>
             <h2>{ed.jobtitle}</h2>
             <p>{ed.description}<br />
@@ -59,11 +67,11 @@ export default function Viewaseeker({seeker}) {
 
 <dd class="clear"></dd>
 <dt>keyskills</dt>
-{seeker.keyskills.map((ed)=>{
+{user.keyskills.map((ed)=>{
   return (<dd>
             <h2>{ed.skillname}</h2>
-            <p> Public Relations<br />
-               <strong>Description:</strong>Im good at public speaking</p>
+            <p> 
+               <strong>Description:</strong>{ed.skilldescription}</p>
         </dd>)
 
 })}

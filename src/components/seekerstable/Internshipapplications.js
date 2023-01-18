@@ -34,7 +34,7 @@ export default function Internshipapplications({seeker}) {
   <td>{internship.internship.positiontitle}</td>
   <td>applied</td>
   <td>{internship.employer.name}</td>
-  <td>{internship.dateapplied}</td>
+  <td>{internship.created_at}</td>
 
 </tr>))
          })

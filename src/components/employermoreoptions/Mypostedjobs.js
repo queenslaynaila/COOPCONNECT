@@ -1,16 +1,11 @@
 import React ,{useState,useEffect}from 'react'
 import { useNavigate  } from "react-router-dom";
-
+import Jobpostedcard from './Jobpostedcard';
 export default function Mypostedjobs({employer}) {
     let navigate = useNavigate()
-    const [jobs,setJobs] = useState([])
-    useEffect(() => {
-        fetch(`employers/${employer.id}/jobs`).then((response) => {
-          if (response.ok) {
-            response.json().then((jobssaved) => setJobs(jobssaved));
-          }
-        });
-      }, []);
+    const [jobs,setJobs] = useState(employer.jobs)
+    console.log(jobs[0].employer.name)
+
   return (
     <div class="container">
      <h3 className='mt-4' style={{color:"darkblue"}}>Here are Jobs you posted</h3>
@@ -56,7 +51,9 @@ export default function Mypostedjobs({employer}) {
               </div>
           </header>
 
-
+          {jobs.map((job)=>{
+            return <Jobpostedcard job={job}></Jobpostedcard>
+          })}
 
 
 

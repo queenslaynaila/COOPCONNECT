@@ -1,22 +1,13 @@
 import React from 'react'
 import { useParams,Link } from 'react-router-dom'
-import { useState } from 'react';
-import { useEffect } from 'react';
-function Viewjob({jobs,seeker}) {
+ 
+function Viewjob({seeker,employer,jobs}) {
   const params= useParams()
+
+
   const jobselected = jobs.find((job) => job.id === Number(params.id));
 
-  function handleApplication(e){
-    fetch(`/jobapplications`, {
-      method: "POST",
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({job_id:jobselected.id, seeker_id:seeker.id})
-    }).then(res => {
-      if(res.ok){
-          alert("Post was succesfull")
-      }
-    });
-  }
+
   return (
     <div className="container mt-4 mb-4">
       <div class="card mt-3">
@@ -65,8 +56,8 @@ function Viewjob({jobs,seeker}) {
             <p>Posted on {jobselected.dateposted}</p>
           </div>
           <div>
-            <button type="button" class="btn btn-primary" onClick={(e)=>handleApplication(e)}>
-              Apply Now
+            <button type="button" class="btn btn-primary"  >
+              EDIT
             </button>
           </div>
         </div>
@@ -91,6 +82,7 @@ function Viewjob({jobs,seeker}) {
         </div>
       </div>
     </div>
+
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/CompanyEditProfile.css"
 import { useNavigate } from "react-router-dom";
-function CompanyEditProfile({employer}) {
+function CompanyEditProfile({employer,onEmployeredit}) {
   let navigate = useNavigate();
   const [name,Setname] =useState(employer.name)
   const [companytype,Setcompanytype] = useState("")
@@ -24,7 +24,10 @@ function CompanyEditProfile({employer}) {
       body: JSON.stringify({firstname,secondname,name,companytype,websiteurl,description,designation})
     }).then(res => {
       if(res.ok){
-          alert("Post was succesfull")
+        res.json().then((user)=>{
+          onEmployeredit(user)
+        })
+
       }
     });
   }

@@ -1,8 +1,18 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
 export default function JobSaveCard({job}) {
-    console.log(job)
+    console.log(job.id)
     let navigate = useNavigate()
+    function handleClick(e){
+      e.preventDefault()
+      fetch(`savedjobs/${job.id}`, {
+  method: 'DELETE'
+})
+  .then(res => res.json())
+  .then(data => {
+  console.log(data)
+  })
+    }
   return (
     <div class="card mt-3"  >
     <div class="card-body">
@@ -45,8 +55,8 @@ export default function JobSaveCard({job}) {
       <div>
         {/* <a href="#" class="card-link" onClick={() => {navigate("/viewjob")}} >View Job</a>
         <a href="#" class="card-link">Save Job</a> */}
-        <button  className='btn btn-primary'  >MORE</button>&nbsp;&nbsp;
-        <button className='btn btn-primary'  >DELETE</button>
+        <button  className='btn btn-primary' onClick={()=>{navigate(`/searchjob/${job.id}`)}}   >MORE</button>&nbsp;&nbsp;
+        <button className='btn btn-primary' onClick={(e)=>handleClick(e)} >DELETE</button>
       </div>
     </div>
 </div>

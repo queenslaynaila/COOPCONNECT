@@ -1,25 +1,26 @@
 import React,{useState} from 'react'
 
-export default function Personaldetails({seeker}) {
+export default function Personaldetails({seeker,onEdit}) {
   const [firstname, setFirstName] = useState("");
   const [secondname, setSecondName] = useState("");
   const [profession,setProfession] = useState("")
   const [yearsinprofesion,setYearsinprofession] = useState("")
   const [country,setCountry] = useState("")
   const [city,setCity] = useState("")
-  const [phone,setPhone] = useState("")
+  const [phone,setPhone] = useState()
   const [about,setAbout] = useState("")
   const [errors,setErrors] = useState([])
   function handlePosts(e){
-
+    e.preventDefault()
         fetch(`/seekers/${seeker.id}`, {
             method: "PATCH",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({firstname,secondname,profession,yearsinprofesion,country,city,phone,about})
           }).then(res => {
             if(res.ok){
-                alert("Post was succesfull")
-            }
+              res.json().then((user)=>{
+                onEdit(user)
+              })}
           });
 
 

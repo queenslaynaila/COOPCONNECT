@@ -12,8 +12,8 @@ function JobsApplied({seeker}) {
       response.json().then((user) => setJobs(user));
     }
   });
-}, []);
-console.log(jobs)
+}, [jobs]);
+
   return (
     <div class="container-sm mt-4 mb-4">
        <h2 className="mt-2" style={{color:"darkblue"}}>JOB APPLICATIONS </h2>
