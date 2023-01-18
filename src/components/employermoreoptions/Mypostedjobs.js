@@ -56,9 +56,9 @@ export default function Mypostedjobs({employer}) {
               </div>
           </header>
 
-          {jobs.map((job)=>{
+          {/* {jobs.map((job)=>{
             return <Jobpostedcard job={job}></Jobpostedcard>
-          })}
+          })} */}
 
 
 

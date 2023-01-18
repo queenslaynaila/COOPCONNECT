@@ -1,8 +1,34 @@
-import React from "react";
+import React ,{useState}from "react";
 import { useNavigate } from "react-router-dom";
-export default function PostAJob({employer}) {
+export default function PostAJob({employer,onEmployer }) {
   console.log(employer.account.email)
   let navigate = useNavigate();
+    const [jobposition,Setjobposition] = useState('')
+    const [positionsavailable,SetPositionsavailable] = useState(null)
+    const [experienceInYears,SetExperienceInYears] = useState(0)
+    const [minsalary,SetMinsalary] = useState(0)
+    const [maxsalary,SetMaxSalary] = useState(0)
+    const [minimumed, SetMinMumEd] = useState('')
+    const [senioritylevel,SetSenioritylevel] = useState('')
+    const [location, SetLocation] = useState('')
+    const [keyskills,SetKeySkills] = useState('')
+    const [overallsummary,SetOverallsummary] = useState('')
+    const [jobresponsibilities, Setjobresponsibilities] = useState('')
+
+    function handlePost(){
+      fetch('/jobs', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json, text/plain, */*',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({jobtitle:jobposition,positionsavailable,experienceInYears,minsalary,maximumsalary:maxsalary,minimumeducationallevel:minimumed,senioritylevel,location,keyskills,overallsummary,responsibilities:jobresponsibilities,employer_id:employer.id})
+}).then(res => res.json())
+  .then(res => {
+   onEmployer(res)
+  });
+    }
+
   return (
     <div className="container mt-4 mb-4">
       <h4 style={{ color: "darkblue" }}>Post Your Job</h4>
@@ -34,7 +60,7 @@ export default function PostAJob({employer}) {
                         type="text"
                         id="organizationname"
                         class="form-control"
-
+                        onChange={(e)=>{Setjobposition(e.target.value)}}
                       ></input>
                     </div>
                   </div>
@@ -46,6 +72,7 @@ export default function PostAJob({employer}) {
                       <input
                         type="text"
                         id="experience"
+                        onChange={(e)=>{SetPositionsavailable(e.target.value)}}
                         class="form-control"
                       ></input>
                     </div>
@@ -61,34 +88,22 @@ export default function PostAJob({employer}) {
                       <input
                         type="number"
                         id="position"
+                        onChange={(e)=>{SetExperienceInYears(e.target.value)}}
                         class="form-control form-control-lg"
                       ></input>
                     </div>
                   </div>
-                  <div className="col">
-                    <div class="mb-3">
-                      <label
-                        htmlFor="positionavailable"
-                        class="form-label fs-5"
-                      >
-                        Positions Available:
-                      </label>
-                      <input
-                        type="text"
-                        id="positionavailable"
-                        class="form-control"
-                      ></input>
-                    </div>
-                  </div>
+
                 </div>
 
                 <div className="row">
                   <div className="col">
                     <div class="mb-3">
                       <label htmlFor="minsalary" class="form-label fs-5">
-                        Minimum Slary:
+                        Maximum Slary:
                       </label>
                       <input
+                       onChange={(e)=>{SetMaxSalary(e.target.value)}}
                         type="text"
                         id="minsalary"
                         class="form-control"
@@ -101,6 +116,7 @@ export default function PostAJob({employer}) {
                         Minimum Slary:
                       </label>
                       <input
+                         onChange={(e)=>{SetMinsalary(e.target.value)}}
                         type="text"
                         id="minsalary"
                         class="form-control"
@@ -113,15 +129,16 @@ export default function PostAJob({employer}) {
                     <select
                       class="form-select form-select-lg mb-3"
                       aria-label=".form-select-lg example"
+                      onChange={(e)=>SetMinMumEd(e.target.value)}
                     >
                       <option selected>
                         Minimum Educational Qualifications
                       </option>
-                      <option value="1">PHD</option>
-                      <option value="2">Masters</option>
-                      <option value="3">Degree</option>
-                      <option value="4">Diploma</option>
-                      <option value="4">Certificate</option>
+                      <option value="Phd">PHD</option>
+                      <option value="Masters">Masters</option>
+                      <option value="Degree">Degree</option>
+                      <option value="Diploma">Diploma</option>
+                      <option value="Certificate">Certificate</option>
                     </select>
                   </div>
                   <div className="col">
@@ -144,6 +161,7 @@ export default function PostAJob({employer}) {
                         Job Location:
                       </label>
                       <input
+                        onChange={(e)=>{SetLocation(e.target.value)}}
                         type="text"
                         id="joblocation"
                         class="form-control"
@@ -156,6 +174,7 @@ export default function PostAJob({employer}) {
                         Key Skills:
                       </label>
                       <input
+                        onChange={(e)=>{SetKeySkills(e.target.value)}}
                         type="text"
                         id="keyskills"
                         class="form-control"
@@ -172,6 +191,7 @@ export default function PostAJob({employer}) {
                     id="exampleFormControlTextarea"
                     placeholder="Summary of the job"
                     rows="3"
+                    onChange={(e)=>{SetOverallsummary(e.target.value)}}
                   ></textarea>
                 </div>
                 <div class="form-group">
@@ -179,6 +199,7 @@ export default function PostAJob({employer}) {
                     Job Responsibilities
                   </label>
                   <textarea
+                    onChange={(e)=>{Setjobresponsibilities(e.target.value)}}
                     class="form-control"
                     id="exampleFormControlTextarea1"
                     placeholder="Enter job responsibilities,searate them with commas"
@@ -202,7 +223,7 @@ export default function PostAJob({employer}) {
                 <button type="button" class="btn btn-primary">
                   CANCEL
                 </button>
-                <button type="button " class="btn btn-primary">
+                <button type="button " class="btn btn-primary" onClick={handlePost}>
                   POST
                 </button>
               </div>

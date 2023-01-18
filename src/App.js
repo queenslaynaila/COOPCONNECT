@@ -70,13 +70,13 @@ console.log(seekers)
       <Route path="/employerdash" element={<DashBoardBody employer={employer} />}/>
       <Route path="/talentdashboard" element={<SeekerDashboard seeker={seeker} />}/>
 
-      <Route path="/companyeditprofile" element={<CompanyEditProfile employer={employer}/>}/>
+      <Route path="/companyeditprofile" element={<CompanyEditProfile employer={employer} onEmployeredit={setEmployer}/>}/>
       <Route path="/searchtalents" element={<SearchTalent
       onSeekersFetch={setSeekers} employer={employer}/>}/>
       <Route path ="/searchtalents/:id" element={<Viewseeker seekers={seekers}/>}  />
       <Route path="/pricing" element={<Pricing/>}/>
       <Route path="/previewjob" element={<JobPostPreview/>}/>
-      <Route path="/postajob" element={<PostAJob employer={employer}/>}/>
+      <Route path="/postajob" element={<PostAJob employer={employer} onEmployer={setEmployer}  />}/>
       <Route path="/viewaseeker" element={<Viewaseeker seeker={seeker} employer={employer} />}/>
 
       <Route path='/jobsapplied' element={<JobApplied seeker={seeker}/>}/>
