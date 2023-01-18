@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router';
 import Jobcard from './Jobcard';
 import Fetchjob from './Fetchjob';
+import Internshipappliedcard from './Internshipappliedcard';
 function ViewCompany({employers}) {
   const [jobs,setJobs] = useState([])
   const params= useParams()
@@ -52,15 +53,17 @@ function ViewCompany({employers}) {
     >
       <Tab eventKey="jobs" title="JOBS">
        {employerselected.jobs.map((j)=>{
-        return <Fetchjob></Fetchjob>
+        return <Fetchjob employerselected={employerselected} j={j}></Fetchjob>
        })}
 
       </Tab>
       <Tab eventKey="internship" title="INTERNSHIPS">
-      Poor soul, the centre of my sinful earth, My sinful earth these rebel powers array, Why dost thou pine within and suffer dearth, Painting thy outward walls so costly gay? Why so large cost, having so short a lease, Dost thou upon thy fading mansion spend? Shall worms, inheritors of this excess, Eat up thy charge? Is this thy body's end? Then soul, live thou upon thy servant's loss, And let that pine to aggravate thy store;
+        {/* {employerselected.internship.map((internship)=>{
+          return <Internshipappliedcard internship={internship}/>
+        })} */}
       </Tab>
       <Tab eventKey="profile" title="PROFILE">
-      Poor soul, the centre of my sinful earth, My sinful earth these rebel powers array, Why dost thou pine within and suffer dearth, Painting thy outward walls so costly gay? Why so large cost, having so short a lease, Dost thou upon thy fading mansion spend? Shall worms, inheritors of this excess, Eat up thy charge? Is this thy body's end? Then soul, live thou upon thy servant's loss, And let that pine to aggravate thy store;
+
       </Tab>
 
     </Tabs>

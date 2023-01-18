@@ -3,7 +3,18 @@ import { useNavigate } from 'react-router'
 export default function Settings({employer,seeker}) {
   let navigate = useNavigate()
 
+  function handleDelete(){
+    // fetch(`Your link here/${id}`, {
+    //   //requires an id to patch
+    //   method: `POST`,
+    //   body: JSON.stringify({
+    //     //your data here
+    //   }),
+    //   headers: { 'Content-type': `application/json; charset=UTF-8` },
+    // }).then((response) => response.json())
 
+
+}
     return (
        <div className='container mt-4 mb-4'>
          <div class="container">
@@ -22,8 +33,8 @@ export default function Settings({employer,seeker}) {
                         seeker ? `${seeker.email}`:  `${employer.account.email}`}</div>
                     </div>
                   </div>
-                  <button className='btn btn-danger mt-2'>DELETE ACCOUNT</button>&nbsp;&nbsp;
-                     
+                  <button onClick={()=>handleDelete} className='btn btn-danger mt-2'>DELETE ACCOUNT</button>&nbsp;&nbsp;
+
 
                </div>
                <div class="col-md-4">

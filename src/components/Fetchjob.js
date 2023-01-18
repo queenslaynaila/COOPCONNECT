@@ -1,6 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
-export default function Fetchjob() {
+export default function Fetchjob({j,employerselected}) {
+
+  console.log(employerselected)
     let navigate = useNavigate()
   return (
     <div class="card mt-3"  >
@@ -9,36 +11,36 @@ export default function Fetchjob() {
                     style=  {{gap:"15px"}}>
             <div
                     style={{backgroundColor:"darkblue",  width:   "70px",  height: "70px", borderRadius: "50%",textAlign:"center",color:"white",lineHeight:"70px",fontSize:"2rem"}} class="circle-singleline mr-auto ">
-              job.employer.name.charAt(0).toUpperCase()
+                 {employerselected.name.charAt(0).toUpperCase()}
             </div>
             <div>
 
-                <p>job.employer.name</p>
-                <p className='fw-bold companyname' onClick={() => {navigate("/viewcompany")}}    >job.employer.companytype</p>
+            <p>{employerselected.name}</p>
+                <p className='fw-bold companyname'     >    {employerselected.companytype}</p>
             </div>
       </div>
-      <p><span className='fw-bold'>JobTitle: </span>&nbsp;job.jobtitle</p>
+      <p><span className='fw-bold'>JobTitle: </span>&nbsp;{j.jobtitle}</p>
       <div className='d-flex flex-row' style={{gap:"10px"}}>
-            <div><span className='fw-bold'>Opennings:</span>&nbsp;&nbsp;job.positionsavailable</div>
-            <div><span className='fw-bold'>Category:</span>&nbsp;&nbsp;job.category.name</div>
-            <div><span className='fw-bold'> Salary Range</span>:&nbsp;&nbsp;job.minsalary-job.maximumsalary=</div>
-            <div><span className='fw-bold'>Location</span>:&nbsp;&nbsp;job.location</div>
-            <div><span className='fw-bold'>Experience:</span>:&nbsp;&nbsp;job.senioritylevel</div>
+            <div><span className='fw-bold'>Opennings:</span>&nbsp;&nbsp;{j.positionsavailable}</div>
+            <div><span className='fw-bold'>Category:</span>&nbsp;&nbsp;</div>
+            <div><span className='fw-bold'> Salary Range</span>:&nbsp;&nbsp;{j.minsalary}-{j.maximumsalary}</div>
+            <div><span className='fw-bold'>Location</span>:&nbsp;&nbsp;{j.location}</div>
+            <div><span className='fw-bold'>Experience:</span>:&nbsp;&nbsp;{j.senioritylevel}</div>
 
       </div>
       <div  className='d-flex flex-row' style={{gap:"10px"}}>
-      <p><span className='fw-bold'>Maximum Salary: </span>&nbsp;&nbsp;job.maximumsalary</p>
-      <p><span className='fw-bold'>Minimum Salary: </span>&nbsp;&nbsp;job.minsalary</p>
+      <p><span className='fw-bold'>Maximum Salary: </span>&nbsp;&nbsp;{j.maximumsalary}</p>
+      <p><span className='fw-bold'>Minimum Salary: </span>&nbsp;&nbsp;{j.minsalary}</p>
       </div>
 
       <div className='mt-1'>
-        <p>job.overallsummarry</p>
+        <p>{j.overallsummarry}</p>
       </div>
     </div>
     <div class="card-body d-flex flex-row justify-content-between"
         style=  {{backgroundColor:"#EEEEEE",height:"60px"}}>
       <div>
-        <p>Posted on job.dateposted</p>
+        <p>Posted on {j.dateposted}</p>
       </div>
       <div>
         {/* <a href="#" class="card-link" onClick={() => {navigate("/viewjob")}} >View Job</a>
