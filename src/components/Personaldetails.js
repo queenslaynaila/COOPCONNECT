@@ -11,7 +11,7 @@ export default function Personaldetails({seeker,onEdit}) {
   const [about,setAbout] = useState("")
   const [errors,setErrors] = useState([])
   function handlePosts(e){
-
+    e.preventDefault()
         fetch(`/seekers/${seeker.id}`, {
             method: "PATCH",
             headers: {'Content-Type': 'application/json'},

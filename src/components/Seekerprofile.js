@@ -26,7 +26,7 @@ export default function Seekerprofile({seeker,onSeekeredit}) {
       <Personaldetails seeker={seeker} onEdit={SetUser}></Personaldetails>
     </Tab>
     <Tab eventKey="education" title="EDUCATION">
-       <AddDeleteTableRows seeker={seeker}></AddDeleteTableRows>
+       <AddDeleteTableRows seeker={seeker} onEdit={SetUser}></AddDeleteTableRows>
     </Tab>
     <Tab eventKey="work-experiences" title="WORK EXPERIENCES">
      <AddDeleteWorkRows seeker={seeker}></AddDeleteWorkRows>

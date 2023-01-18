@@ -34,6 +34,7 @@ function AddDeleteWork({seeker}){
 }
 console.log(rowsData)
 function handleUpdate(e){
+    e.preventDefault()
     rowsData.forEach((row)=>{
         fetch(`/experiences`, {
             method: "POST",
@@ -41,8 +42,9 @@ function handleUpdate(e){
             body: JSON.stringify(row)
           }).then(res => {
             if(res.ok){
-                alert("Post was succesfull")
-            }
+                res.json().then((user)=>{
+                  console.log(user)
+                })}
           });
     })
 

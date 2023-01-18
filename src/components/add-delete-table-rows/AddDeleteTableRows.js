@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 import TableRows from "./TableRows";
-function AddDeleteTableRows({seeker}){
+function AddDeleteTableRows({seeker,onEdit}){
 
 
     const [rowsData, setRowsData] = useState([]);
@@ -35,6 +35,7 @@ function AddDeleteTableRows({seeker}){
 }
 console.log(rowsData)
 function handleUpdate(e){
+    e.preventDefault()
     rowsData.forEach((row)=>{
         fetch(`/educations`, {
             method: "POST",
@@ -42,8 +43,9 @@ function handleUpdate(e){
             body: JSON.stringify(row)
           }).then(res => {
             if(res.ok){
-                alert("Post was succesfull")
-            }
+                res.json().then((education)=>{
+                      console.log(education)
+                })}
           });
     })
 
