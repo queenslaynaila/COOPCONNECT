@@ -20,7 +20,7 @@ export default function Jobpostedcard({job}) {
       <p><span className='fw-bold'>JobTitle: </span>&nbsp;{job.jobtitle}</p>
       <div className='d-flex flex-row' style={{gap:"10px"}}>
             <div><span className='fw-bold'>Opennings:</span>&nbsp;&nbsp;{job.positionsavailable}</div>
-            <div><span className='fw-bold'>Category:</span>&nbsp;&nbsp;{job.category.name}</div>
+            
             <div><span className='fw-bold'> Salary Range</span>:&nbsp;&nbsp;{job.minsalary}-{job.maximumsalary}</div>
             <div><span className='fw-bold'>Location</span>:&nbsp;&nbsp;{job.location}</div>
             <div><span className='fw-bold'>Experience:</span>:&nbsp;&nbsp;{job.senioritylevel}</div>

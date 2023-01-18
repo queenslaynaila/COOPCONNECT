@@ -1,5 +1,5 @@
 import { useState,useEffect } from 'react';
-import {useNavigate} from "react-router-dom"
+import {useNavigate, useRoutes} from "react-router-dom"
 import Settings from './components/Settings';
 import { Routes, Route} from "react-router-dom"
 import Navbar from "./components/Navbar";
@@ -37,14 +37,14 @@ import Applicationsreceived from './components/employermoreoptions/Applicationsr
 import Viewseeker from './components/employermoreoptions/Viewseeker';
 function App() {
   let navigate = useNavigate()
-       const [employer , setEmployer] = useState(null)
+       const [employer , setEmployer] = useState([])
        const [seeker,setSeeker] = useState(null)
        const [user,setUser] = useState(null)
-      const [jobs,setJobs] = useState(null)
+      const [jobs,setJobs] = useState([])
       const [employers,setEmployers] = useState(null)
-     const [seekers,setSeekers] = useState(null)
+     const [seekers,setSeekers] = useState([])
 
-console.log(seekers)
+
 
   return (
 <>
@@ -61,9 +61,9 @@ console.log(seekers)
       <Route path="/signuptalents" element={<SignUpJobSeekers onSignUpSeeker={setSeeker}/>}/>
       <Route path="/settings" element={<Settings seeker={seeker}
       employer={employer}/>}/>
-      <Route path="/seekerprofile" element={<Seekerprofile  seeker={seeker} />}/>
-      <Route path="/searchjob" element={<Jobsearch onFetchJobs={setJobs} seeker={seeker}/>}/>
-      <Route path="/searchjob/:id" element={<Viewjob jobs={jobs} seeker={seeker}/>}/>
+      <Route path="/seekerprofile" element={<Seekerprofile seeker={seeker} onSeekeredit={setSeeker} />}/>
+      <Route path="/searchjob" element={<Jobsearch onFetchJobs={setJobs} jobs={jobs} seeker={seeker}/>}/>
+      <Route path="/searchjob/:id" element={<Viewjob employer={employer} jobs={jobs} seeker={seeker}/>}/>
       <Route path='searchemployer' element={<Searchemployer onEmployerFetch={setEmployers}/>} />
       <Route path="/searchemployer/:id" element={<ViewCompany employers={employers} />}/>
       <Route path="/asesement" element={<Assesement/>}/>

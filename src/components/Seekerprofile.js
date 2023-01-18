@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/seeker.css"
 import Tab from 'react-bootstrap/Tab';
@@ -8,8 +8,11 @@ import Personaldetails from "./Personaldetails";
 import AddDeleteTableRows from "./add-delete-table-rows/AddDeleteTableRows";
  import AddDeleteWorkRows from "./add-delete-work-expe/AddDeleteWork";
  import AddDeleteSkills from "./add-delete-skills/AddDeleteSkills";
-export default function Seekerprofile({seeker}) {
-  console.log(seeker)
+export default function Seekerprofile({seeker,onSeekeredit}) {
+ const [user,SetUser] = useState(null)
+ if (user){
+  onSeekeredit(user)
+ }
   let navigate = useNavigate();
   return (
   <Container className="mt-4 mb-4 " >
@@ -20,7 +23,7 @@ export default function Seekerprofile({seeker}) {
     justified
   >
     <Tab eventKey="personal-details" title="PERSONAL DETAILS">
-      <Personaldetails seeker={seeker}></Personaldetails>
+      <Personaldetails seeker={seeker} onEdit={SetUser}></Personaldetails>
     </Tab>
     <Tab eventKey="education" title="EDUCATION">
        <AddDeleteTableRows seeker={seeker}></AddDeleteTableRows>

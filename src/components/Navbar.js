@@ -254,7 +254,7 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
                         className="dropdown-item fw-bold"
                         href="#/"
                         onClick={()=>{
-                    navigate("/");
+                    navigate("/savedprofiles");
                   }}
                       >
                          Profiles Saved
