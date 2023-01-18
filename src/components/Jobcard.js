@@ -4,6 +4,7 @@ import { useState } from 'react';
 export default function Jobcard({job,seeker}) {
 
 function handleSave(e){
+  e.preventDefault()
   fetch("/savedjobs", {
     method: "POST",
     headers: {'Content-Type': 'application/json'},

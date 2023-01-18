@@ -1,7 +1,8 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router'
 export default function Companyappcard({employer}) {
-  console.log(employer)
+  let navigate=(useNavigate)
+  console.log(employer.id)
   return (
     <div class="card mt-3"  >
         <div class="card-body">
@@ -33,8 +34,8 @@ export default function Companyappcard({employer}) {
 
           </div>
           <div>
-             <a href="#" class="card-link">VIEW COMPANY</a>
-             <a href="#" class="card-link">DELETE FROM SAVED</a>
+              <button className='btn btn-primary' onClick={()=>navigate(`/searchemployer/${employer.employer_id}`)}>VIEW</button>&nbsp;&nbsp;
+              <button className='btn btn-danger'  >DELETE</button>
           </div>
         </div>
     </div>
