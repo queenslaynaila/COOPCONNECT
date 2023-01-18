@@ -2,7 +2,11 @@ import React from 'react'
 import TalentCard from './TalentCard'
 import { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router'
-function SearchTalent(){
+function SearchTalent({onSeekersFetch,employer}){
+    const [search,setsearch] = useState("")
+    const [proffesion,setProfession] = useState('')
+    const [gender,setGender] = useState('')
+    const [years,setYears] = useState(null)
     let navigate = useNavigate()
     const [talents,SetTalents] = useState([])
     useEffect(()=>{
@@ -10,11 +14,33 @@ function SearchTalent(){
         .then((r)=>{
             r.json().then((res)=>{
                 SetTalents(res)
-                // onFetchJobs(res)
+                onSeekersFetch(res)
             })
         })
       },[])
-    console.log(talents)
+
+
+      function handleSearch(){
+        const filterSEarch = talents.filter((talent)=>{return talent.profession
+            .toLowerCase().includes(search.toLowerCase()) })
+        SetTalents(filterSEarch)
+
+    }
+      function handleChange(event){
+        setsearch(event.target.value)
+        const filterSEarch = talents.filter((talent)=>{return talent.profession
+            .toLowerCase().match(search.toLowerCase()) })
+        SetTalents(filterSEarch)
+
+       }
+
+     function handleGender(e){
+        setGender(e.target.value)
+        const filterSEarch = talents.filter((talent)=>{return talent.gender
+            .matches(gender.toLowerCase()) })
+
+     }
+
     return (
        <div class="container">
     <div class="row mt-5 mb-5">
@@ -28,10 +54,10 @@ function SearchTalent(){
                       <div class="card-body">
 
 
-                     <input type="text" class="form-control form-control-sm"  aria-label=".form-control-sm example" placeholder='PROFESSION'></input>
-                     <input type="text" class="form-control form-control-sm"  aria-label=".form-control-sm example" placeholder='SKILLS'></input>
-                     <input type="text" class="form-control form-control-sm"  aria-label=".form-control-sm example" placeholder='INSTITUTE'></input>
-                     <input type="text" class="form-control form-control-sm"  aria-label=".form-control-sm example" placeholder='EXPERIENCE'></input>
+
+                     <input type="text"  onChange={(e)=>handleGender(e)}  class="form-control form-control-sm"  aria-label=".form-control-sm example" placeholder='GENDER'></input>
+                     <input type="text" onChange={(e)=>setYears(e.target.value)} class="form-control form-control-sm"  aria-label=".form-control-sm example" placeholder='EXPERIENCEYEARS'></input>
+
                      </div>
                   </div>
               </article>
@@ -41,15 +67,15 @@ function SearchTalent(){
           <header  >
                   <div class="form-inline">
                       <div class="input-group">
-                          <input id="search-input" type="search" class="form-control" placeholder="Search via name..."></input>
-                          <button id="search-button" type="button" class="btn btn-primary">
+                          <input id="search-input" onChange={handleChange}  type="search" class="form-control" placeholder="Search by proffession..."></input>
+                          <button onClick={(e)=>handleSearch(e)} id="search-button" type="button" class="btn btn-primary">
                                  <i class="fa fa-search"></i>
                             </button>
                       </div>
                   </div>
           </header>
           {talents.map((talent)=>{
-             return <TalentCard talent={talent}></TalentCard>
+             return <TalentCard talent={talent} employer={employer}></TalentCard>
           })}
 
       </main>

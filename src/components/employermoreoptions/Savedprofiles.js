@@ -4,6 +4,8 @@ import Seekerprofilecard from './Seekerprofilecard';
 
 export default function Savedprofiles({employer}) {
 
+const [search,setSearch] = useState("")
+
   const [savedprofiles,setSavedprofiles] = useState([])
   useEffect(() => {
     fetch(`employers/${employer.id}/savedprofiles`).then((response) => {
@@ -12,6 +14,11 @@ export default function Savedprofiles({employer}) {
       }
     });
   }, []);
+
+  function handleChange(event){
+    setSearch(event.target.value)
+    const filterSEarch = savedprofiles.filter((profile)=>{return profile.seeker.proffession.toLowerCase().includes(search.toLowerCase()) })
+   }
 
   return (
     <div class="container-sm mt-4 mb-4">
@@ -53,7 +60,7 @@ export default function Savedprofiles({employer}) {
             <header>
                 <div class="form-inline">
                 <div class="input-group">
-	                <input    id="search-input" type="search" class="form-control" placeholder="Search a  seeker..."></input>
+	                <input    id="search-input" type="search" class="form-control" placeholder="Search a  seeker by proffesion..."  onChange={handleChange}></input>
                     <button  id="search-button" type="button" class="btn btn-primary">
                     <i    class="fa fa-search"></i>
   	                </button>

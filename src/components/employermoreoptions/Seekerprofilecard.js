@@ -24,12 +24,13 @@ export default function Seekerprofilecard({profile}) {
 
           </div>
           <div  >
-               <button type="button" class="btn btn-primary" >VIEW PROFILE</button>
+               <button type="button" class="btn btn-primary"
+             >VIEW PROFILE</button>
                </div>
         </div>
         <div class="card-body">
           <div>
-                <div ><span className='fw-bold'>Poffession:</span>&nbsp;&nbsp;<span  >talent.profession</span>&nbsp;&nbsp;<span className='fw-bold'>Experience:</span>&nbsp;&nbsp;talent.yearsinprofesion years&nbsp;&nbsp;<span className='fw-bold'>Proficiency</span>:&nbsp;&nbsp;Junior</div>
+                <div ><span className='fw-bold'>Poffession:</span>&nbsp;&nbsp;<span  >{profile.seeker.profession}</span>&nbsp;&nbsp;<span className='fw-bold'>Experience:</span>&nbsp;&nbsp;{profile.seeker.yearsinprofesion}years&nbsp;&nbsp;<span className='fw-bold'>Proficiency</span>:&nbsp;&nbsp;Junior</div>
                 <div><span className='fw-bold'>Key Skills:</span>&nbsp;&nbsp;
                 {skills.map((skill)=>{
                           return <li class="list-inline-item"><i class="bi bi-check"></i>{skill.skillname}</li>
@@ -38,13 +39,14 @@ export default function Seekerprofilecard({profile}) {
                 <div></div>
           </div>
           <div className='mt-1'>
-            <div><span className='fw-bold'>About Me</span>:&nbsp;&nbsp;talent.about</div>
+            <div><span className='fw-bold'></span>About:&nbsp;&nbsp;{profile.seeker.about}
+           </div>
           </div>
        </div>
        <div class="card-body   "
             style=  {{backgroundColor:"#EEEEEE",height:"60px"}}>
           <div className="d-flex justify-content-end gap-2">
-               <button type="button " class="btn btn-primary">SAVE PROFILE</button>
+               <button type="button " class="btn btn-danger">DELETE PROFILE</button>
                <button type="button" class="btn btn-primary">SEND EMAIL</button>
                </div>
         </div>

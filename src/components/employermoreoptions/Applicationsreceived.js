@@ -1,5 +1,6 @@
 import React ,{useState,useEffect}from 'react'
 import { useNavigate  } from "react-router-dom";
+import Seekerprofilecard from './Seekerprofilecard';
 export default function Applicationsreceived({employer}) {
   let navigate= useNavigate()
   const [applications,setApplications] = useState([])
@@ -11,6 +12,7 @@ export default function Applicationsreceived({employer}) {
         }
       });
     }, []);
+
   return (
     <div class="container">
     <h3 className='mt-5' style={{color:"darkblue"}}>APPLICATIONS RECEIVED</h3>
@@ -57,7 +59,9 @@ export default function Applicationsreceived({employer}) {
           </header>
 
 
-
+           {applications.map((application)=>{
+           return <Seekerprofilecard profile={application}></Seekerprofilecard>
+           })}
 
 
       </main>

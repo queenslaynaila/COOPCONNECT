@@ -32,7 +32,7 @@ function handleWageFilter(){
 }
 function handleChange(event){
     setsearch(event.target.value)
-    console.log(search)
+    
    }
 
   return (

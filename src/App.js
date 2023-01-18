@@ -34,6 +34,7 @@ import Searchemployer from './components/Searchemployer';
 import Offers from './components/employermoreoptions/Offers'
 import Savedprofiles from './components/employermoreoptions/Savedprofiles'
 import Applicationsreceived from './components/employermoreoptions/Applicationsreceived'
+import Viewseeker from './components/employermoreoptions/Viewseeker';
 function App() {
   let navigate = useNavigate()
        const [employer , setEmployer] = useState(null)
@@ -41,6 +42,9 @@ function App() {
        const [user,setUser] = useState(null)
       const [jobs,setJobs] = useState(null)
       const [employers,setEmployers] = useState(null)
+     const [seekers,setSeekers] = useState(null)
+
+console.log(seekers)
 
   return (
 <>
@@ -66,7 +70,9 @@ function App() {
       <Route path="/talentdashboard" element={<SeekerDashboard seeker={seeker} />}/>
 
       <Route path="/companyeditprofile" element={<CompanyEditProfile employer={employer}/>}/>
-      <Route path="/searchtalents" element={<SearchTalent/>}/>
+      <Route path="/searchtalents" element={<SearchTalent
+      onSeekersFetch={setSeekers} employer={employer}/>}/>
+      <Route path ="/searchtalents/:id" element={<Viewseeker seekers={seekers}/>}  />
       <Route path="/pricing" element={<Pricing/>}/>
       <Route path="/previewjob" element={<JobPostPreview/>}/>
       <Route path="/postajob" element={<PostAJob employer={employer}/>}/>
