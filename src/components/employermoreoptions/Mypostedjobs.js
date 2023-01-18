@@ -1,6 +1,6 @@
 import React ,{useState,useEffect}from 'react'
 import { useNavigate  } from "react-router-dom";
-
+import Jobpostedcard from './Jobpostedcard';
 export default function Mypostedjobs({employer}) {
     let navigate = useNavigate()
     const [jobs,setJobs] = useState([])
@@ -56,7 +56,9 @@ export default function Mypostedjobs({employer}) {
               </div>
           </header>
 
-
+          {jobs.map((job)=>{
+            return <Jobpostedcard job={job}></Jobpostedcard>
+          })}
 
 
 
