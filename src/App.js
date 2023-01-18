@@ -12,6 +12,7 @@ import DashBoardBody from "./components/DashBoardBody";
 import Errorpage from "./components/404page";
 import SeekerDashboard from "./components/SeekerDashboard";
 import Seekerprofile from "./components/Seekerprofile";
+import Survey from './components/Survey';
 import Jobsearch from "./components/Jobsearch";
 import Assesement from "./components/Assesement";
 import Jobcard from "./components/Jobcard";
@@ -54,7 +55,8 @@ function App() {
       <Route path="/jobsposted" element={<Mypostedjobs employer={employer}></Mypostedjobs>}/>
       <Route path="/offersmade" element={Offers} />
       <Route path="/signupcompanies" element={<SignCompanies onSignUpEmployer={setEmployer}/>}/>
-      <Route path="/signuptalents" element={<SignUpJobSeekers onSignUpSeeker={setSeeker}/>}/>
+        <Route path="/signuptalents" element={<SignUpJobSeekers onSignUpSeeker={setSeeker} />} />
+        <Route path="/survey" element={<Survey/>}/>
 
       <Route path="/seekerprofile" element={<Seekerprofile  seeker={seeker} />}/>
       <Route path="/searchjob" element={<Jobsearch onFetchJobs={setJobs} seeker={seeker}/>}/>
