@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react';
 import {useNavigate} from "react-router-dom"
-
+import Settings from './components/Settings';
 import { Routes, Route} from "react-router-dom"
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -59,7 +59,8 @@ console.log(seekers)
       <Route path="/offersmade" element={Offers} />
       <Route path="/signupcompanies" element={<SignCompanies onSignUpEmployer={setEmployer}/>}/>
       <Route path="/signuptalents" element={<SignUpJobSeekers onSignUpSeeker={setSeeker}/>}/>
-
+      <Route path="/settings" element={<Settings seeker={seeker}
+      employer={employer}/>}/>
       <Route path="/seekerprofile" element={<Seekerprofile  seeker={seeker} />}/>
       <Route path="/searchjob" element={<Jobsearch onFetchJobs={setJobs} seeker={seeker}/>}/>
       <Route path="/searchjob/:id" element={<Viewjob jobs={jobs} seeker={seeker}/>}/>

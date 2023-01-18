@@ -12,7 +12,7 @@ export default function Jobapplications({seeker}) {
     }
   });
 }, []);
- 
+
 
   return (
     <table class="table">
@@ -34,7 +34,7 @@ export default function Jobapplications({seeker}) {
               <td>{job.job.senioritylevel}</td>
                <td>{job.employer.name}</td>
                <td>{job.status}</td>
-              <td>{job.dateapplied}</td>
+              <td>{job.created_at}</td>
 
 
             </tr>)

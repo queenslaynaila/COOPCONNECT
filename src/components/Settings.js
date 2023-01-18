@@ -1,78 +1,63 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
+export default function Settings({employer,seeker}) {
+  let navigate = useNavigate()
 
-export default function Settings() {
+
     return (
-        <>
-            <div>   
-            <aside>    
-        <div class="col-sm-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 style={{ color: "darkblue" }} className="text-center">
-                Account
-              </h5>
-              <p className="text-center">password</p>
-              <p className="text-center">changepassword</p>
-              <p
-                // onClick={() => {
-                //   navigate("/companyeditprofile");
-                // }}
-                className="text-center"
-              >
-               <button type="button" class="btn btn-primary">change password</button>
-              </p>
+       <div className='container mt-4 mb-4'>
+         <div class="container">
+            <div class="row align-items-start">
+              <div class="col-md-4">
+                  <div class="card"  >
+                    <div class="card-body">
+                      <h5 class="card-title mt-2">ACCOUNT INFO</h5>
+                      <div className='d-flex justify-content-center'
+                        style={{backgroundColor:"darkblue",  width:   "100px",  height: "100px", borderRadius: "50%",textAlign:"center",color:"white",lineHeight:"100px",fontSize:"3rem"}} class="circle-singleline ">
+                          Q
+                      </div>
+                      <div className='fw-bold d-flex justify-content-center'>{
+                        seeker ? `${seeker.firstname}${seeker.secondname}`:  `${employer.name}`} </div>
+                      <div className='d-flex justify-content-center' >{
+                        seeker ? `${seeker.email}`:  `${employer.account.email}`}</div>
+                    </div>
+                  </div>
+                  <button className='btn btn-danger mt-2'>DELETE ACCOUNT</button>&nbsp;&nbsp;
+                     
+
+               </div>
+               <div class="col-md-4">
+                  <div class="card text-center">
+                    <div class="card-header">
+                     ACCOUNT SETTINGS
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">CHANGE PASSWORD</h5>
+                      <p class="card-text">Change your password</p>
+
+                    </div>
+
+                  </div>
+                  <button className='btn btn-warning mt-2'>CHANGE PASSWORD</button>
+               </div>
+               <div class="col-md-4">
+                  <div class="card text-center">
+                    <div class="card-header">
+                     ACCOUNT SETTINGS
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">CHANGE  EMAIL</h5>
+                      <p class="card-text">Change Your Email</p>
+
+                    </div>
+
+                  </div>
+                  <button className='btn btn-warning mt-2'>CHANGE PASSWORD</button>
+               </div>
             </div>
-            </div>
-                </div>
-                </aside>
-                </div>
-            
-             <div className='container'>
-      <div class="card shadow-sm mt-3">
-        <div class="card-body">
-          <div  style={{ gap: "15px" }}>
-            <div
-              style={{
-                backgroundColor: "darkblue",
-                width: "150px",
-                height: "150px",
-                borderRadius: "50%",
-                textAlign: "center",
-                color: "white",
-                lineHeight: "150px",
-                fontSize: "2rem",
-              }}
-              class="circle-singleline mr-auto "
-            >
-              QN
-            </div>
-            <div>
-              <p>Queenslay Jema</p>
-              <p className="fw-bold" style={{ color: "darkblue" }}>
-                queenslayjema@gmail.com
-              </p>
-              <p> Joined 01-01-2023 </p>
-            </div>
+
           </div>
-        </div>
-      </div>
-      <div
-        className="card shadow-sm mt-3"
-        style={{ backgroundColor: "#EEEEEE" }}
-      >
-        <div class="card-body">
-          <div className="d-flex flex-row" style={{ gap: "15px" }}>
-            <div>
-              <button type="button" class="btn btn-info">Edit Profile</button>
-            </div>
-            <div>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-        </>
+       </div>
   )
 }
 
