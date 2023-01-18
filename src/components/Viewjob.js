@@ -1,10 +1,9 @@
 import React from 'react'
 import { useParams,Link } from 'react-router-dom'
-import { useState } from 'react';
-import { useEffect } from 'react';
-function Viewjob({seeker,employer}) {
+ 
+function Viewjob({seeker,employer,jobs}) {
   const params= useParams()
-  const [jobs,setJobs] =useState(employer.jobs)
+
 
   const jobselected = jobs.find((job) => job.id === Number(params.id));
 

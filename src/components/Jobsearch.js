@@ -2,15 +2,23 @@ import React, {useEffect, useState} from 'react'
 import Jobcard from './Jobcard'
 import { useNavigate  } from "react-router-dom";
 // import { useEffect,useState } from 'react';
-export default function Jobsearch({seeker,jobs}) {
+export default function Jobsearch({onFetchJobs,jobs,seeker}) {
+
 let navigate = useNavigate();
+console.log(jobs)
+useEffect(()=>{
+    fetch('/jobs')
+  .then(response => response.json())
+  .then(data =>  onFetchJobs(data))
+  .catch(err => console.error(err));
+  },[])
 
 const [search,setsearch] = useState(" ")
 const [maximumsalary,setMaximumSalary] = useState(null)
 const [minsalary,setMinSalary ] = useState(null)
 
 
-console.log(jobs)
+
 function handleSearch(){
     const filterSEarch = jobs.filter((job)=>{return job.jobtitle.toLowerCase().includes(search.toLowerCase()) })
 
