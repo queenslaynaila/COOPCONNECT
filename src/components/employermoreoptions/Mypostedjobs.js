@@ -5,11 +5,12 @@ export default function Mypostedjobs({employer,onSearch}) {
     let navigate = useNavigate()
     const [jobs,setJobs] = useState(employer.jobs)
     onSearch(jobs)
-    console.log(jobs[0].employer.name)
+    console.log(jobs)
 
   return (
     <div class="container">
-     <h3 className='mt-4' style={{color:"darkblue"}}>Here are Jobs you posted</h3>
+    {jobs.length > 0 ? <h3 className='mt-4' style={{color:"darkblue"}}>Here are Jobs you posted</h3>: <h3 className='mt-4' style={{color:"darkblue"}}>Post a job to view</h3> }
+
     <div class="row  mb-5">
           <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard
           </p>
@@ -52,9 +53,13 @@ export default function Mypostedjobs({employer,onSearch}) {
               </div>
           </header>
 
-          {jobs.map((job)=>{
-            return <Jobpostedcard job={job}></Jobpostedcard>
-          })}
+          {jobs.length > 0 ?
+                  jobs.map((job)=>{
+                    return <Jobpostedcard job={job}></Jobpostedcard>
+                  })
+            :null  }
+
+
 
 
 
@@ -63,4 +68,3 @@ export default function Mypostedjobs({employer,onSearch}) {
   </div>
   )
 }
-

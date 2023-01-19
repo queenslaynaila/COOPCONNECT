@@ -144,7 +144,7 @@ function handleSubmit(e) {
                 setPassword(e.target.value)
                 setErrors([])
                 }}
-                            type="text"
+                            type="password"
                             className="form-control form-control-lg"
                             id="password"
                             placeholder="Password"
@@ -158,7 +158,7 @@ function handleSubmit(e) {
                 setPasswordConfirmation(e.target.value)
                 setErrors([])
                 }}
-                            type="text"
+                            type="password"
                             className="form-control form-control-lg"
                             id="confirmPassword"
                             placeholder="Confirm Password"

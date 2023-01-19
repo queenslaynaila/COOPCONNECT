@@ -12,10 +12,11 @@ export default function Applicationsreceived({employer}) {
         }
       });
     }, []);
-
+  console.log(applications)
   return (
     <div class="container">
-    <h3 className='mt-5' style={{color:"darkblue"}}>APPLICATIONS RECEIVED</h3>
+    {applications.length === 0 ? <h3 className='mt-5' style={{color:"darkblue"}}>NO APPLICATIONS RECEIVED</h3> :<h3 className='mt-5' style={{color:"darkblue"}}>APPLICATIONS RECEIVED</h3> }
+
     <div class="row mb-5">
           <p  className="dash" onClick={() => {navigate("/talentdashboard")}} style={{cursor:"pointer"}}> <i class="bi bi-arrow-left"></i> Go to Dashboard
           </p>

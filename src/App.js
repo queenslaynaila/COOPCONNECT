@@ -16,7 +16,7 @@ import SeekerDashboard from "./components/SeekerDashboard";
 import Seekerprofile from "./components/Seekerprofile";
 import Jobsearch from "./components/Jobsearch";
 import Assesement from "./components/Assesement";
- 
+
 import Viewjob from "./components/Viewjob";
 import ViewCompany from "./components/ViewCompany";
 import CompanyEditProfile from "./components/CompanyEditProfile";
