@@ -127,7 +127,7 @@ function SignCompanies({onSignUpEmployer }) {
                 setPassword(e.target.value)
                 setErrors([])
                 }}
-                    type="text"
+                    type="password"
                     className="form-control form-control-lg"
                     id="password"
                     placeholder="Password"
@@ -142,7 +142,7 @@ function SignCompanies({onSignUpEmployer }) {
                 setPasswordConfirmation(e.target.value)
                 setErrors([])
                 }}
-                    type="text"
+                    type="password"
                     className="form-control form-control-lg"
                     id="confirmPassword"
                     placeholder="Confirm Password"

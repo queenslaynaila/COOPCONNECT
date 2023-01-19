@@ -46,7 +46,7 @@ export default function Seekerprofilecard({profile}) {
        <div class="card-body   "
             style=  {{backgroundColor:"#EEEEEE",height:"60px"}}>
           <div className="d-flex justify-content-end gap-2">
-               <button type="button " class="btn btn-danger">DELETE PROFILE</button>
+               <button type="button " class="btn btn-danger">REJECT</button>
                <button type="button" class="btn btn-primary">SEND EMAIL</button>
                </div>
         </div>

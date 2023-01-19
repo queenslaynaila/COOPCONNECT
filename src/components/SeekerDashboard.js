@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import Jobapplications from './seekerstable/Jobapplications';
 import Internshipapplications from './seekerstable/Internshipapplications';
 export default function SeekerDashboard({seeker}) {
-
+console.log(seeker)
   let navigate = useNavigate();
+   
 
   return (
     <div className='container p-4 pb-0 mb-4'>
@@ -38,18 +39,18 @@ export default function SeekerDashboard({seeker}) {
           </ul>
        </div>
 
-        <div class="row">
+         <div class="row">
          <div class="col-lg-3 mt-4">
             <div style={{maxWidth: "18rem"}} class="card card-block card-outline-primary">
                 <p class="card-text">{seeker.totaljobsapplied}&nbsp;
-                    <a href="#" class=" float-right" onClick={()=>{
+                    <a href="#/" class=" float-right" onClick={()=>{
                     navigate("/jobsapplied");
                   }}>Jobs applied</a>
                 </p>
                 <p class="card-text">{seeker.totalsavedjobs}&nbsp;
-                    <a  onClick={()=>{
+                    <a  href="#/" onClick={()=>{
                     navigate("/jobssaved");
-                  }} href="#" class=" float-right">Jobs Saved </a>
+                  }}  class=" float-right">Jobs Saved </a>
                 </p>
             </div>
          </div>
@@ -58,10 +59,10 @@ export default function SeekerDashboard({seeker}) {
                 <p class="card-text">{seeker.totalinternshipsapplied}&nbsp;
                     <a onClick={()=>{
                     navigate("/myappliedinternships");
-                  }} href="#" class=" float-right">Internships applied</a>
+                  }} href="#/" class=" float-right">Internships applied</a>
                 </p>
                 <p class="card-text">{seeker.totalsavedinternships}&nbsp;
-                    <a href="#" onClick={()=>{
+                    <a href="#/" onClick={()=>{
                     navigate("/mysavedinternships");
                   }}  class=" float-right">Internships Saved </a>
                 </p>
@@ -70,34 +71,35 @@ export default function SeekerDashboard({seeker}) {
          <div class="col-lg-3 mt-4">
             <div style={{maxWidth: "18rem"}} class="card card-block card-outline-primary">
                 <p class="card-text">{seeker.totalcompaniesapplied}&nbsp;
-                    <a href="#" onClick={()=>{
+                    <a href="#/" onClick={()=>{
                     navigate("/myappliedcompanies");
                   }} class=" float-right">Companies applied</a>
                 </p>
                 <p class="card-text">{seeker.totalsavedcompanies}&nbsp;
                     <a  onClick={()=>{
                     navigate("/companiessaved");
-                  }} href="#" class=" float-right">Companies Saved </a>
+                  }} href="#/" class=" float-right">Companies Saved </a>
                 </p>
             </div>
          </div>
          <div class="col-lg-3 mt-4">
             <div style={{maxWidth: "18rem"}} class="card card-block card-outline-primary">
                 <p class="card-text">0&nbsp;
-                    <a href="#" class=" float-right">Offers received</a>
+                    <a href="#/" class=" float-right">Offers received</a>
                 </p>
                 <p class="card-text">0&nbsp;
-                    <a href="#" class=" float-right">Surevys Saved </a>
+                    <a href="#/" class=" float-right">Surevys Saved </a>
                 </p>
             </div>
          </div>
         </div>
-        <div class="card shadow-sm mt-4">
+
+         <div class="card shadow-sm mt-4">
             <div class="card-header">
               <h4 style={{color:"darkblue"}}>RECENT JOB APPLICATIONS</h4>
             </div>
             <div class="card-body">
-               <Jobapplications seeker={seeker}></Jobapplications>
+                <Jobapplications seeker={seeker}></Jobapplications>
             </div>
         </div>
         <div class="card shadow-sm mt-4">

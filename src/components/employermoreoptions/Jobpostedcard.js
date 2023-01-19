@@ -2,6 +2,18 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 export default function Jobpostedcard({job}) {
     let navigate = useNavigate();
+    console.log(job)
+   function handleDelete(e){
+    e.preventDefault()
+    fetch(`jobs/${job.id}`, {
+  method: 'DELETE'
+})
+  .then(res => res.json())
+  .then(data => {
+     console.log(data)
+  })
+   
+   }
   return (
     <div class="card mt-3"  >
     <div class="card-body">
@@ -20,7 +32,7 @@ export default function Jobpostedcard({job}) {
       <p><span className='fw-bold'>JobTitle: </span>&nbsp;{job.jobtitle}</p>
       <div className='d-flex flex-row' style={{gap:"10px"}}>
             <div><span className='fw-bold'>Opennings:</span>&nbsp;&nbsp;{job.positionsavailable}</div>
-            
+
             <div><span className='fw-bold'> Salary Range</span>:&nbsp;&nbsp;{job.minsalary}-{job.maximumsalary}</div>
             <div><span className='fw-bold'>Location</span>:&nbsp;&nbsp;{job.location}</div>
             <div><span className='fw-bold'>Experience:</span>:&nbsp;&nbsp;{job.senioritylevel}</div>
@@ -43,9 +55,9 @@ export default function Jobpostedcard({job}) {
       <div>
         {/* <a href="#" class="card-link" onClick={() => {navigate("/viewjob")}} >View Job</a>
         <a href="#" class="card-link">Save Job</a> */}
-        <button onClick={()=>{navigate(`/searchjob/${job.id}`)}} className='btn btn-primary'  > VIEW JOB</button>&nbsp;&nbsp;
-        <button className='btn btn-primary'   > EDIT JOB</button>&nbsp;&nbsp;
-        <button className='btn btn-danger'   > DELETE JOB</button>
+        <button onClick={()=>{navigate(`/jobsposted/${job.id}`)}} className='btn btn-primary'  > VIEW JOB</button>&nbsp;&nbsp;
+
+        <button className='btn btn-danger' onClick={(e)=>handleDelete(e)}   > DELETE JOB</button>
       </div>
     </div>
 </div>

@@ -2,7 +2,18 @@ import React from 'react'
 import { useNavigate } from 'react-router'
 export default function Companyappcard({employer}) {
   let navigate=(useNavigate)
-  console.log(employer.id)
+
+  function handleClick(e){
+    e.preventDefault()
+    alert("s")
+    fetch(`savedcompanies/${employer.id}`, {
+method: 'DELETE'
+})
+.then(res => res.json())
+.then(data => {
+console.log(data)
+})
+  }
   return (
     <div class="card mt-3"  >
         <div class="card-body">
@@ -21,7 +32,9 @@ export default function Companyappcard({employer}) {
           </div>
           <div className='mt-1'>
             <p><span className='fw-bold'>TOTAL JOBS POSTED:{employer.employer.totaljobsposted}</span></p>
-            <p><span className='fw-bold'>TOTAL INTERNSHIPS POSTED:{employer.employer. totalinternshipsposted}</span></p>
+            <p><span className='fw-bold'>TOTAL INTERNSHIPS POSTED:
+            {employer.employer.totalinternshipsposted}</span></p>
+            
           </div>
 
           <div className='mt-1'>
@@ -35,7 +48,7 @@ export default function Companyappcard({employer}) {
           </div>
           <div>
               <button className='btn btn-primary' onClick={()=>navigate(`/searchemployer/${employer.employer_id}`)}>VIEW</button>&nbsp;&nbsp;
-              <button className='btn btn-danger'  >DELETE</button>
+              <button className='btn btn-danger' onClick={(e)=>handleClick(e)}   >DELETE</button>
           </div>
         </div>
     </div>

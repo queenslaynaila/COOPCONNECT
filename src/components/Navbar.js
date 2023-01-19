@@ -150,20 +150,11 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
                   }}  className="dropdown-item fw-bold"
                         href="#/">Applied Internships</a></li>
 
-                         <li><a className="dropdown-item fw-bold"
-                        href="#/">Surveys Done</a></li>
-
-                          <li><a className="dropdown-item fw-bold"
-                        href="#/">Surveys Saved</a></li>
                   </ul>
                 </li>
 
 
-                <li className="nav-item  ">
-                  <a className="nav-link"  onClick={()=>{
-                    navigate("/asesement");
-                  }} >Assesements</a>
-                </li>
+                
               </ul>
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li className="nav-item dropdown ms-sm-3 d-inline-flex">

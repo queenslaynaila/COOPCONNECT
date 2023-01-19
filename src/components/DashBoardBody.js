@@ -3,7 +3,7 @@
  import JobpostedTable from './JobpostedTable'
  import SurveyTable from './SurveyTable'
 import { useNavigate } from "react-router-dom";
-import { SelectPicker } from 'rsuite';
+ 
 
  export default function DashBoardBody({employer}) {
   console.log(employer)
@@ -31,7 +31,7 @@ import { SelectPicker } from 'rsuite';
             <div class="card-body" style=  {{backgroundColor:"#EEEEEE",height:"60px"}}>
                 <div className="d-flex justify-content-end gap-2">
                      <button type="button" onClick={() => {navigate("/companyeditprofile")}} class="btn btn-primary">EDIT PROFILE</button>
-                     <button type="button" class="btn btn-primary">POST SURVEYS</button>
+                     <button onClick={() => {navigate("/postainternship")}} type="button" class="btn btn-primary">POST INTERNSHIPS</button>
                      <button onClick={() => {navigate("/postajob")}} type="button" class="btn btn-primary">POST JOBS</button>
                 </div>
            </div>
@@ -91,10 +91,10 @@ import { SelectPicker } from 'rsuite';
         </div>
         <div class="card shadow-sm mt-4">
             <div class="card-header">
-              <h4 style={{color:"darkblue"}}>SURVEYS POSTED</h4>
+              <h4 style={{color:"darkblue"}}>INTERNSHIPS POSTED</h4>
             </div>
             <div class="card-body">
-              <SurveyTable></SurveyTable>
+              <SurveyTable employer={employer}></SurveyTable>
             </div>
         </div>
      </div>
