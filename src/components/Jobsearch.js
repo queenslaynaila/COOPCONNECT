@@ -3,6 +3,7 @@ import Jobcard from './Jobcard'
 import { useNavigate  } from "react-router-dom";
 // import { useEffect,useState } from 'react';
 export default function Jobsearch({onFetchJobs,jobs,seeker}) {
+    const [jobsused,Setjobsused] = useState(jobs)
 
 let navigate = useNavigate();
 console.log(jobs)
@@ -20,14 +21,19 @@ const [minsalary,setMinSalary ] = useState(null)
 
 
 function handleSearch(){
+
+
     const filterSEarch = jobs.filter((job)=>{return job.jobtitle.toLowerCase().includes(search.toLowerCase()) })
+
+
+      Setjobsused(filterSEarch)
 
 
 }
 function handleWageFilter(){
     const filterredjobs = jobs.filter((job)=>{return job.minsalary > minsalary && job.maximumsalary < maximumsalary})
+    Setjobsused(filterredjobs)
 
-     console.log(jobs)
 
 }
 function handleChange(event){
@@ -71,7 +77,7 @@ function handleChange(event){
             <header>
                 <div class="form-inline">
                 <div class="input-group">
-	                <input  onChange={handleChange}  id="search-input" type="search" class="form-control" placeholder="Search a job, company..."></input>
+	                <input  onChange={handleChange}  id="search-input" type="search" class="form-control" placeholder="Search by job title.."></input>
                     <button onClick={handleSearch}  id="search-button" type="button" class="btn btn-primary">
                     <i  onClick={(e)=>handleSearch}  class="fa fa-search"></i>
   	                </button>
@@ -79,7 +85,7 @@ function handleChange(event){
                 </div>
             </header>
 
-            {jobs.map(job=> <Jobcard job={job} seeker={seeker}/>)}
+            {jobsused.map(job=> <Jobcard job={job} seeker={seeker}/>)}
 
 
 

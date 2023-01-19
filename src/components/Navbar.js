@@ -149,12 +149,7 @@ export default function Navbar({seeker,employer,setSeeker,setEmployer}) {
                     navigate("/myappliedinternships");
                   }}  className="dropdown-item fw-bold"
                         href="#/">Applied Internships</a></li>
-
-                         <li><a className="dropdown-item fw-bold"
-                        href="#/">Surveys Done</a></li>
-
-                          <li><a className="dropdown-item fw-bold"
-                        href="#/">Surveys Saved</a></li>
+ 
                   </ul>
                 </li>
 

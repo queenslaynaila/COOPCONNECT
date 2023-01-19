@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Jobapplications from './seekerstable/Jobapplications';
 import Internshipapplications from './seekerstable/Internshipapplications';
 export default function SeekerDashboard({seeker}) {
-
+console.log(seeker)
   let navigate = useNavigate();
 
   return (
@@ -38,7 +38,7 @@ export default function SeekerDashboard({seeker}) {
           </ul>
        </div>
 
-        <div class="row">
+         <div class="row">
          <div class="col-lg-3 mt-4">
             <div style={{maxWidth: "18rem"}} class="card card-block card-outline-primary">
                 <p class="card-text">{seeker.totaljobsapplied}&nbsp;
@@ -92,12 +92,13 @@ export default function SeekerDashboard({seeker}) {
             </div>
          </div>
         </div>
-        <div class="card shadow-sm mt-4">
+
+         <div class="card shadow-sm mt-4">
             <div class="card-header">
               <h4 style={{color:"darkblue"}}>RECENT JOB APPLICATIONS</h4>
             </div>
             <div class="card-body">
-               <Jobapplications seeker={seeker}></Jobapplications>
+                <Jobapplications seeker={seeker}></Jobapplications>
             </div>
         </div>
         <div class="card shadow-sm mt-4">
@@ -107,7 +108,7 @@ export default function SeekerDashboard({seeker}) {
             <div class="card-body">
               <Internshipapplications seeker={seeker}></Internshipapplications>
             </div>
-        </div>
+        </div> 
     </div>
   )
 }

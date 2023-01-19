@@ -1,9 +1,10 @@
 import React ,{useState,useEffect}from 'react'
 import { useNavigate  } from "react-router-dom";
 import Jobpostedcard from './Jobpostedcard';
-export default function Mypostedjobs({employer}) {
+export default function Mypostedjobs({employer,onSearch}) {
     let navigate = useNavigate()
     const [jobs,setJobs] = useState(employer.jobs)
+    onSearch(jobs)
     console.log(jobs[0].employer.name)
 
   return (

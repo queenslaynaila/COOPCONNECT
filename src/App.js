@@ -1,4 +1,6 @@
 import { useState,useEffect } from 'react';
+import Employerjobview from './components/employermoreoptions/Employerjobview';
+import PostAInternship from './components/PostAInternship';
 import {useNavigate, useRoutes} from "react-router-dom"
 import Settings from './components/Settings';
 import { Routes, Route} from "react-router-dom"
@@ -43,6 +45,11 @@ function App() {
       const [jobs,setJobs] = useState([])
       const [employers,setEmployers] = useState(null)
      const [seekers,setSeekers] = useState([])
+     const  [jobsposted,Setjobsposted] =useState([])
+
+     useEffect(() => {
+      localStorage.setItem('seeker', JSON.stringify(seeker));
+    }, [items]);
 
 
 
@@ -53,9 +60,11 @@ function App() {
     <Routes>
       <Route exact path="/" element={<Home/>}/>
       <Route path="/login" element={<Login onLoginEmployer={setEmployer} onLoginSeeker={setSeeker}/>}/>
+      <Route path="/talentdashboard" element={<SeekerDashboard seeker={seeker} />}/>
+
       <Route path = "/savedprofiles" element={<Savedprofiles employer={employer}/>}/>
       <Route path ="/app" element={<Applicationsreceived employer={employer}/>} />
-      <Route path="/jobsposted" element={<Mypostedjobs employer={employer}></Mypostedjobs>}/>
+      <Route path="/jobsposted" element={<Mypostedjobs employer={employer} onSearch={Setjobsposted}></Mypostedjobs>}/>
       <Route path="/offersmade" element={Offers} />
       <Route path="/signupcompanies" element={<SignCompanies onSignUpEmployer={setEmployer}/>}/>
       <Route path="/signuptalents" element={<SignUpJobSeekers onSignUpSeeker={setSeeker}/>}/>
@@ -64,11 +73,11 @@ function App() {
       <Route path="/seekerprofile" element={<Seekerprofile seeker={seeker} onSeekeredit={setSeeker} />}/>
       <Route path="/searchjob" element={<Jobsearch onFetchJobs={setJobs} jobs={jobs} seeker={seeker}/>}/>
       <Route path="/searchjob/:id" element={<Viewjob employer={employer} jobs={jobs} seeker={seeker}/>}/>
-      <Route path='searchemployer' element={<Searchemployer onEmployerFetch={setEmployers}/>} />
+      <Route path="/jobsposted/:id" element={<Employerjobview employer={employer} jobsposted={jobsposted} seeker={seeker}/>}/>
+      <Route path='searchemployer' element={<Searchemployer onEmployerFetch={setEmployers} employers={employers} seeker={seeker}/>} />
       <Route path="/searchemployer/:id" element={<ViewCompany employers={employers} />}/>
       <Route path="/asesement" element={<Assesement/>}/>
       <Route path="/employerdash" element={<DashBoardBody employer={employer} />}/>
-      <Route path="/talentdashboard" element={<SeekerDashboard seeker={seeker} />}/>
 
       <Route path="/companyeditprofile" element={<CompanyEditProfile employer={employer} onEmployeredit={setEmployer}/>}/>
       <Route path="/searchtalents" element={<SearchTalent
@@ -77,6 +86,7 @@ function App() {
       <Route path="/pricing" element={<Pricing/>}/>
       <Route path="/previewjob" element={<JobPostPreview/>}/>
       <Route path="/postajob" element={<PostAJob employer={employer} onEmployer={setEmployer}  />}/>
+      <Route path="/postainternship" element={<PostAInternship employer={employer} onEmployer={setEmployer}  />}/>
       <Route path="/viewaseeker" element={<Viewaseeker seeker={seeker} employer={employer} />}/>
 
       <Route path='/jobsapplied' element={<JobApplied seeker={seeker}/>}/>

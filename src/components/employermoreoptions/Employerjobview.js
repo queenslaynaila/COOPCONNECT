@@ -1,13 +1,13 @@
 import React from 'react'
 import { useParams,Link } from 'react-router-dom'
 
-function Viewjob({seeker,employer,jobs}) {
-  console.log(jobs)
+function Employerjobview   ({jobsposted}) {
+  console.log(jobsposted)
   const params= useParams()
 
 
-  const jobselected = jobs.find((job) => job.id === Number(params.id));
-
+  const jobselected = jobsposted.find((job) => job.id === Number(params.id));
+  console.log(jobselected)
 
   return (
     <div className="container mt-4 mb-4">
@@ -58,7 +58,7 @@ function Viewjob({seeker,employer,jobs}) {
           </div>
           <div>
             <button type="button" class="btn btn-primary"  >
-              APPLY
+              EDIT
             </button>
           </div>
         </div>
@@ -87,4 +87,4 @@ function Viewjob({seeker,employer,jobs}) {
   );
 }
 
-export default Viewjob;
+export default  Employerjobview ;
