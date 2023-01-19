@@ -32,7 +32,9 @@ console.log(data)
           </div>
           <div className='mt-1'>
             <p><span className='fw-bold'>TOTAL JOBS POSTED:{employer.employer.totaljobsposted}</span></p>
-            <p><span className='fw-bold'>TOTAL INTERNSHIPS POSTED:{employer.employer. totalinternshipsposted}</span></p>
+            <p><span className='fw-bold'>TOTAL INTERNSHIPS POSTED:
+            {employer.employer.totalinternshipsposted}</span></p>
+            
           </div>
 
           <div className='mt-1'>

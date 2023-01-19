@@ -2,17 +2,12 @@ import React, {useEffect, useState} from 'react'
 import Jobcard from './Jobcard'
 import { useNavigate  } from "react-router-dom";
 // import { useEffect,useState } from 'react';
-export default function Jobsearch({onFetchJobs,jobs,seeker}) {
+export default function Jobsearch({jobs,seeker}) {
     const [jobsused,Setjobsused] = useState(jobs)
 
 let navigate = useNavigate();
 console.log(jobs)
-useEffect(()=>{
-    fetch('/jobs')
-  .then(response => response.json())
-  .then(data =>  onFetchJobs(data))
-  .catch(err => console.error(err));
-  },[])
+
 
 const [search,setsearch] = useState(" ")
 const [maximumsalary,setMaximumSalary] = useState(null)
@@ -51,7 +46,7 @@ function handleChange(event){
 
                 <article class="filter-group">
                     <header class="card-header">
-                            <h6 class="title">Salary range </h6>
+                            <h6 class="title">Location </h6>
                     </header>
                     <div class="filter-content collapse show" id="collapse_3"  >
                         <div class="card-body">

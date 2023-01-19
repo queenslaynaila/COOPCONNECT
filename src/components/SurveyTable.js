@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect ,useState} from "react";
+import { useState} from "react";
 export default function SurveyTable({employer}) {
   const [internships,setInternships] = useState(employer.internships)
   console.log(internships[1])

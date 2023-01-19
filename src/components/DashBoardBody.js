@@ -3,7 +3,7 @@
  import JobpostedTable from './JobpostedTable'
  import SurveyTable from './SurveyTable'
 import { useNavigate } from "react-router-dom";
-import { SelectPicker } from 'rsuite';
+ 
 
  export default function DashBoardBody({employer}) {
   console.log(employer)

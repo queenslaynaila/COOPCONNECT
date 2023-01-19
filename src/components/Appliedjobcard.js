@@ -1,17 +1,14 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
 export default function Appliedjobcard({job}) {
-  console.log(job)
+
     function handleClick(e){
       e.preventDefault()
       fetch(`jobapplications/${job.id}`, {
   method: 'DELETE'
 })
   .then(res => res.json())
-  .then(data => {
- console.log(data)
-  })
-    }
+  }
     let navigate = useNavigate();
   return (
     <div class="card mt-3"  >

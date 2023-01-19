@@ -1,21 +1,19 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
-export default function Settings({employer,seeker}) {
+export default function Settings({employer,seeker,setSeeker,setEmployer}) {
   let navigate = useNavigate()
+  console.log(seeker)
 
-  function handleDelete(){
-    // fetch(`Your link here/${id}`, {
-    //   //requires an id to patch
-    //   method: `POST`,
-    //   body: JSON.stringify({
-    //     //your data here
-    //   }),
-    //   headers: { 'Content-type': `application/json; charset=UTF-8` },
-    // }).then((response) => response.json())
-
-
+  function handleDelete(e){
+    e.preventDefault()
+     alert('delete')
+     fetch(`seeker/${seeker.id}`, {
+        method: 'DELETE'
+      })
+     .then(res => res.json())
 }
-    return (
+
+return (
        <div className='container mt-4 mb-4'>
          <div class="container">
             <div class="row align-items-start">
@@ -33,7 +31,7 @@ export default function Settings({employer,seeker}) {
                         seeker ? `${seeker.email}`:  `${employer.account.email}`}</div>
                     </div>
                   </div>
-                  <button onClick={()=>handleDelete} className='btn btn-danger mt-2'>DELETE ACCOUNT</button>&nbsp;&nbsp;
+                  <button onClick={(e)=>handleDelete(e)} className='btn btn-danger mt-2'>DELETE ACCOUNT</button>&nbsp;&nbsp;
 
 
                </div>

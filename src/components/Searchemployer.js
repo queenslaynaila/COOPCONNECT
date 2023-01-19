@@ -1,21 +1,13 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import { useNavigate } from 'react-router'
-import TalentCard from './TalentCard'
 import Employersearchcard from './Employersearchcard'
-import { emit } from 'dom/lib/event'
-export default function Searchemployer({onEmployerFetch,seeker,employers}) {
+
+export default function Searchemployer({seeker,employers}) {
   const [all,setEmployers] = useState(employers)
-  console.log(all)
+
   const [search,setSearch] = useState('')
   const [location,setLocation] = useState('')
-  useEffect(()=>{
-    fetch("/employers")
-    .then((r)=>{
-        r.json().then((res)=>{
-            onEmployerFetch(res)
-        })
-    })
-  },[])
+
   function handleSearch(e){
     e.preventDefault()
 

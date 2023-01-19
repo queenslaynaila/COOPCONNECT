@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams,Link } from 'react-router-dom'
+import { useParams} from 'react-router-dom'
 
 function Viewjob({seeker,employer,jobs}) {
   console.log(jobs)

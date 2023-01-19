@@ -1,10 +1,10 @@
 import React from 'react'
 import { useEffect ,useState} from "react";
-import { useNavigate } from 'react-router';
+
 export default function Jobapplications({seeker}) {
 
     const [jobs,setJobs] = useState([])
-    let navigate = useNavigate()
+
 
  useEffect(() => {
   fetch(`seekers/${seeker.id}/appliedjobs`).then((response) => {
@@ -13,7 +13,7 @@ export default function Jobapplications({seeker}) {
     }
   });
 }, []);
-console.log(jobs)
+ 
 
   return (
 
